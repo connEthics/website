@@ -65,13 +65,13 @@ export default function Services() {
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Our Services
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             We deliver high-quality services that seamlessly align technical, operational, 
             and execution strategies with today&apos;s business standards, ensuring ethical 
             alignment across all dimensions of your organization.
@@ -82,21 +82,21 @@ export default function Services() {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow duration-200">
+              <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 hover:shadow-lg transition-shadow duration-200">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                    <IconComponent className="h-6 w-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mr-4">
+                    <IconComponent className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900">{service.title}</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{service.title}</h2>
                 </div>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">{service.description}</p>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Features:</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Key Features:</h3>
                   <ul className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="text-blue-600 mr-2">✓</span>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -107,10 +107,10 @@ export default function Services() {
         </div>
 
         {/* Process Section */}
-        <div className="bg-gray-50 p-12 rounded-lg mb-20">
+        <div className="bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 p-12 rounded-lg mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Approach</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Approach</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               We follow a structured methodology that ensures ethical alignment across 
               external business goals, internal team dynamics, technical stack, and 
               broader societal context.
@@ -119,32 +119,32 @@ export default function Services() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-blue-900 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold">1</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Assessment</h3>
-              <p className="text-gray-600">Comprehensive analysis of your current ecosystem and challenges.</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Assessment</h3>
+              <p className="text-gray-600 dark:text-gray-300">Comprehensive analysis of your current ecosystem and challenges.</p>
             </div>
             <div className="text-center">
-              <div className="bg-blue-900 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold">2</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Strategy</h3>
-              <p className="text-gray-600">Development of ethical frameworks and strategic roadmaps.</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Strategy</h3>
+              <p className="text-gray-600 dark:text-gray-300">Development of ethical frameworks and strategic roadmaps.</p>
             </div>
             <div className="text-center">
-              <div className="bg-blue-900 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold">3</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementation</h3>
-              <p className="text-gray-600">Execution of solutions with continuous monitoring and optimization.</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Implementation</h3>
+              <p className="text-gray-600 dark:text-gray-300">Execution of solutions with continuous monitoring and optimization.</p>
             </div>
             <div className="text-center">
-              <div className="bg-blue-900 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold">4</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Evolution</h3>
-              <p className="text-gray-600">Ongoing support and adaptation to changing business needs.</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Evolution</h3>
+              <p className="text-gray-600 dark:text-gray-300">Ongoing support and adaptation to changing business needs.</p>
             </div>
           </div>
         </div>

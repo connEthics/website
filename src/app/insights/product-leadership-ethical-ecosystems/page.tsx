@@ -3,12 +3,12 @@ import { ArrowLeftIcon, ClockIcon, CalendarIcon, TagIcon } from '@heroicons/reac
 
 export default function ProductLeadershipArticle() {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Navigation */}
         <Link 
           href="/insights" 
-          className="inline-flex items-center text-blue-900 hover:text-blue-800 mb-8 transition-colors duration-200"
+          className="inline-flex items-center text-blue-900 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-8 transition-colors duration-200"
         >
           <ArrowLeftIcon className="h-4 w-4 mr-2" />
           Back to Insights
@@ -19,12 +19,12 @@ export default function ProductLeadershipArticle() {
           <div className="flex items-center gap-4 mb-6">
             <Link 
               href="/insights?filter=Product Leadership"
-              className="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors duration-200"
+              className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/30 transition-colors duration-200"
             >
               <TagIcon className="h-4 w-4 inline mr-1" />
               Product Leadership
             </Link>
-            <span className="text-gray-500 text-sm flex items-center">
+            <span className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
               <ClockIcon className="h-4 w-4 mr-1" />
               8 min read
             </span>
@@ -34,18 +34,18 @@ export default function ProductLeadershipArticle() {
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Product Leadership in Ethical Business Ecosystems
           </h1>
           
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             Aligning product roadmaps with ethical frameworks while maintaining competitive advantage 
             and driving innovation in complex business ecosystems.
           </p>
         </header>
 
         {/* Article Content */}
-        <article className="prose prose-lg max-w-none">
+        <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="text-gray-700 leading-relaxed space-y-6">
             
             <p>
@@ -419,7 +419,7 @@ export default function ProductLeadershipArticle() {
         <footer className="mt-12 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 <strong>ConnEthics Team</strong> - Experts in Product Leadership and ethical business frameworks
               </p>
             </div>
@@ -438,28 +438,28 @@ export default function ProductLeadershipArticle() {
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Related Insights</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+            <Link href="/insights/aligning-product-teams-business-impact" className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 block">
+              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+                Product Leadership
+              </span>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">
+                Aligning Product Teams with Business Impact
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Essential strategies for aligning product teams with business impact objectives...
+              </p>
+            </Link>
+            <Link href="/insights/competitive-intelligence-digital-age" className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 block">
               <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Ecosystem Cartography
               </span>
               <h4 className="text-lg font-bold text-gray-900 mb-2">
                 Competitive Intelligence in the Digital Age
               </h4>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Understanding economic warfare analysis and comprehensive ecosystem mapping...
               </p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
-                Self-Sovereign Identity
-              </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
-                The Future of Self-Sovereign Identity in Enterprise
-              </h4>
-              <p className="text-gray-600 text-sm">
-                Exploring how SSI will transform enterprise identity management...
-              </p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

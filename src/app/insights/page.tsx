@@ -6,6 +6,14 @@ import { useState, useEffect, useMemo } from 'react';
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Aligning Product Teams with Business Impact",
+      excerpt: "Discover essential strategies for effectively aligning your product teams with business impact objectives and creating sustainable synergy in competitive environments.",
+      date: "July 30, 2025",
+      category: "Product Leadership",
+      readTime: "8 min read",
+      slug: "aligning-product-teams-business-impact"
+    },
+    {
       title: "The Future of Self-Sovereign Identity in Enterprise",
       excerpt: "Exploring how SSI will transform enterprise identity management and create new opportunities for secure, user-controlled digital interactions.",
       date: "July 25, 2025",
@@ -82,13 +90,13 @@ export default function Insights() {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Insights & Perspectives
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Thought leadership on ethical business practices, competitive intelligence, 
             and building trust in complex digital ecosystems.
           </p>
@@ -103,7 +111,7 @@ export default function Insights() {
               className={`px-6 py-2 rounded-full border transition-colors duration-200 ${
                 selectedCategory === category
                   ? 'bg-blue-900 text-white border-blue-900'
-                  : 'border-gray-300 text-gray-700 hover:bg-blue-900 hover:text-white hover:border-blue-900'
+                  : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-blue-900 hover:text-white hover:border-blue-900'
               }`}
             >
               {category}
@@ -123,18 +131,18 @@ export default function Insights() {
             };
             
             return (
-              <article key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
+              <article key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
                     <button
                       onClick={() => handleCategoryFilter(article.category)}
-                      className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors duration-200"
+                      className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/30 transition-colors duration-200"
                     >
                       {article.category}
                     </button>
-                    <span className="text-gray-500 text-sm">{article.readTime}</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">{article.readTime}</span>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-900 cursor-pointer">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-blue-900 dark:hover:text-blue-400 cursor-pointer">
                     {hasFullArticle ? (
                       <Link href={getArticleUrl()}>
                         {article.title}
@@ -143,18 +151,18 @@ export default function Insights() {
                       article.title
                     )}
                   </h2>
-                  <p className="text-gray-600 mb-4">{article.excerpt}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{article.excerpt}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-500 text-sm">{article.date}</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">{article.date}</span>
                     {hasFullArticle ? (
                       <Link 
                         href={getArticleUrl()}
-                        className="text-blue-900 font-medium hover:text-blue-800 transition-colors duration-200"
+                        className="text-blue-900 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200"
                       >
                         Read More →
                       </Link>
                     ) : (
-                      <button className="text-blue-900 font-medium hover:text-blue-800 transition-colors duration-200">
+                      <button className="text-blue-900 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200">
                         Coming Soon
                       </button>
                     )}

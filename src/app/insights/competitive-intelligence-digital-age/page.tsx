@@ -3,12 +3,12 @@ import { ArrowLeftIcon, ClockIcon, CalendarIcon, TagIcon } from '@heroicons/reac
 
 export default function CompetitiveIntelligenceArticle() {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Navigation */}
         <Link 
           href="/insights" 
-          className="inline-flex items-center text-blue-900 hover:text-blue-800 mb-8 transition-colors duration-200"
+          className="inline-flex items-center text-blue-900 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-8 transition-colors duration-200"
         >
           <ArrowLeftIcon className="h-4 w-4 mr-2" />
           Back to Insights
@@ -24,17 +24,17 @@ export default function CompetitiveIntelligenceArticle() {
               <TagIcon className="h-4 w-4 inline mr-1" />
               Ecosystem Cartography
             </Link>
-            <span className="text-gray-500 text-sm flex items-center">
+            <span className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
               <ClockIcon className="h-4 w-4 mr-1" />
               7 min read
             </span>
-            <span className="text-gray-500 text-sm flex items-center">
+            <span className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
               <CalendarIcon className="h-4 w-4 mr-1" />
               July 20, 2025
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Competitive Intelligence in the Digital Age
           </h1>
           
@@ -45,7 +45,7 @@ export default function CompetitiveIntelligenceArticle() {
         </header>
 
         {/* Article Content */}
-        <article className="prose prose-lg max-w-none">
+        <article className="prose prose-lg dark:prose-invert max-w-none">
           <div className="text-gray-700 leading-relaxed space-y-6">
             
             <p>

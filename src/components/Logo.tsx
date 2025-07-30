@@ -33,19 +33,23 @@ export default function Logo({ variant = 'header', className = '' }: LogoProps) 
 
   return (
     <Link href="/" className={`flex items-center space-x-3 ${className}`}>
-      {/* Logo Image */}
-      <Image
-        src="/images/logo-connethics.webp"
-        alt="ConnEthics Logo"
-        width={variant === 'large' ? 64 : variant === 'footer' ? 32 : 40}
-        height={variant === 'large' ? 64 : variant === 'footer' ? 32 : 40}
-        className={getSizeClasses()}
-        priority={variant === 'header'}
-      />
+      {/* Logo Image avec fond blanc en mode sombre pour le contraste */}
+      <div className="bg-white dark:bg-white p-1 rounded-lg">
+        <Image
+          src="/images/logo-connethics.webp"
+          alt="ConnEthics Logo"
+          width={variant === 'large' ? 64 : variant === 'footer' ? 32 : 40}
+          height={variant === 'large' ? 64 : variant === 'footer' ? 32 : 40}
+          className={getSizeClasses()}
+          priority={variant === 'header'}
+        />
+      </div>
       
-      {/* Company Name Text */}
+      {/* Company Name Text avec contraste amélioré */}
       <div className={`font-bold ${getTextSize()} ${
-        variant === 'footer' ? 'text-white' : 'text-blue-900'
+        variant === 'footer' 
+          ? 'text-white' 
+          : 'text-blue-900 dark:text-white'
       } tracking-tight`}>
         ConnEthics
       </div>
