@@ -1,31 +1,6 @@
-'use client';
-
-import { useState } from 'react';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    service: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You would typically send this to your backend or email service
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +10,7 @@ export default function Contact() {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Ready to build ethical connections in your competitive environment? 
-            Let's discuss how ConnEthics can bring clarity and purpose to your business challenges.
+            Let&apos;s discuss how ConnEthics can bring clarity and purpose to your business challenges.
           </p>
         </div>
 
@@ -56,8 +31,8 @@ export default function Contact() {
                 <PhoneIcon className="h-6 w-6 text-blue-600 mt-1 mr-4" />
                 <div>
                   <h3 className="font-semibold text-gray-900">Phone</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                  <p className="text-gray-600">Available Mon-Fri, 9AM-6PM EST</p>
+                  <p className="text-gray-600">+33 6 62 62 78 94</p>
+                  <p className="text-gray-600">Available Mon-Fri, 9AM-6PM CET</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -65,9 +40,9 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-gray-900">Office</h3>
                   <p className="text-gray-600">
-                    123 Innovation Drive<br />
-                    Tech Hub, Suite 400<br />
-                    San Francisco, CA 94107
+                    21 rue Paul Déroulède<br />
+                    92270 Bois-Colombes<br />
+                    France
                   </p>
                 </div>
               </div>
@@ -96,101 +71,87 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Schedule a Meeting */}
           <div className="bg-white shadow-lg rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Your full name"
-                />
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Schedule a Consultation</h2>
+            
+            <div className="text-center">
+              {/* Calendar Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="bg-blue-100 p-4 rounded-full">
+                  <svg className="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="your.email@company.com"
-                />
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Book Your Free 30-Minute Strategy Session
+              </h3>
+              
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Ready to discuss your challenges and explore how ConnEthics can help? 
+                Schedule a personalized consultation to discover tailored solutions for your organization.
+              </p>
+
+              <div className="bg-blue-50 p-6 rounded-lg mb-8">
+                <h4 className="font-semibold text-gray-900 mb-3">What We&apos;ll Cover:</h4>
+                <ul className="text-left space-y-2 text-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Understanding your current challenges and objectives
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Exploring relevant solutions and approaches
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Discussing next steps and potential collaboration
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    Q&A session tailored to your specific needs
+                  </li>
+                </ul>
               </div>
 
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Your company name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Interest
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="">Select a service</option>
-                  <option value="self-sovereign-identity">Self-Sovereign Identity</option>
-                  <option value="ecosystem-cartography">Ecosystem Cartography</option>
-                  <option value="trust-identity-deployment">Trust and Identity Deployment</option>
-                  <option value="product-leadership">Product Leadership</option>
-                  <option value="product-management">Product Management</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Tell us about your project or question..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors duration-200"
+              <a 
+                href="https://calendar.app.google/z6hACk5AdXZFHSYw5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors duration-200 text-lg"
               >
-                Send Message
-              </button>
-            </form>
+                <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Schedule Your Consultation
+              </a>
+
+              <p className="text-sm text-gray-500 mt-4">
+                Available time slots: Monday to Friday, 9:00 AM - 6:00 PM CET
+              </p>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h4 className="font-semibold text-gray-900 mb-4 text-center">Prefer to reach out directly?</h4>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="mailto:hello@connethics.com"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+                >
+                  <EnvelopeIcon className="h-4 w-4 mr-2" />
+                  Send an Email
+                </a>
+                <a 
+                  href="tel:+33662627894"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+                >
+                  <PhoneIcon className="h-4 w-4 mr-2" />
+                  Call Us
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

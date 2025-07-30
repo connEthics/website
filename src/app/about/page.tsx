@@ -20,7 +20,7 @@ export default function About() {
               Our mission is to foster ethical connections in a competitive world, bringing 
               clarity and purpose to challenging environments. We deliver high-quality 
               services that seamlessly align technical, operational, and execution 
-              strategies with today's business standards.
+              strategies with today&apos;s business standards.
             </p>
             <p className="text-lg text-gray-600">
               We ensure ethical alignment across external business goals, internal team 
@@ -55,7 +55,7 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why We Started ConnEthics</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              In today's competitive business landscape, organizations need more than just 
+              In today&apos;s competitive business landscape, organizations need more than just 
               technical solutions—they need ethical frameworks that create sustainable 
               competitive advantage. We recognized the urgent need for services that combine 
               self-sovereign identity, strategic intelligence, and product leadership 

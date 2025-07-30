@@ -1,43 +1,85 @@
+'use client';
+
+import Link from 'next/link';
+import { useState, useEffect, useMemo } from 'react';
+
 export default function Insights() {
-  const articles = [
+  const articles = useMemo(() => [
     {
       title: "The Future of Self-Sovereign Identity in Enterprise",
       excerpt: "Exploring how SSI will transform enterprise identity management and create new opportunities for secure, user-controlled digital interactions.",
       date: "July 25, 2025",
       category: "Self-Sovereign Identity",
-      readTime: "5 min read"
+      readTime: "5 min read",
+      slug: "future-self-sovereign-identity-enterprise"
     },
     {
       title: "Competitive Intelligence in the Digital Age",
       excerpt: "Understanding economic warfare analysis and how modern businesses can gain strategic advantages through comprehensive ecosystem mapping.",
       date: "July 20, 2025", 
       category: "Ecosystem Cartography",
-      readTime: "7 min read"
+      readTime: "7 min read",
+      slug: "competitive-intelligence-digital-age"
     },
     {
       title: "Building Trust Through Verifiable Credentials",
       excerpt: "How organizations can implement verifiable credential systems to enhance trust and streamline identity verification processes.",
       date: "July 15, 2025",
       category: "Trust & Identity",
-      readTime: "6 min read"
+      readTime: "6 min read",
+      slug: "building-trust-verifiable-credentials"
     },
     {
       title: "Product Leadership in Ethical Business Ecosystems",
       excerpt: "Aligning product roadmaps with ethical frameworks while maintaining competitive advantage and driving innovation.",
       date: "July 10, 2025",
       category: "Product Leadership", 
-      readTime: "8 min read"
+      readTime: "8 min read",
+      slug: "product-leadership-ethical-ecosystems"
     }
-  ];
+  ], []);
 
-  const categories = [
+  const categories = useMemo(() => [
     "All",
     "Self-Sovereign Identity",
     "Ecosystem Cartography", 
     "Trust & Identity",
     "Product Leadership",
     "Business Ethics"
-  ];
+  ], []);
+
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [filteredArticles, setFilteredArticles] = useState(articles);
+
+  // Handle URL parameters for pre-filtering
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterParam = urlParams.get('filter');
+    if (filterParam && categories.includes(filterParam)) {
+      setSelectedCategory(filterParam);
+    }
+  }, [categories]);
+
+  // Filter articles based on selected category
+  useEffect(() => {
+    if (selectedCategory === "All") {
+      setFilteredArticles(articles);
+    } else {
+      setFilteredArticles(articles.filter(article => article.category === selectedCategory));
+    }
+  }, [selectedCategory, articles]);
+
+  const handleCategoryFilter = (category: string) => {
+    setSelectedCategory(category);
+    // Update URL without page reload
+    const url = new URL(window.location.href);
+    if (category === "All") {
+      url.searchParams.delete('filter');
+    } else {
+      url.searchParams.set('filter', category);
+    }
+    window.history.pushState({}, '', url.toString());
+  };
 
   return (
     <div className="min-h-screen py-20">
@@ -57,7 +99,12 @@ export default function Insights() {
           {categories.map((category) => (
             <button
               key={category}
-              className="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-blue-900 hover:text-white hover:border-blue-900 transition-colors duration-200"
+              onClick={() => handleCategoryFilter(category)}
+              className={`px-6 py-2 rounded-full border transition-colors duration-200 ${
+                selectedCategory === category
+                  ? 'bg-blue-900 text-white border-blue-900'
+                  : 'border-gray-300 text-gray-700 hover:bg-blue-900 hover:text-white hover:border-blue-900'
+              }`}
             >
               {category}
             </button>
@@ -66,46 +113,78 @@ export default function Insights() {
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {articles.map((article, index) => (
-            <article key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
-                    {article.category}
-                  </span>
-                  <span className="text-gray-500 text-sm">{article.readTime}</span>
+          {filteredArticles.map((article, index) => {
+            // Check if article has a full page
+            const hasFullArticle = article.slug;
+            
+            const getArticleUrl = () => {
+              if (hasFullArticle) return `/insights/${article.slug}`;
+              return "#";
+            };
+            
+            return (
+              <article key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <button
+                      onClick={() => handleCategoryFilter(article.category)}
+                      className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors duration-200"
+                    >
+                      {article.category}
+                    </button>
+                    <span className="text-gray-500 text-sm">{article.readTime}</span>
+                  </div>
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-900 cursor-pointer">
+                    {hasFullArticle ? (
+                      <Link href={getArticleUrl()}>
+                        {article.title}
+                      </Link>
+                    ) : (
+                      article.title
+                    )}
+                  </h2>
+                  <p className="text-gray-600 mb-4">{article.excerpt}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-500 text-sm">{article.date}</span>
+                    {hasFullArticle ? (
+                      <Link 
+                        href={getArticleUrl()}
+                        className="text-blue-900 font-medium hover:text-blue-800 transition-colors duration-200"
+                      >
+                        Read More →
+                      </Link>
+                    ) : (
+                      <button className="text-blue-900 font-medium hover:text-blue-800 transition-colors duration-200">
+                        Coming Soon
+                      </button>
+                    )}
+                  </div>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-900 cursor-pointer">
-                  {article.title}
-                </h2>
-                <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 text-sm">{article.date}</span>
-                  <button className="text-blue-900 font-medium hover:text-blue-800 transition-colors duration-200">
-                    Read More →
-                  </button>
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
-        {/* Newsletter Signup */}
+        {/* CTA Section */}
         <div className="bg-blue-900 text-white p-12 rounded-lg text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get the latest insights on ethical business practices, competitive intelligence, 
-            and digital identity innovations delivered to your inbox.
+            Leverage our expertise in Self-Sovereign Identity, Competitive Intelligence, 
+            and Ethical Product Leadership to drive meaningful change in your organization.
           </p>
-          <div className="max-w-md mx-auto flex">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <button className="bg-white text-blue-900 px-6 py-3 rounded-r-lg font-medium hover:bg-gray-100 transition-colors duration-200">
-              Subscribe
-            </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <Link
+              href="/contact"
+              className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-100 transition-colors duration-200 flex-1 text-center"
+            >
+              Get Started Today
+            </Link>
+            <Link
+              href="/services"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors duration-200 flex-1 text-center"
+            >
+              Explore Services
+            </Link>
           </div>
         </div>
       </div>

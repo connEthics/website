@@ -18,7 +18,7 @@ export default function Footer() {
       links: [
         { name: 'About Us', href: '/about' },
         { name: 'Our Team', href: '/about#team' },
-        { name: 'Careers', href: '/careers' },
+        { name: 'Careers', href: '/contact' },
         { name: 'Contact', href: '/contact' },
       ],
     },
@@ -26,9 +26,9 @@ export default function Footer() {
       title: 'Resources',
       links: [
         { name: 'Blog', href: '/insights' },
-        { name: 'White Papers', href: '/resources/whitepapers' },
-        { name: 'Case Studies', href: '/resources/case-studies' },
-        { name: 'Newsletter', href: '/newsletter' },
+        { name: 'White Papers', href: '/insights' },
+        { name: 'Case Studies', href: '/insights' },
+        { name: 'Newsletter', href: '/contact' },
       ],
     },
   ];
@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1">
-            <div className="text-2xl font-bold mb-4">ConnEthics</div>
+            <div className="text-2xl font-bold mb-4 text-white">ConnEthics</div>
             <p className="text-gray-300 mb-4">
               Building ethical connections in competitive environments through radical candor, 
               integrity, and innovation.
@@ -82,10 +82,10 @@ export default function Footer() {
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href="/legal"
                 className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
               >
-                Terms of Service
+                Legal Mentions
               </Link>
               <Link
                 href="/cookies"

@@ -11,14 +11,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: "ConnEthics - Ethical Connections in Competitive Environments",
   description: "Building products and animating business ecosystems based on radical candor, integrity, and innovation. Expert consulting in self-sovereign identity, competitive intelligence, and product leadership.",
   keywords: ["self-sovereign identity", "competitive intelligence", "product leadership", "ethical business", "ecosystem cartography", "trust deployment"],
   authors: [{ name: "ConnEthics" }],
+  icons: {
+    icon: "/images/favicon.ico",
+    shortcut: "/images/favicon.ico",
+    apple: "/images/favicon.ico",
+  },
   openGraph: {
     title: "ConnEthics - Ethical Connections in Competitive Environments",
     description: "Building products and animating business ecosystems based on radical candor, integrity, and innovation.",
     type: "website",
+    images: [
+      {
+        url: "/images/logo-connethics.webp",
+        width: 256,
+        height: 256,
+        alt: "ConnEthics Logo",
+      },
+    ],
   },
 };
 

@@ -73,7 +73,7 @@ export default function Services() {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We deliver high-quality services that seamlessly align technical, operational, 
-            and execution strategies with today's business standards, ensuring ethical 
+            and execution strategies with today&apos;s business standards, ensuring ethical 
             alignment across all dimensions of your organization.
           </p>
         </div>
@@ -153,7 +153,7 @@ export default function Services() {
         <div className="bg-blue-900 text-white p-12 rounded-lg text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business Ecosystem?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's discuss how ConnEthics can bring clarity and purpose to your 
+            Let&apos;s discuss how ConnEthics can bring clarity and purpose to your 
             challenging competitive environment.
           </p>
           <a
