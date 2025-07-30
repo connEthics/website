@@ -28,7 +28,7 @@ export default function ProductLeadershipArticle() {
               <ClockIcon className="h-4 w-4 mr-1" />
               8 min read
             </span>
-            <span className="text-gray-500 text-sm flex items-center">
+            <span className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
               <CalendarIcon className="h-4 w-4 mr-1" />
               July 10, 2025
             </span>
@@ -46,7 +46,7 @@ export default function ProductLeadershipArticle() {
 
         {/* Article Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <div className="text-gray-700 leading-relaxed space-y-6">
+          <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
             
             <p>
               Product leadership in today&apos;s business environment extends far beyond feature development 
@@ -55,7 +55,7 @@ export default function ProductLeadershipArticle() {
               business ecosystems.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               The Evolution of Product Leadership
             </h2>
 
@@ -77,7 +77,7 @@ export default function ProductLeadershipArticle() {
               stakeholder management, and systems thinking while maintaining their focus on innovation and growth.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Ethical Frameworks for Product Decision-Making
             </h2>
 
@@ -86,35 +86,35 @@ export default function ProductLeadershipArticle() {
               that can be integrated into existing product management processes without compromising agility or innovation.
             </p>
 
-            <div className="bg-blue-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-blue-900 mb-4">The ETHIC Framework</h3>
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-6">
+              <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-4">The ETHIC Framework</h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1 font-bold">E</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1 font-bold">E</span>
                   <div>
                     <strong>Evaluate:</strong> Assess potential impacts across all stakeholder groups
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1 font-bold">T</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1 font-bold">T</span>
                   <div>
                     <strong>Transparency:</strong> Ensure decision-making processes are open and accountable
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1 font-bold">H</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1 font-bold">H</span>
                   <div>
                     <strong>Human-Centered:</strong> Prioritize human wellbeing and dignity in all decisions
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1 font-bold">I</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1 font-bold">I</span>
                   <div>
                     <strong>Inclusive:</strong> Consider diverse perspectives and avoid bias in design
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1 font-bold">C</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1 font-bold">C</span>
                   <div>
                     <strong>Continuous:</strong> Regularly review and adapt ethical considerations
                   </div>
@@ -122,7 +122,7 @@ export default function ProductLeadershipArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Stakeholder-Driven Product Strategy
             </h2>
 
@@ -132,21 +132,21 @@ export default function ProductLeadershipArticle() {
               partners, employees, and society at large.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Stakeholder Mapping and Prioritization</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Stakeholder Mapping and Prioritization</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-green-900 mb-3">Primary Stakeholders</h4>
-                <ul className="text-green-800 space-y-2">
+              <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-green-900 dark:text-green-400 mb-3">Primary Stakeholders</h4>
+                <ul className="text-green-800 dark:text-green-300 space-y-2">
                   <li>• Direct product users and customers</li>
                   <li>• Development and support teams</li>
                   <li>• Business partners and integrators</li>
                   <li>• Regulatory bodies and compliance teams</li>
                 </ul>
               </div>
-              <div className="bg-orange-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-orange-900 mb-3">Secondary Stakeholders</h4>
-                <ul className="text-orange-800 space-y-2">
+              <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-orange-900 dark:text-orange-400 mb-3">Secondary Stakeholders</h4>
+                <ul className="text-orange-800 dark:text-orange-300 space-y-2">
                   <li>• Communities affected by product usage</li>
                   <li>• Competitors and industry ecosystem</li>
                   <li>• Environmental and social advocacy groups</li>
@@ -155,7 +155,7 @@ export default function ProductLeadershipArticle() {
               </div>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Value Creation Beyond Revenue</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Value Creation Beyond Revenue</h3>
 
             <p>
               Ethical product leadership requires measuring success across multiple dimensions of value creation:
@@ -176,7 +176,7 @@ export default function ProductLeadershipArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               OKR Frameworks for Ethical Product Development
             </h2>
 
@@ -186,13 +186,13 @@ export default function ProductLeadershipArticle() {
               business metrics with broader impact measurements.
             </p>
 
-            <div className="bg-gray-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Example: Ethical AI Product OKRs</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Example: Ethical AI Product OKRs</h3>
               
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-gray-900">Objective: Build AI-powered features that enhance user agency</p>
-                  <ul className="mt-2 space-y-1 text-gray-700">
+                  <p className="font-semibold text-gray-900 dark:text-white">Objective: Build AI-powered features that enhance user agency</p>
+                  <ul className="mt-2 space-y-1 text-gray-700 dark:text-gray-300">
                     <li>• KR1: Achieve 90% user satisfaction with AI transparency features</li>
                     <li>• KR2: Reduce algorithmic bias metrics to &lt;5% across all user demographics</li>
                     <li>• KR3: Enable user control over AI personalization in 100% of features</li>
@@ -201,8 +201,8 @@ export default function ProductLeadershipArticle() {
                 </div>
                 
                 <div>
-                  <p className="font-semibold text-gray-900">Objective: Minimize environmental impact of product operations</p>
-                  <ul className="mt-2 space-y-1 text-gray-700">
+                  <p className="font-semibold text-gray-900 dark:text-white">Objective: Minimize environmental impact of product operations</p>
+                  <ul className="mt-2 space-y-1 text-gray-700 dark:text-gray-300">
                     <li>• KR1: Reduce carbon footprint per user by 25% year-over-year</li>
                     <li>• KR2: Achieve 80% renewable energy usage across all infrastructure</li>
                     <li>• KR3: Implement sustainable design principles in 100% of new features</li>
@@ -212,7 +212,7 @@ export default function ProductLeadershipArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Data-Driven Ethical Decision Making
             </h2>
 
@@ -221,30 +221,30 @@ export default function ProductLeadershipArticle() {
               that extend beyond traditional product metrics to include ethical impact measurements.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Ethical Metrics and KPIs</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Ethical Metrics and KPIs</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-blue-900 mb-3">Privacy & Trust</h4>
-                <ul className="text-blue-800 space-y-2">
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-3">Privacy & Trust</h4>
+                <ul className="text-blue-800 dark:text-blue-300 space-y-2">
                   <li>• Data minimization compliance rate</li>
                   <li>• User consent quality scores</li>
                   <li>• Privacy policy comprehension rates</li>
                   <li>• Data breach incident frequency</li>
                 </ul>
               </div>
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-green-900 mb-3">Accessibility & Inclusion</h4>
-                <ul className="text-green-800 space-y-2">
+              <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-green-900 dark:text-green-400 mb-3">Accessibility & Inclusion</h4>
+                <ul className="text-green-800 dark:text-green-300 space-y-2">
                   <li>• WCAG compliance scores</li>
                   <li>• Multi-language support coverage</li>
                   <li>• Diverse user representation metrics</li>
                   <li>• Feature adoption across demographics</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-purple-900 mb-3">Social Impact</h4>
-                <ul className="text-purple-800 space-y-2">
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-purple-900 dark:text-purple-400 mb-3">Social Impact</h4>
+                <ul className="text-purple-800 dark:text-purple-300 space-y-2">
                   <li>• Community wellbeing indicators</li>
                   <li>• Digital divide reduction metrics</li>
                   <li>• Educational outcome improvements</li>
@@ -253,7 +253,7 @@ export default function ProductLeadershipArticle() {
               </div>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Continuous Impact Assessment</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Continuous Impact Assessment</h3>
 
             <p>
               Implementing regular impact assessments ensures that ethical considerations remain 
@@ -268,7 +268,7 @@ export default function ProductLeadershipArticle() {
               <li><strong>Retrospective Learning:</strong> Regular analysis and improvement of ethical frameworks</li>
             </ol>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Innovation Culture and Ethical Leadership
             </h2>
 
@@ -277,35 +277,35 @@ export default function ProductLeadershipArticle() {
               requires intentional leadership practices and organizational design.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Fostering Ethical Innovation</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Fostering Ethical Innovation</h3>
 
             <div className="space-y-4">
-              <div className="bg-yellow-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-yellow-900 mb-3">Psychological Safety for Ethical Concerns</h4>
-                <p className="text-yellow-800">
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-yellow-900 dark:text-yellow-400 mb-3">Psychological Safety for Ethical Concerns</h4>
+                <p className="text-yellow-800 dark:text-yellow-300">
                   Create environments where team members feel safe raising ethical concerns about 
                   product decisions without fear of retaliation or career impact.
                 </p>
               </div>
               
-              <div className="bg-indigo-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-indigo-900 mb-3">Diverse Perspective Integration</h4>
-                <p className="text-indigo-800">
+              <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-indigo-900 dark:text-indigo-400 mb-3">Diverse Perspective Integration</h4>
+                <p className="text-indigo-800 dark:text-indigo-300">
                   Actively seek diverse viewpoints in product decisions, including perspectives 
                   from different cultural, socioeconomic, and professional backgrounds.
                 </p>
               </div>
               
-              <div className="bg-pink-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-pink-900 mb-3">Ethical Innovation Incentives</h4>
-                <p className="text-pink-800">
+              <div className="bg-pink-50 dark:bg-pink-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-pink-900 dark:text-pink-400 mb-3">Ethical Innovation Incentives</h4>
+                <p className="text-pink-800 dark:text-pink-300">
                   Align compensation and recognition systems to reward ethical innovation alongside 
                   traditional business metrics.
                 </p>
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Stakeholder Engagement and Communication
             </h2>
 
@@ -315,7 +315,7 @@ export default function ProductLeadershipArticle() {
               to stakeholder concerns and feedback.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Engagement Strategies</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Engagement Strategies</h3>
 
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Advisory Boards:</strong> Include diverse stakeholder representatives in product governance</li>
@@ -325,7 +325,7 @@ export default function ProductLeadershipArticle() {
               <li><strong>User Research Evolution:</strong> Expand research to include ethical impact assessments</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Competitive Advantage Through Ethical Leadership
             </h2>
 
@@ -336,18 +336,18 @@ export default function ProductLeadershipArticle() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <div className="bg-emerald-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-emerald-900 mb-3">Market Advantages</h4>
-                <ul className="text-emerald-800 space-y-2">
+              <div className="bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-emerald-900 dark:text-emerald-400 mb-3">Market Advantages</h4>
+                <ul className="text-emerald-800 dark:text-emerald-300 space-y-2">
                   <li>• Enhanced brand reputation and customer loyalty</li>
                   <li>• Access to conscious consumer markets</li>
                   <li>• Partnership opportunities with purpose-driven organizations</li>
                   <li>• Reduced regulatory and compliance risks</li>
                 </ul>
               </div>
-              <div className="bg-cyan-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-cyan-900 mb-3">Operational Advantages</h4>
-                <ul className="text-cyan-800 space-y-2">
+              <div className="bg-cyan-50 dark:bg-cyan-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-cyan-900 dark:text-cyan-400 mb-3">Operational Advantages</h4>
+                <ul className="text-cyan-800 dark:text-cyan-300 space-y-2">
                   <li>• Improved employee engagement and retention</li>
                   <li>• Reduced legal and reputational risk exposure</li>
                   <li>• Enhanced innovation through diverse perspectives</li>
@@ -356,7 +356,7 @@ export default function ProductLeadershipArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Implementation Roadmap
             </h2>
 
@@ -366,9 +366,9 @@ export default function ProductLeadershipArticle() {
             </p>
 
             <div className="space-y-6 my-8">
-              <div className="bg-slate-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Months 1-3: Foundation Building</h3>
-                <ul className="text-slate-700 space-y-2">
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-200 mb-3">Months 1-3: Foundation Building</h3>
+                <ul className="text-slate-700 dark:text-slate-300 space-y-2">
                   <li>• Establish ethical framework and principles</li>
                   <li>• Conduct stakeholder mapping and impact assessment</li>
                   <li>• Train product teams on ethical decision-making</li>
@@ -376,9 +376,9 @@ export default function ProductLeadershipArticle() {
                 </ul>
               </div>
               
-              <div className="bg-slate-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Months 4-8: Integration and Scaling</h3>
-                <ul className="text-slate-700 space-y-2">
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-200 mb-3">Months 4-8: Integration and Scaling</h3>
+                <ul className="text-slate-700 dark:text-slate-300 space-y-2">
                   <li>• Integrate ethical OKRs into product planning</li>
                   <li>• Establish stakeholder engagement processes</li>
                   <li>• Implement ethical review checkpoints in development</li>
@@ -386,9 +386,9 @@ export default function ProductLeadershipArticle() {
                 </ul>
               </div>
               
-              <div className="bg-slate-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">Months 9-12: Optimization and Leadership</h3>
-                <ul className="text-slate-700 space-y-2">
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-200 mb-3">Months 9-12: Optimization and Leadership</h3>
+                <ul className="text-slate-700 dark:text-slate-300 space-y-2">
                   <li>• Refine ethical frameworks based on learning</li>
                   <li>• Establish industry leadership and thought leadership</li>
                   <li>• Scale successful practices across product portfolio</li>
@@ -416,7 +416,7 @@ export default function ProductLeadershipArticle() {
         </article>
 
         {/* Author & Share Section */}
-        <footer className="mt-12 pt-8 border-t border-gray-200">
+        <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
               <p className="text-gray-600 dark:text-gray-300">
@@ -424,10 +424,10 @@ export default function ProductLeadershipArticle() {
               </p>
             </div>
             <div className="flex space-x-4">
-              <button className="text-gray-500 hover:text-blue-600 transition-colors duration-200">
+              <button className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
                 Share on LinkedIn
               </button>
-              <button className="text-gray-500 hover:text-blue-600 transition-colors duration-200">
+              <button className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
                 Share on Twitter
               </button>
             </div>
@@ -436,24 +436,24 @@ export default function ProductLeadershipArticle() {
 
         {/* Related Articles */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Related Insights</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Related Insights</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link href="/insights/aligning-product-teams-business-impact" className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 block">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+            <Link href="/insights/aligning-product-teams-business-impact" className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 block">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Product Leadership
               </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 Aligning Product Teams with Business Impact
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Essential strategies for aligning product teams with business impact objectives...
               </p>
             </Link>
-            <Link href="/insights/competitive-intelligence-digital-age" className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 block">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+            <Link href="/insights/competitive-intelligence-digital-age" className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 block">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Ecosystem Cartography
               </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 Competitive Intelligence in the Digital Age
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">

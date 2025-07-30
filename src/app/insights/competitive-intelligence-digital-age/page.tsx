@@ -38,7 +38,7 @@ export default function CompetitiveIntelligenceArticle() {
             Competitive Intelligence in the Digital Age
           </h1>
           
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             Understanding economic warfare analysis and how modern businesses can gain strategic 
             advantages through comprehensive ecosystem mapping in an increasingly complex digital landscape.
           </p>
@@ -46,7 +46,7 @@ export default function CompetitiveIntelligenceArticle() {
 
         {/* Article Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <div className="text-gray-700 leading-relaxed space-y-6">
+          <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
             
             <p>
               In today&apos;s hyperconnected business environment, traditional competitive analysis has evolved 
@@ -55,7 +55,7 @@ export default function CompetitiveIntelligenceArticle() {
               disciplines gain unprecedented advantages in understanding and navigating their competitive landscapes.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               The Evolution of Competitive Intelligence
             </h2>
 
@@ -76,7 +76,7 @@ export default function CompetitiveIntelligenceArticle() {
               <li><strong>Ecosystem Complexity:</strong> Success depends on understanding entire value networks, not just direct competitors</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Economic Warfare Analysis: Beyond Traditional Competition
             </h2>
 
@@ -90,31 +90,31 @@ export default function CompetitiveIntelligenceArticle() {
               Key components of economic warfare analysis include:
             </p>
 
-            <div className="bg-gray-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Strategic Dependencies Analysis</h3>
-              <p className="text-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Strategic Dependencies Analysis</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Mapping critical dependencies across supply chains, technology stacks, and talent networks 
                 to identify potential pressure points and strategic vulnerabilities.
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Influence Network Mapping</h3>
-              <p className="text-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Influence Network Mapping</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Understanding how competitors leverage relationships with regulators, industry associations, 
                 and key stakeholders to shape market conditions in their favor.
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Resource Flow Analysis</h3>
-              <p className="text-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Resource Flow Analysis</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Tracking how capital, talent, and information move through competitive ecosystems to 
                 identify emerging threats and opportunities.
               </p>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Ecosystem Cartography: Mapping the Invisible
             </h2>
 
@@ -147,7 +147,7 @@ export default function CompetitiveIntelligenceArticle() {
               </li>
             </ol>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Strategic Communication and Information Operations
             </h2>
 
@@ -168,7 +168,7 @@ export default function CompetitiveIntelligenceArticle() {
               <li>Creating resilient communication strategies that adapt to changing information landscapes</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Ethical Frameworks for Competitive Intelligence
             </h2>
 
@@ -182,28 +182,28 @@ export default function CompetitiveIntelligenceArticle() {
               ConnEthics advocates for a framework based on:
             </p>
 
-            <div className="bg-blue-50 p-6 rounded-lg my-6">
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">✓</span>
                   <span><strong>Transparency:</strong> Clear policies about what information is collected and how it&apos;s used</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">✓</span>
                   <span><strong>Proportionality:</strong> Intelligence gathering proportionate to competitive threats and opportunities</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">✓</span>
                   <span><strong>Legal Compliance:</strong> Strict adherence to applicable privacy and competition laws</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">✓</span>
                   <span><strong>Stakeholder Respect:</strong> Consideration for the rights and interests of all ecosystem participants</span>
                 </li>
               </ul>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Implementation: Building Competitive Intelligence Capabilities
             </h2>
 
@@ -212,7 +212,7 @@ export default function CompetitiveIntelligenceArticle() {
               combines technology, processes, and human expertise. Organizations should focus on:
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Technology Infrastructure</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Technology Infrastructure</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>Advanced analytics platforms for processing large volumes of structured and unstructured data</li>
               <li>Social network analysis tools for mapping relationships and influence patterns</li>
@@ -220,7 +220,7 @@ export default function CompetitiveIntelligenceArticle() {
               <li>Secure collaboration platforms for intelligence sharing and analysis</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Organizational Capabilities</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Organizational Capabilities</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>Cross-functional intelligence teams combining technical and domain expertise</li>
               <li>Processes for validating intelligence and assessing source reliability</li>
@@ -228,7 +228,7 @@ export default function CompetitiveIntelligenceArticle() {
               <li>Continuous learning and adaptation based on intelligence outcomes</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               The Future of Competitive Intelligence
             </h2>
 
@@ -263,18 +263,18 @@ export default function CompetitiveIntelligenceArticle() {
         </article>
 
         {/* Author & Share Section */}
-        <footer className="mt-12 pt-8 border-t border-gray-200">
+        <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 <strong>ConnEthics Team</strong> - Experts in ethical competitive intelligence and ecosystem analysis
               </p>
             </div>
             <div className="flex space-x-4">
-              <button className="text-gray-500 hover:text-blue-600 transition-colors duration-200">
+              <button className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
                 Share on LinkedIn
               </button>
-              <button className="text-gray-500 hover:text-blue-600 transition-colors duration-200">
+              <button className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
                 Share on Twitter
               </button>
             </div>
@@ -283,27 +283,27 @@ export default function CompetitiveIntelligenceArticle() {
 
         {/* Related Articles */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Related Insights</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Related Insights</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Self-Sovereign Identity
               </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 The Future of Self-Sovereign Identity in Enterprise
               </h4>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Exploring how SSI will transform enterprise identity management...
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Product Leadership
               </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 Product Leadership in Ethical Business Ecosystems
               </h4>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Aligning product roadmaps with ethical frameworks while maintaining competitive advantage...
               </p>
             </div>
