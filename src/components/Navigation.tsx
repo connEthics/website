@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
-import DarkModeToggle from './DarkModeToggle';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +35,6 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <DarkModeToggle />
             <Link
               href="/contact"
               className="bg-blue-900 dark:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-800 dark:hover:bg-blue-600 transition-colors duration-200"
@@ -74,10 +72,6 @@ export default function Navigation() {
                   {item.name}
                 </Link>
               ))}
-              <div className="flex items-center justify-between px-3 py-2">
-                <span className="text-gray-700 dark:text-gray-300 text-base font-medium">Dark Mode</span>
-                <DarkModeToggle />
-              </div>
               <Link
                 href="/contact"
                 className="bg-blue-900 dark:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 dark:hover:bg-blue-600 mt-4 transition-colors"
