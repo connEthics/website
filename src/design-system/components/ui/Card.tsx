@@ -66,18 +66,30 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
 interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 }
+
+const titleSizes = {
+  sm: 'text-sm',
+  md: 'text-base',
+  lg: 'text-lg',
+  xl: 'text-xl',
+  '2xl': 'text-2xl',
+  '3xl': 'text-3xl',
+};
 
 export const CardTitle: React.FC<CardTitleProps> = ({
   children,
   className,
   as: Component = 'h3',
+  size = 'lg',
   ...props
 }) => {
   return (
     <Component
       className={cn(
-        'text-lg font-semibold leading-none tracking-tight text-neutral-900 dark:text-white',
+        'font-semibold leading-none tracking-tight text-neutral-900 dark:text-white',
+        titleSizes[size],
         className
       )}
       {...props}

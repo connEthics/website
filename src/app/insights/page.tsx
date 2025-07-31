@@ -2,6 +2,16 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
+import { 
+  Card, CardHeader, CardTitle, CardDescription, CardContent,
+  Container, 
+  Section,
+  Grid,
+  Stack,
+  Heading,
+  Text,
+  Badge
+} from "@/design-system/components";
 
 export default function Insights() {
   const articles = useMemo(() => [
@@ -90,112 +100,136 @@ export default function Insights() {
   };
 
   return (
-    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Insights & Perspectives
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Thought leadership on ethical business practices, competitive intelligence, 
-            and building trust in complex digital ecosystems.
-          </p>
-        </div>
-
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryFilter(category)}
-              className={`px-6 py-2 rounded-full border transition-colors duration-200 ${
-                selectedCategory === category
-                  ? 'bg-blue-900 text-white border-blue-900'
-                  : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-blue-900 hover:text-white hover:border-blue-900'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {filteredArticles.map((article, index) => {
-            // Check if article has a full page
-            const hasFullArticle = article.slug;
-            
-            const getArticleUrl = () => {
-              if (hasFullArticle) return `/insights/${article.slug}`;
-              return "#";
-            };
-            
-            return (
-              <article key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <button
-                      onClick={() => handleCategoryFilter(article.category)}
-                      className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/30 transition-colors duration-200"
-                    >
-                      {article.category}
-                    </button>
-                    <span className="text-gray-500 dark:text-gray-400 text-sm">{article.readTime}</span>
-                  </div>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-blue-900 dark:hover:text-blue-400 cursor-pointer">
-                    {hasFullArticle ? (
-                      <Link href={getArticleUrl()}>
-                        {article.title}
-                      </Link>
-                    ) : (
-                      article.title
-                    )}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{article.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-500 dark:text-gray-400 text-sm">{article.date}</span>
-                    {hasFullArticle ? (
-                      <Link 
-                        href={getArticleUrl()}
-                        className="text-blue-900 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200"
-                      >
-                        Read More →
-                      </Link>
-                    ) : (
-                      <button className="text-blue-900 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200">
-                        Coming Soon
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-blue-900 text-white p-12 rounded-lg text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Leverage our expertise in Self-Sovereign Identity, Competitive Intelligence, 
-            and Ethical Product Leadership to drive meaningful change in your organization.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <Link
-              href="/contact"
-              className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-100 transition-colors duration-200 flex-1 text-center"
-            >
-              Get Started Today
-            </Link>
-            <Link
-              href="/services"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors duration-200 flex-1 text-center"
-            >
-              Explore Services
-            </Link>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 transition-colors">
+      {/* Header Section */}
+      <Section padding="xl" className="bg-white dark:bg-neutral-900">
+        <Container>
+          <div className="text-center mb-16">
+            <Heading as="h1" size="5xl" className="mb-6">
+              Insights & Perspectives
+            </Heading>
+            <Text size="xl" variant="muted" className="max-w-4xl mx-auto">
+              Thought leadership on ethical business practices, competitive intelligence, 
+              and building trust in complex digital ecosystems.
+            </Text>
           </div>
-        </div>
-      </div>
+        </Container>
+      </Section>
+
+      {/* Content Section */}
+      <Section padding="xl" className="bg-neutral-100 dark:bg-neutral-800">
+        <Container>
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryFilter(category)}
+                className={`px-6 py-2 rounded-full border transition-colors duration-200 ${
+                  selectedCategory === category
+                    ? 'bg-primary-600 text-white border-primary-600'
+                    : 'border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-primary-600 hover:text-white hover:border-primary-600'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Articles Grid */}
+          <Grid cols={1} responsive={{ md: 2 }} gap="lg" className="mb-20">
+            {filteredArticles.map((article, index) => {
+              // Check if article has a full page
+              const hasFullArticle = article.slug;
+              
+              const getArticleUrl = () => {
+                if (hasFullArticle) return `/insights/${article.slug}`;
+                return "#";
+              };
+              
+              return (
+                <Card key={index} variant="elevated" padding="lg" className="h-full">
+                  <CardHeader>
+                    <Stack direction="horizontal" justify="between" align="start" className="mb-4">
+                      <button
+                        onClick={() => handleCategoryFilter(article.category)}
+                        className="text-left"
+                      >
+                        <Badge variant="primary" size="sm" className="cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-800">
+                          {article.category}
+                        </Badge>
+                      </button>
+                      <Text size="sm" variant="subtle">{article.readTime}</Text>
+                    </Stack>
+                    <CardTitle size="xl" className="mb-3">
+                      {hasFullArticle ? (
+                        <Link href={getArticleUrl()} className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                          {article.title}
+                        </Link>
+                      ) : (
+                        article.title
+                      )}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="mb-6">
+                      {article.excerpt}
+                    </CardDescription>
+                    <Stack direction="horizontal" justify="between" align="center">
+                      <Text size="sm" variant="subtle">{article.date}</Text>
+                      {hasFullArticle ? (
+                        <Link 
+                          href={getArticleUrl()}
+                          className="text-primary-600 dark:text-primary-400 font-medium hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200"
+                        >
+                          Read More →
+                        </Link>
+                      ) : (
+                        <Text size="sm" variant="subtle" className="font-medium">
+                          Coming Soon
+                        </Text>
+                      )}
+                    </Stack>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </Grid>
+        </Container>
+      </Section>
+
+      {/* CTA Section */}
+      <Section padding="xl" className="bg-primary-900 text-white">
+        <Container>
+          <Card variant="default" padding="xl" className="bg-primary-900 border-primary-700 text-center">
+            <CardHeader>
+              <CardTitle size="3xl" className="text-white mb-4">
+                Ready to Transform Your Business?
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Text size="xl" className="mb-8 max-w-3xl mx-auto text-primary-100">
+                Leverage our expertise in Self-Sovereign Identity, Competitive Intelligence, 
+                and Ethical Product Leadership to drive meaningful change in your organization.
+              </Text>
+              <Stack direction="horizontal" gap="md" justify="center" className="flex-col sm:flex-row max-w-md mx-auto">
+                <Link
+                  href="/contact"
+                  className="bg-white text-primary-900 px-8 py-4 rounded-lg text-lg font-medium hover:bg-neutral-100 transition-colors duration-200 flex-1 text-center"
+                >
+                  Get Started Today
+                </Link>
+                <Link
+                  href="/services"
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:text-primary-900 transition-colors duration-200 flex-1 text-center"
+                >
+                  Explore Services
+                </Link>
+              </Stack>
+            </CardContent>
+          </Card>
+        </Container>
+      </Section>
     </div>
   );
 }

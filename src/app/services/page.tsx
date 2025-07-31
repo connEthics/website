@@ -1,4 +1,14 @@
 import { ShieldCheckIcon, MapIcon, LockClosedIcon, ChartBarIcon, CogIcon } from "@heroicons/react/24/outline";
+import { 
+  Card, CardHeader, CardTitle, CardDescription, CardContent,
+  Container, 
+  Section,
+  Grid,
+  Stack,
+  Heading,
+  Text,
+  Badge
+} from "@/design-system/components";
 
 export default function Services() {
   const services = [
@@ -12,7 +22,8 @@ export default function Services() {
         "Integration with existing systems",
         "Compliance and security auditing"
       ],
-      icon: ShieldCheckIcon
+      icon: ShieldCheckIcon,
+      category: "Identity"
     },
     {
       title: "Ecosystem Cartography",
@@ -24,7 +35,8 @@ export default function Services() {
         "Strategic communication planning",
         "Lobbying and influence strategies"
       ],
-      icon: MapIcon
+      icon: MapIcon,
+      category: "Strategy"
     },
     {
       title: "Trust and Identity Deployment",
@@ -36,7 +48,8 @@ export default function Services() {
         "Trust relationship modeling",
         "Identity verification protocols"
       ],
-      icon: LockClosedIcon
+      icon: LockClosedIcon,
+      category: "Identity"
     },
     {
       title: "Product Leadership",
@@ -48,7 +61,8 @@ export default function Services() {
         "Innovation culture development",
         "Stakeholder engagement strategies"
       ],
-      icon: ChartBarIcon
+      icon: ChartBarIcon,
+      category: "Leadership"
     },
     {
       title: "Product Management",
@@ -60,110 +74,146 @@ export default function Services() {
         "Event storming facilitation",
         "Continuous process mapping"
       ],
-      icon: CogIcon
+      icon: CogIcon,
+      category: "Management"
+    }
+  ];
+
+  const processSteps = [
+    {
+      number: "1",
+      title: "Assessment",
+      description: "Comprehensive analysis of your current ecosystem and challenges."
+    },
+    {
+      number: "2", 
+      title: "Strategy",
+      description: "Development of ethical frameworks and strategic roadmaps."
+    },
+    {
+      number: "3",
+      title: "Implementation", 
+      description: "Execution of solutions with continuous monitoring and optimization."
+    },
+    {
+      number: "4",
+      title: "Evolution",
+      description: "Ongoing support and adaptation to changing business needs."
     }
   ];
 
   return (
-    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Our Services
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We deliver high-quality services that seamlessly align technical, operational, 
-            and execution strategies with today&apos;s business standards, ensuring ethical 
-            alignment across all dimensions of your organization.
-          </p>
-        </div>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 transition-colors">
+      {/* Header Section */}
+      <Section padding="xl" className="bg-white dark:bg-neutral-900">
+        <Container>
+          <div className="text-center mb-16">
+            <Heading as="h1" size="5xl" className="mb-6">
+              Our Services
+            </Heading>
+            <Text size="xl" variant="muted" className="max-w-4xl mx-auto">
+              We deliver high-quality services that seamlessly align technical, operational, 
+              and execution strategies with today&apos;s business standards, ensuring ethical 
+              alignment across all dimensions of your organization.
+            </Text>
+          </div>
+        </Container>
+      </Section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 hover:shadow-lg transition-shadow duration-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mr-4">
-                    <IconComponent className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{service.title}</h2>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">{service.description}</p>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Key Features:</h3>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
-                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      {/* Services Grid */}
+      <Section padding="xl" className="bg-neutral-100 dark:bg-neutral-800">
+        <Container>
+          <Grid cols={1} responsive={{ lg: 2 }} gap="lg">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card key={index} variant="elevated" padding="lg" className="h-full">
+                  <CardHeader>
+                    <Stack direction="horizontal" align="center" gap="md" className="mb-4">
+                      <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-lg flex items-center justify-center">
+                        <IconComponent className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                      </div>
+                      <div className="flex-1">
+                        <Stack direction="horizontal" align="center" justify="between" className="mb-2">
+                          <CardTitle size="2xl">{service.title}</CardTitle>
+                          <Badge variant="primary" size="sm">{service.category}</Badge>
+                        </Stack>
+                      </div>
+                    </Stack>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="mb-6">
+                      {service.description}
+                    </CardDescription>
+                    <div>
+                      <Text size="lg" weight="semibold" className="mb-4">Key Features:</Text>
+                      <Stack gap="sm">
+                        {service.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-start">
+                            <span className="text-primary-600 dark:text-primary-400 mr-3 text-lg">✓</span>
+                            <Text variant="muted">{feature}</Text>
+                          </div>
+                        ))}
+                      </Stack>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </Grid>
+        </Container>
+      </Section>
 
-        {/* Process Section */}
-        <div className="bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 p-12 rounded-lg mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Approach</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+      {/* Process Section */}
+      <Section padding="xl" className="bg-white dark:bg-neutral-900">
+        <Container>
+          <div className="text-center mb-16">
+            <Heading as="h2" size="4xl" className="mb-4">Our Approach</Heading>
+            <Text size="lg" variant="muted" className="max-w-4xl mx-auto">
               We follow a structured methodology that ensures ethical alignment across 
               external business goals, internal team dynamics, technical stack, and 
               broader societal context.
-            </p>
+            </Text>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">1</span>
+          <Grid cols={1} responsive={{ md: 2, lg: 4 }} gap="lg">
+            {processSteps.map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="bg-primary-900 dark:bg-primary-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Text size="xl" weight="bold" className="text-white">{step.number}</Text>
+                </div>
+                <Heading as="h3" size="lg" className="mb-3">{step.title}</Heading>
+                <Text variant="muted">{step.description}</Text>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Assessment</h3>
-              <p className="text-gray-600 dark:text-gray-300">Comprehensive analysis of your current ecosystem and challenges.</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Strategy</h3>
-              <p className="text-gray-600 dark:text-gray-300">Development of ethical frameworks and strategic roadmaps.</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Implementation</h3>
-              <p className="text-gray-600 dark:text-gray-300">Execution of solutions with continuous monitoring and optimization.</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">4</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Evolution</h3>
-              <p className="text-gray-600 dark:text-gray-300">Ongoing support and adaptation to changing business needs.</p>
-            </div>
-          </div>
-        </div>
+            ))}
+          </Grid>
+        </Container>
+      </Section>
 
-        {/* CTA Section */}
-        <div className="bg-blue-900 text-white p-12 rounded-lg text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business Ecosystem?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss how ConnEthics can bring clarity and purpose to your 
-            challenging competitive environment.
-          </p>
-          <a
-            href="/contact"
-            className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-100 transition-colors duration-200 inline-block"
-          >
-            Schedule a Consultation
-          </a>
-        </div>
-      </div>
+      {/* CTA Section */}
+      <Section padding="xl" className="bg-primary-900 text-white">
+        <Container>
+          <Card variant="default" padding="xl" className="bg-primary-900 border-primary-700 text-center">
+            <CardHeader>
+              <CardTitle size="3xl" className="text-white mb-4">
+                Ready to Transform Your Business Ecosystem?
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Text size="xl" className="mb-8 max-w-3xl mx-auto text-primary-100">
+                Let&apos;s discuss how ConnEthics can bring clarity and purpose to your 
+                challenging competitive environment.
+              </Text>
+              <a
+                href="/contact"
+                className="bg-white text-primary-900 px-8 py-4 rounded-lg text-lg font-medium hover:bg-neutral-100 transition-colors duration-200 inline-block"
+              >
+                Schedule a Consultation
+              </a>
+            </CardContent>
+          </Card>
+        </Container>
+      </Section>
     </div>
   );
 }

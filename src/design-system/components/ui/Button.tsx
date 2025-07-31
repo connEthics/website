@@ -13,6 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   fullWidth?: boolean;
+  asChild?: boolean;
 }
 
 const buttonVariants = {
@@ -40,6 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
   leftIcon,
   rightIcon,
   fullWidth = false,
+  asChild = false,
   ...props
 }) => {
   const baseClasses = cn(
@@ -97,6 +99,12 @@ export const Button: React.FC<ButtonProps> = ({
       )}
     </>
   );
+
+  // For now, asChild functionality is simplified - we just render the button normally
+  // In a production app, this would need a more sophisticated implementation like Radix UI's Slot
+  if (asChild) {
+    console.warn('asChild prop is not fully implemented in this Button component');
+  }
 
   return (
     <button
