@@ -2,7 +2,8 @@
 
 /* Enhanced focus styles for better accessibility */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-900;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900;
+  --tw-ring-color: var(--color-primary-500);
 }
 
 /* Enhanced button hover effects */
@@ -49,7 +50,12 @@ html {
 
 /* Better link underlines */
 .link-underline {
-  @apply underline decoration-2 decoration-primary-500/30 underline-offset-4 hover:decoration-primary-500 transition-colors duration-200;
+  @apply underline decoration-2 underline-offset-4 transition-colors duration-200;
+  text-decoration-color: rgb(59 130 246 / 0.3);
+}
+
+.link-underline:hover {
+  text-decoration-color: rgb(59 130 246);
 }
 
 /* Enhanced shadows */
