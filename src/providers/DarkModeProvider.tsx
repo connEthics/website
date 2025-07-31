@@ -101,7 +101,8 @@ export function DarkModeProvider({ children }: DarkModeProviderProps) {
       if (process.env.NODE_ENV === 'development') {
         setTimeout(() => {
           document.documentElement.style.display = 'none';
-          document.documentElement.offsetHeight; // Trigger reflow
+          // Force reflow by accessing offsetHeight
+          void document.documentElement.offsetHeight;
           document.documentElement.style.display = '';
         }, 50);
       }

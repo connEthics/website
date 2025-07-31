@@ -21,7 +21,8 @@ export function useForceStyleUpdate() {
 
       // Method 1: Force reflow
       document.documentElement.style.display = 'none';
-      document.documentElement.offsetHeight;
+      // Force reflow by accessing offsetHeight
+      void document.documentElement.offsetHeight;
       document.documentElement.style.display = '';
 
       console.log('🔄 Forced style update in dev mode');

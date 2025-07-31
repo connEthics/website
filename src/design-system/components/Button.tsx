@@ -13,7 +13,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   fullWidth?: boolean;
-  asChild?: boolean;
 }
 
 const buttonVariants = {
@@ -41,7 +40,6 @@ export const Button: React.FC<ButtonProps> = ({
   leftIcon,
   rightIcon,
   fullWidth = false,
-  asChild = false,
   ...props
 }) => {
   const baseClasses = cn(
@@ -99,17 +97,6 @@ export const Button: React.FC<ButtonProps> = ({
       )}
     </>
   );
-
-  if (asChild) {
-    // When asChild is true, clone the child element and apply button styles
-    return React.cloneElement(
-      React.Children.only(children) as React.ReactElement,
-      {
-        className: cn(baseClasses, (children as React.ReactElement).props?.className),
-      },
-      content !== children ? content : undefined
-    );
-  }
 
   return (
     <button

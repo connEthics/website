@@ -144,14 +144,14 @@ export const designTokens = {
 export const getColorValue = (colorPath: string, theme: 'light' | 'dark' = 'light') => {
   // Helper to get theme-appropriate colors
   const pathParts = colorPath.split('.');
-  let current: any = designTokens.colors;
+  let current: Record<string, unknown> = designTokens.colors;
   
   for (const part of pathParts) {
-    current = current[part];
+    current = current[part] as Record<string, unknown>;
   }
   
-  if (typeof current === 'object' && 'light' in current && 'dark' in current) {
-    return current[theme];
+  if (typeof current === 'object' && current && 'light' in current && 'dark' in current) {
+    return (current as Record<'light' | 'dark', string>)[theme];
   }
   
   return current;
