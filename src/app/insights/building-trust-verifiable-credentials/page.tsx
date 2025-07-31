@@ -38,7 +38,7 @@ export default function VerifiableCredentialsArticle() {
             Building Trust Through Verifiable Credentials
           </h1>
           
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             How organizations can implement verifiable credential systems to enhance trust and 
             streamline identity verification processes while maintaining privacy and security.
           </p>
@@ -46,7 +46,7 @@ export default function VerifiableCredentialsArticle() {
 
         {/* Article Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <div className="text-gray-700 leading-relaxed space-y-6">
+          <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
             
             <p>
               In an increasingly digital world, trust has become the most valuable currency in business 
@@ -55,7 +55,7 @@ export default function VerifiableCredentialsArticle() {
               that can be instantly verified without compromising sensitive information.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               The Trust Crisis in Digital Interactions
             </h2>
 
@@ -78,7 +78,7 @@ export default function VerifiableCredentialsArticle() {
               individuals and organizations with greater control over their digital identities.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Understanding Verifiable Credentials
             </h2>
 
@@ -88,25 +88,25 @@ export default function VerifiableCredentialsArticle() {
               They consist of three core components:
             </p>
 
-            <div className="bg-blue-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-blue-900 mb-4">The Trust Triangle</h3>
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-6">
+              <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-4">The Trust Triangle</h3>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">📋</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">📋</span>
                   <div>
                     <strong>Issuer:</strong> The entity that creates and digitally signs the credential 
                     (university, employer, government agency, certification body)
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">👤</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">👤</span>
                   <div>
                     <strong>Holder:</strong> The individual or organization that receives and controls 
                     the credential in their digital wallet
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✅</span>
+                  <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">✅</span>
                   <div>
                     <strong>Verifier:</strong> Any party that needs to verify the authenticity of 
                     claims without contacting the original issuer
@@ -115,14 +115,14 @@ export default function VerifiableCredentialsArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Key Advantages of Verifiable Credentials
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-green-900 mb-3">For Organizations</h3>
-                <ul className="text-green-800 space-y-2">
+              <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-green-900 dark:text-green-400 mb-3">For Organizations</h3>
+                <ul className="text-green-800 dark:text-green-300 space-y-2">
                   <li>• Instant verification without third-party dependencies</li>
                   <li>• Reduced fraud and compliance costs</li>
                   <li>• Enhanced customer experience and onboarding</li>
@@ -130,9 +130,9 @@ export default function VerifiableCredentialsArticle() {
                   <li>• Global interoperability and recognition</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-purple-900 mb-3">For Individuals</h3>
-                <ul className="text-purple-800 space-y-2">
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-400 mb-3">For Individuals</h3>
+                <ul className="text-purple-800 dark:text-purple-300 space-y-2">
                   <li>• Complete control over personal credentials</li>
                   <li>• Selective disclosure of information</li>
                   <li>• Portable credentials across platforms</li>
@@ -142,59 +142,59 @@ export default function VerifiableCredentialsArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Real-World Implementation Scenarios
             </h2>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Educational Credentials</h3>
-            <div className="bg-gray-50 p-6 rounded-lg my-4">
-              <p className="text-gray-700 mb-3">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Educational Credentials</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+              <p className="text-gray-700 dark:text-gray-300 mb-3">
                 Universities issue tamper-proof digital diplomas and certificates that students control. 
                 Employers can instantly verify educational qualifications without contacting institutions.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 <strong>Impact:</strong> 95% reduction in verification time, elimination of diploma mills, 
                 global recognition of credentials.
               </p>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Professional Certifications</h3>
-            <div className="bg-gray-50 p-6 rounded-lg my-4">
-              <p className="text-gray-700 mb-3">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Professional Certifications</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+              <p className="text-gray-700 dark:text-gray-300 mb-3">
                 Professional bodies issue verifiable certifications for skills, training, and compliance. 
                 These can include expiration dates and renewal requirements.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 <strong>Impact:</strong> Enhanced professional mobility, simplified license verification, 
                 reduced regulatory burden.
               </p>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Supply Chain Verification</h3>
-            <div className="bg-gray-50 p-6 rounded-lg my-4">
-              <p className="text-gray-700 mb-3">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Supply Chain Verification</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+              <p className="text-gray-700 dark:text-gray-300 mb-3">
                 Companies issue credentials for product authenticity, sustainability certifications, 
                 and compliance with industry standards throughout the supply chain.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 <strong>Impact:</strong> Transparent supply chains, reduced counterfeiting, 
                 enhanced consumer trust.
               </p>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Healthcare Records</h3>
-            <div className="bg-gray-50 p-6 rounded-lg my-4">
-              <p className="text-gray-700 mb-3">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Healthcare Records</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+              <p className="text-gray-700 dark:text-gray-300 mb-3">
                 Healthcare providers issue verifiable health credentials (vaccination records, 
                 test results, treatment history) that patients control and share selectively.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 <strong>Impact:</strong> Improved patient privacy, interoperable health records, 
                 streamlined healthcare access.
               </p>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Technical Implementation Framework
             </h2>
 
@@ -203,7 +203,7 @@ export default function VerifiableCredentialsArticle() {
               security requirements, and integration with existing systems.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Core Technical Components</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Core Technical Components</h3>
 
             <ol className="list-decimal pl-6 space-y-3">
               <li>
@@ -228,24 +228,24 @@ export default function VerifiableCredentialsArticle() {
               </li>
             </ol>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Security and Privacy Considerations</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Security and Privacy Considerations</h3>
 
             <div className="space-y-4">
               <div className="border-l-4 border-blue-400 pl-4">
                 <p><strong>Zero-Knowledge Proofs:</strong> Enable verification of attributes without revealing the actual data</p>
-                <p className="text-gray-600 mt-1">Example: Prove age over 18 without revealing exact birthdate</p>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">Example: Prove age over 18 without revealing exact birthdate</p>
               </div>
               <div className="border-l-4 border-green-400 pl-4">
                 <p><strong>Selective Disclosure:</strong> Allow holders to share only necessary information</p>
-                <p className="text-gray-600 mt-1">Example: Share university name without revealing GPA or graduation date</p>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">Example: Share university name without revealing GPA or graduation date</p>
               </div>
               <div className="border-l-4 border-purple-400 pl-4">
                 <p><strong>Revocation Mechanisms:</strong> Enable issuers to revoke credentials when necessary</p>
-                <p className="text-gray-600 mt-1">Example: Revoke professional licenses for misconduct</p>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">Example: Revoke professional licenses for misconduct</p>
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Implementation Roadmap
             </h2>
 
@@ -255,27 +255,27 @@ export default function VerifiableCredentialsArticle() {
             </p>
 
             <div className="space-y-6 my-8">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-blue-900 mb-3">Phase 1: Foundation (Months 1-3)</h3>
-                <ul className="text-blue-800 space-y-2">
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-400 mb-3">Phase 1: Foundation (Months 1-3)</h3>
+                <ul className="text-blue-800 dark:text-blue-300 space-y-2">
                   <li>• Define credential schemas and governance framework</li>
                   <li>• Establish digital signature infrastructure</li>
                   <li>• Develop pilot program with limited use case</li>
                   <li>• Create stakeholder education and onboarding materials</li>
                 </ul>
               </div>
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-green-900 mb-3">Phase 2: Expansion (Months 4-8)</h3>
-                <ul className="text-green-800 space-y-2">
+              <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-green-900 dark:text-green-400 mb-3">Phase 2: Expansion (Months 4-8)</h3>
+                <ul className="text-green-800 dark:text-green-300 space-y-2">
                   <li>• Scale to additional credential types and use cases</li>
                   <li>• Integrate with partner organizations and verifiers</li>
                   <li>• Implement advanced privacy features</li>
                   <li>• Optimize user experience and wallet integration</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-purple-900 mb-3">Phase 3: Ecosystem (Months 9-12)</h3>
-                <ul className="text-purple-800 space-y-2">
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-400 mb-3">Phase 3: Ecosystem (Months 9-12)</h3>
+                <ul className="text-purple-800 dark:text-purple-300 space-y-2">
                   <li>• Build network effects through partnerships</li>
                   <li>• Implement cross-organizational verification</li>
                   <li>• Develop marketplace for credential services</li>
@@ -284,7 +284,7 @@ export default function VerifiableCredentialsArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Measuring Success and ROI
             </h2>
 
@@ -293,27 +293,27 @@ export default function VerifiableCredentialsArticle() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-              <div className="bg-yellow-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-yellow-900 mb-3">Operational Metrics</h4>
-                <ul className="text-yellow-800 space-y-2">
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-yellow-900 dark:text-yellow-400 mb-3">Operational Metrics</h4>
+                <ul className="text-yellow-800 dark:text-yellow-300 space-y-2">
                   <li>• Verification time reduction</li>
                   <li>• Processing cost savings</li>
                   <li>• Error rate improvements</li>
                   <li>• Customer satisfaction scores</li>
                 </ul>
               </div>
-              <div className="bg-red-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-red-900 mb-3">Security Metrics</h4>
-                <ul className="text-red-800 space-y-2">
+              <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-red-900 dark:text-red-400 mb-3">Security Metrics</h4>
+                <ul className="text-red-800 dark:text-red-300 space-y-2">
                   <li>• Fraud reduction rates</li>
                   <li>• Security incident frequency</li>
                   <li>• Compliance audit results</li>
                   <li>• Data breach prevention</li>
                 </ul>
               </div>
-              <div className="bg-indigo-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold text-indigo-900 mb-3">Adoption Metrics</h4>
-                <ul className="text-indigo-800 space-y-2">
+              <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg">
+                <h4 className="text-lg font-semibold text-indigo-900 dark:text-indigo-400 mb-3">Adoption Metrics</h4>
+                <ul className="text-indigo-800 dark:text-indigo-300 space-y-2">
                   <li>• User enrollment rates</li>
                   <li>• Credential issuance volume</li>
                   <li>• Partner integration success</li>
@@ -322,7 +322,7 @@ export default function VerifiableCredentialsArticle() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
               Future Directions and Innovation
             </h2>
 
@@ -331,7 +331,7 @@ export default function VerifiableCredentialsArticle() {
               and standards creating new possibilities for trust and verification.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Emerging Trends</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Emerging Trends</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>AI-Enhanced Verification:</strong> Machine learning algorithms for fraud detection and risk assessment</li>
               <li><strong>Biometric Integration:</strong> Combining verifiable credentials with biometric authentication</li>
@@ -340,7 +340,7 @@ export default function VerifiableCredentialsArticle() {
               <li><strong>Automated Compliance:</strong> Smart contracts for regulatory compliance verification</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Regulatory Landscape</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Regulatory Landscape</h3>
             <p>
               Governments worldwide are developing frameworks for digital identity and verifiable credentials. 
               Organizations should monitor regulatory developments and participate in standards-setting processes 
@@ -366,18 +366,18 @@ export default function VerifiableCredentialsArticle() {
         </article>
 
         {/* Author & Share Section */}
-        <footer className="mt-12 pt-8 border-t border-gray-200">
+        <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 <strong>ConnEthics Team</strong> - Specialists in Trust & Identity solutions and verifiable credentials
               </p>
             </div>
             <div className="flex space-x-4">
-              <button className="text-gray-500 hover:text-blue-600 transition-colors duration-200">
+              <button className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
                 Share on LinkedIn
               </button>
-              <button className="text-gray-500 hover:text-blue-600 transition-colors duration-200">
+              <button className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
                 Share on Twitter
               </button>
             </div>
@@ -386,27 +386,27 @@ export default function VerifiableCredentialsArticle() {
 
         {/* Related Articles */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Related Insights</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Related Insights</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Self-Sovereign Identity
               </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 The Future of Self-Sovereign Identity in Enterprise
               </h4>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Exploring how SSI will transform enterprise identity management...
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Product Leadership
               </span>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 Product Leadership in Ethical Business Ecosystems
               </h4>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Aligning product roadmaps with ethical frameworks...
               </p>
             </div>
