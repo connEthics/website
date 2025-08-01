@@ -64,7 +64,6 @@ const ConnEthicsContactForm: React.FC<ConnEthicsContactFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (field: keyof FormData) => (event: any) => {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     setFormData(prev => ({ ...prev, [field]: value }));
