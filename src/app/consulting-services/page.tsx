@@ -265,6 +265,58 @@ export default function ConsultingServicesPage() {
         </div>
       </section>
       
+      {/* What to Expect Section */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              What to Expect After Purchase
+            </h2>
+            <p className="text-lg text-gray-600">
+              Our streamlined onboarding process gets you started quickly
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 font-bold text-xl">1</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Immediate Confirmation</h3>
+              <p className="text-gray-600">Receive instant email confirmation with next steps and access to your customer portal</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-green-600 font-bold text-xl">2</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">24-Hour Contact</h3>
+              <p className="text-gray-600">Our team will reach out within 24 hours to schedule your first session</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-purple-600 font-bold text-xl">3</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">First Session</h3>
+              <p className="text-gray-600">Begin your engagement with a kickoff session within one week</p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-sm text-gray-600 mb-4">
+              Questions about our process? We&apos;re here to help.
+            </p>
+            <a
+              href="/contact"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Contact our team →
+            </a>
+          </div>
+        </div>
+      </section>
+      
       {/* CTA Section */}
       <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -286,6 +338,12 @@ export default function ConsultingServicesPage() {
               className="border border-white text-white px-8 py-3 rounded-md font-medium hover:bg-blue-700 transition-all duration-200"
             >
               Schedule Consultation
+            </a>
+            <a
+              href="/customer-portal"
+              className="border border-white text-white px-8 py-3 rounded-md font-medium hover:bg-blue-700 transition-all duration-200"
+            >
+              Existing Customer?
             </a>
           </div>
         </div>
