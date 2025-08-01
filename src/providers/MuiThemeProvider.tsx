@@ -32,7 +32,7 @@ const brandColors = {
   },
 };
 
-const createConnEthicsTheme = (forceLightMode: boolean = true) => {
+const createConnEthicsTheme = () => {
   // Always use light mode for consistency regardless of system theme
   
   return createTheme({
@@ -155,7 +155,7 @@ interface MuiThemeProviderProps {
 
 export function MuiThemeProvider({ children }: MuiThemeProviderProps) {
   // Always use light theme regardless of system dark mode
-  const theme = createConnEthicsTheme(true);
+  const theme = createConnEthicsTheme();
 
   return (
     <ThemeProvider theme={theme}>

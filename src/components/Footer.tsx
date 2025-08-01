@@ -29,7 +29,7 @@ export default function Footer() {
         { name: 'White Papers', href: '/insights' },
         { name: 'Case Studies', href: '/insights' },
         { name: 'Newsletter', href: '/contact' },
-        { name: 'Design System', href: '/design-system-demo' },
+        { name: 'MUI Demo', href: '/mui-demo' },
       ],
     },
   ];
