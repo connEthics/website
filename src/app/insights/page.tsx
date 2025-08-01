@@ -2,16 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
-import { 
-  Card, CardHeader, CardTitle, CardDescription, CardContent,
-  Container, 
-  Section,
-  Grid,
-  Stack,
-  Heading,
-  Text,
-  Badge
-} from "@/design-system/components";
+import { Box, Container, Typography, Grid, Stack, Chip } from '@mui/material';
+import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/mui';
 
 export default function Insights() {
   const articles = useMemo(() => [
@@ -100,44 +92,42 @@ export default function Insights() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 transition-colors">
-      {/* Header Section */}
-      <Section padding="xl" className="bg-white dark:bg-neutral-900">
-        <Container>
-          <div className="text-center mb-16">
-            <Heading as="h1" size="5xl" className="mb-6">
-              Insights & Perspectives
-            </Heading>
-            <Text size="xl" variant="muted" className="max-w-4xl mx-auto">
-              Thought leadership on ethical business practices, competitive intelligence, 
-              and building trust in complex digital ecosystems.
-            </Text>
-          </div>
-        </Container>
-      </Section>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      {/* Hero Section */}
+      <ConnEthicsHero
+        variant="default"
+        title="Insights & Perspectives"
+        subtitle="Thought Leadership in Ethical Business"
+        description="Thought leadership on ethical business practices, competitive intelligence, and building trust in complex digital ecosystems."
+      />
 
       {/* Content Section */}
-      <Section padding="xl" className="bg-neutral-100 dark:bg-neutral-800">
-        <Container>
+      <Box sx={{ py: 8, bgcolor: 'grey.50' }}>
+        <Container maxWidth="lg">
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 6 }}>
             {categories.map((category) => (
-              <button
+              <Chip
                 key={category}
+                label={category}
                 onClick={() => handleCategoryFilter(category)}
-                className={`px-6 py-2 rounded-full border transition-colors duration-200 ${
-                  selectedCategory === category
-                    ? 'bg-primary-600 text-white border-primary-600'
-                    : 'border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-primary-600 hover:text-white hover:border-primary-600'
-                }`}
-              >
-                {category}
-              </button>
+                color={selectedCategory === category ? 'primary' : 'default'}
+                variant={selectedCategory === category ? 'filled' : 'outlined'}
+                sx={{ 
+                  px: 2, 
+                  py: 0.5,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    bgcolor: selectedCategory === category ? 'primary.dark' : 'primary.main',
+                    color: selectedCategory === category ? 'white' : 'white'
+                  }
+                }}
+              />
             ))}
-          </div>
+          </Box>
 
           {/* Articles Grid */}
-          <Grid cols={1} responsive={{ md: 2 }} gap="lg" className="mb-20">
+          <Grid container spacing={4} sx={{ mb: 10 }}>
             {filteredArticles.map((article, index) => {
               // Check if article has a full page
               const hasFullArticle = article.slug;
@@ -148,88 +138,134 @@ export default function Insights() {
               };
               
               return (
-                <Card key={index} variant="elevated" padding="lg" className="h-full">
-                  <CardHeader>
-                    <Stack direction="horizontal" justify="between" align="start" className="mb-4">
-                      <button
-                        onClick={() => handleCategoryFilter(article.category)}
-                        className="text-left"
-                      >
-                        <Badge variant="primary" size="sm" className="cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-800">
-                          {article.category}
-                        </Badge>
-                      </button>
-                      <Text size="sm" variant="subtle">{article.readTime}</Text>
-                    </Stack>
-                    <CardTitle size="xl" className="mb-3">
-                      {hasFullArticle ? (
-                        <Link href={getArticleUrl()} className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                          {article.title}
-                        </Link>
-                      ) : (
-                        article.title
-                      )}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="mb-6">
-                      {article.excerpt}
-                    </CardDescription>
-                    <Stack direction="horizontal" justify="between" align="center">
-                      <Text size="sm" variant="subtle">{article.date}</Text>
-                      {hasFullArticle ? (
-                        <Link 
-                          href={getArticleUrl()}
-                          className="text-primary-600 dark:text-primary-400 font-medium hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200"
-                        >
-                          Read More →
-                        </Link>
-                      ) : (
-                        <Text size="sm" variant="subtle" className="font-medium">
-                          Coming Soon
-                        </Text>
-                      )}
-                    </Stack>
-                  </CardContent>
-                </Card>
+                <Grid size={{ xs: 12, md: 6 }} key={index}>
+                  <ConnEthicsCard variant="elevated" sx={{ height: '100%' }}>
+                    <Box sx={{ p: 4 }}>
+                      <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 3 }}>
+                        <Chip
+                          label={article.category}
+                          color="primary"
+                          size="small"
+                          onClick={() => handleCategoryFilter(article.category)}
+                          sx={{ cursor: 'pointer' }}
+                        />
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                          {article.readTime}
+                        </Typography>
+                      </Stack>
+                      
+                      <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                        {hasFullArticle ? (
+                          <Link 
+                            href={getArticleUrl()} 
+                            style={{ 
+                              textDecoration: 'none', 
+                              color: 'inherit'
+                            }}
+                          >
+                            <Box 
+                              component="span"
+                              sx={{
+                                '&:hover': { color: 'primary.main' },
+                                transition: 'color 0.2s ease'
+                              }}
+                            >
+                              {article.title}
+                            </Box>
+                          </Link>
+                        ) : (
+                          article.title
+                        )}
+                      </Typography>
+                      
+                      <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
+                        {article.excerpt}
+                      </Typography>
+                      
+                      <Stack direction="row" justifyContent="space-between" alignItems="center">
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                          {article.date}
+                        </Typography>
+                        {hasFullArticle ? (
+                          <Link 
+                            href={getArticleUrl()}
+                            style={{ 
+                              color: 'inherit', 
+                              textDecoration: 'none',
+                              fontWeight: 500
+                            }}
+                          >
+                            <Typography 
+                              variant="body2" 
+                              sx={{ 
+                                color: 'primary.main', 
+                                fontWeight: 500,
+                                '&:hover': { color: 'primary.dark' }
+                              }}
+                            >
+                              Read More →
+                            </Typography>
+                          </Link>
+                        ) : (
+                          <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 500 }}>
+                            Coming Soon
+                          </Typography>
+                        )}
+                      </Stack>
+                    </Box>
+                  </ConnEthicsCard>
+                </Grid>
               );
             })}
           </Grid>
         </Container>
-      </Section>
+      </Box>
 
       {/* CTA Section */}
-      <Section padding="xl" className="bg-primary-900 text-white">
-        <Container>
-          <Card variant="default" padding="xl" className="bg-primary-900 border-primary-700 text-center">
-            <CardHeader>
-              <CardTitle size="3xl" className="text-white mb-4">
-                Ready to Transform Your Business?
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Text size="xl" className="mb-8 max-w-3xl mx-auto text-primary-100">
-                Leverage our expertise in Self-Sovereign Identity, Competitive Intelligence, 
-                and Ethical Product Leadership to drive meaningful change in your organization.
-              </Text>
-              <Stack direction="horizontal" gap="md" justify="center" className="flex-col sm:flex-row max-w-md mx-auto">
-                <Link
-                  href="/contact"
-                  className="bg-white text-primary-900 px-8 py-4 rounded-lg text-lg font-medium hover:bg-neutral-100 transition-colors duration-200 flex-1 text-center"
-                >
-                  Get Started Today
-                </Link>
-                <Link
-                  href="/services"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:text-primary-900 transition-colors duration-200 flex-1 text-center"
-                >
-                  Explore Services
-                </Link>
-              </Stack>
-            </CardContent>
-          </Card>
+      <Box sx={{ py: 8, bgcolor: 'primary.main' }}>
+        <Container maxWidth="lg">
+          <ConnEthicsCard variant="outlined" sx={{ bgcolor: 'primary.main', borderColor: 'primary.light', textAlign: 'center', p: 6 }}>
+            <Typography variant="h3" component="h2" sx={{ color: 'white', mb: 2, fontWeight: 600 }}>
+              Ready to Transform Your Business?
+            </Typography>
+            <Typography variant="h6" sx={{ color: 'primary.100', mb: 4, maxWidth: '600px', mx: 'auto' }}>
+              Leverage our expertise in Self-Sovereign Identity, Competitive Intelligence, 
+              and Ethical Product Leadership to drive meaningful change in your organization.
+            </Typography>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" sx={{ maxWidth: '400px', mx: 'auto' }}>
+              <ConnEthicsButton
+                variant="primary"
+                size="large"
+                href="/contact"
+                sx={{ 
+                  bgcolor: 'white', 
+                  color: 'primary.main',
+                  '&:hover': {
+                    bgcolor: 'grey.100'
+                  }
+                }}
+              >
+                Get Started Today
+              </ConnEthicsButton>
+              <ConnEthicsButton
+                variant="outline"
+                size="large"
+                href="/services"
+                sx={{ 
+                  borderColor: 'white',
+                  color: 'white',
+                  '&:hover': {
+                    bgcolor: 'white',
+                    color: 'primary.main'
+                  }
+                }}
+              >
+                Explore Services
+              </ConnEthicsButton>
+            </Stack>
+          </ConnEthicsCard>
         </Container>
-      </Section>
-    </div>
+      </Box>
+    </Box>
   );
 }

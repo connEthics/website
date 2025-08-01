@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/providers/ThemeProvider";
 import { MuiThemeProvider } from "@/providers/MuiThemeProvider";
 
 // Note: Google Fonts temporarily commented out due to network restrictions in build environment
@@ -95,15 +94,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased bg-white text-gray-900 transition-colors">
-        <ThemeProvider>
-          <MuiThemeProvider>
-            <Navigation />
-            <main className="min-h-screen">
-              {children}
-            </main>
-            <Footer />
-          </MuiThemeProvider>
-        </ThemeProvider>
+        <MuiThemeProvider>
+          <Navigation />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </MuiThemeProvider>
         <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
       </body>
     </html>
