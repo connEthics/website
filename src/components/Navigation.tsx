@@ -12,6 +12,7 @@ export default function Navigation() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
+    { name: 'Consulting', href: '/consulting-services' },
     { name: 'Insights', href: '/insights' },
     { name: 'Contact', href: '/contact' },
   ];
