@@ -100,6 +100,14 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          {/* Website Carbon Badge - positioned bottom-right */}
+          <div id="wcb" className="carbonbadge" style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            zIndex: 1000,
+            opacity: 1
+          }}></div>
         </MuiThemeProvider>
         <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
       </body>

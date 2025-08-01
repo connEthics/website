@@ -5,12 +5,10 @@ import { useState, useEffect } from 'react';
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2025); // Default fallback
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     // Only set the current year on the client side to avoid hydration mismatch
     setCurrentYear(new Date().getFullYear());
-    setIsClient(true);
   }, []);
 
   const footerSections = [
@@ -86,7 +84,6 @@ export default function Footer() {
               <p className="text-gray-400 text-sm">
                 © {currentYear} ConnEthics. All rights reserved.
               </p>
-              {isClient && <div id="wcb" className="carbonbadge wcb-d"></div>}
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link

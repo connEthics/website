@@ -85,3 +85,46 @@ input[type="reset"]:disabled {
 }
 
 @import "../design-system/styles/components.css";
+
+/* ===============================================
+   WEBSITE CARBON BADGE STYLES
+   =============================================== */
+
+/* Carbon badge positioning - bottom right, responsive */
+#wcb.carbonbadge {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  max-width: 150px !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  #wcb.carbonbadge {
+    bottom: 15px !important;
+    right: 15px !important;
+    max-width: 120px !important;
+    transform: scale(0.9) !important;
+  }
+}
+
+/* Responsive adjustments for small mobile */
+@media (max-width: 480px) {
+  #wcb.carbonbadge {
+    bottom: 10px !important;
+    right: 10px !important;
+    max-width: 100px !important;
+    transform: scale(0.8) !important;
+  }
+}
+
+/* Ensure badge doesn't interfere with sticky navigation or footer */
+@media (max-height: 600px) {
+  #wcb.carbonbadge {
+    bottom: 10px !important;
+    transform: scale(0.7) !important;
+  }
+}
