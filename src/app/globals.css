@@ -85,3 +85,9 @@ input[type="reset"]:disabled {
 }
 
 @import "../design-system/styles/components.css";
+
+/* ===============================================
+   WEBSITE CARBON BADGE STYLES
+   =============================================== */
+
+/* Let the carbon badge handle its own styling completely */
