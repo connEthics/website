@@ -5,7 +5,7 @@ import {
   Button,
   Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter,
   Container, Section, Grid, Stack, Divider,
-  Heading, Text, Link, Code,
+  Heading, Text, Link,
   Input, Textarea, Select, Checkbox, Radio,
   Alert, Badge, Spinner, Progress,
   Breadcrumbs, Pagination, Tabs, Steps

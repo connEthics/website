@@ -7,9 +7,7 @@ import {
   Typography,
   Tabs,
   Tab,
-  Grid,
   Paper,
-  Divider,
   Button,
 } from '@mui/material';
 import ConnEthicsButton from '@/components/mui/ConnEthicsButton';

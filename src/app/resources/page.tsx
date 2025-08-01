@@ -114,15 +114,15 @@ export default function Resources() {
               Centre de <span className="text-primary-600">Ressources</span> ConnEthics
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Expertise, insights et outils pour naviguer l'avenir éthique de la technologie. 
-              Accédez aux recherches, guides et formations de référence dans l'écosystème de l'innovation responsable.
+              Expertise, insights et outils pour naviguer l&apos;avenir éthique de la technologie. 
+              Accédez aux recherches, guides et formations de référence dans l&apos;écosystème de l&apos;innovation responsable.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/resources/newsletter"
                 className="bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors duration-200 cursor-pointer"
               >
-                S'abonner à la Newsletter
+                S&apos;abonner à la Newsletter
               </Link>
               <Link 
                 href="/resources/community"
@@ -181,7 +181,7 @@ export default function Resources() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-sm text-primary-600 font-semibold uppercase tracking-wide mb-2">
-              Centre d'Expertise
+              Centre d&apos;Expertise
             </p>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Explorez nos Ressources par Domaine
@@ -229,10 +229,10 @@ export default function Resources() {
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
             <h2 className="text-4xl font-bold mb-4">
-              Restez à la Pointe de l'Innovation Éthique
+              Restez à la Pointe de l&apos;Innovation Éthique
             </h2>
             <p className="text-lg mb-8 text-primary-100 max-w-2xl mx-auto">
-              Rejoignez plus de 500 leaders technologiques qui font confiance à notre expertise pour naviguer l'avenir éthique de la technologie.
+              Rejoignez plus de 500 leaders technologiques qui font confiance à notre expertise pour naviguer l&apos;avenir éthique de la technologie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 

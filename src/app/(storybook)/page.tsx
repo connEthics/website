@@ -2,13 +2,8 @@
 
 import React, { useState } from 'react';
 import { 
-  Button,
-  Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter,
-  Container, Section, Grid, Stack, Divider,
-  Heading, Text, Link, Code,
-  Input, Textarea, Select, Checkbox, Radio,
-  Alert, Badge, Spinner, Progress,
-  Breadcrumbs, Pagination, Tabs, Steps
+  Button, Badge, Stack,
+  Heading, Text, Link,
 } from '@/design-system/components';
 import { 
   ArrowRightIcon, 

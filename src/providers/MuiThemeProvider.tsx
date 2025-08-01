@@ -34,7 +34,6 @@ const brandColors = {
 
 const createConnEthicsTheme = (forceLightMode: boolean = true) => {
   // Always use light mode for consistency regardless of system theme
-  const useLight = forceLightMode ? true : false;
   
   return createTheme({
     palette: {

@@ -118,7 +118,7 @@ const ConnEthicsContactForm: React.FC<ConnEthicsContactFormProps> = ({
 
       {submitStatus === 'success' && (
         <Alert severity="success" sx={{ mb: 3 }}>
-          Thank you for your message! We'll get back to you within 24 hours.
+          Thank you for your message! We&apos;ll get back to you within 24 hours.
         </Alert>
       )}
 

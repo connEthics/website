@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRightIcon, CheckCircleIcon, ShieldCheckIcon, MapIcon, ChartBarIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon, ShieldCheckIcon, MapIcon, ChartBarIcon } from "@heroicons/react/24/outline";
 import { 
   Card, CardHeader, CardTitle, CardDescription, CardContent,
   Container, 
