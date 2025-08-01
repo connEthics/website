@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 
 // ConnEthics brand colors
 const brandColors = {
@@ -159,7 +158,6 @@ export function MuiThemeProvider({ children }: MuiThemeProviderProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
       {children}
     </ThemeProvider>
   );

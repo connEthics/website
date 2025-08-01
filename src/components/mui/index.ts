@@ -5,6 +5,5 @@ export { default as ConnEthicsFeatureGrid } from './ConnEthicsFeatureGrid';
 export { default as ConnEthicsServiceCard } from './ConnEthicsServiceCard';
 export { default as ConnEthicsTestimonial } from './ConnEthicsTestimonial';
 export { default as ConnEthicsContactForm } from './ConnEthicsContactForm';
-export { default as ConnEthicsMetrics } from './ConnEthicsMetrics';
 export { default as ConnEthicsTeamMember } from './ConnEthicsTeamMember';
 export { default as ConnEthicsInsightCard } from './ConnEthicsInsightCard';
