@@ -3,7 +3,50 @@ export default function Legal() {
     <div className="min-h-screen py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Legal Mentions</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Legal Information</h1>
+          
+          {/* Navigation to Legal Documents */}
+          <div className="mb-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h2 className="text-lg font-semibold text-blue-900 mb-4">Legal Documents</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+              <a 
+                href="/legal/sales-terms-and-conditions" 
+                className="block p-4 bg-white border border-blue-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
+              >
+                <h3 className="font-semibold text-blue-900 mb-2">Sales Terms and Conditions</h3>
+                <p className="text-sm text-blue-700">
+                  Terms and conditions for our consulting services and business relationships
+                </p>
+              </a>
+              <a 
+                href="/legal/general-purchasing-conditions" 
+                className="block p-4 bg-white border border-blue-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
+              >
+                <h3 className="font-semibold text-blue-900 mb-2">General Purchasing Conditions</h3>
+                <p className="text-sm text-blue-700">
+                  Terms and conditions for our procurement and vendor relationships
+                </p>
+              </a>
+              <a 
+                href="/legal/ssip-safety-schemes" 
+                className="block p-4 bg-white border border-red-200 rounded-lg hover:border-red-400 hover:shadow-md transition-all"
+              >
+                <h3 className="font-semibold text-red-900 mb-2">SSIP Safety Schemes</h3>
+                <p className="text-sm text-red-700">
+                  Safety requirements and certification standards for all suppliers
+                </p>
+              </a>
+              <a 
+                href="/privacy" 
+                className="block p-4 bg-white border border-blue-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
+              >
+                <h3 className="font-semibold text-blue-900 mb-2">Privacy Policy</h3>
+                <p className="text-sm text-blue-700">
+                  How we collect, use, and protect your personal information
+                </p>
+              </a>
+            </div>
+          </div>
           
           <div className="bg-white shadow-lg rounded-lg p-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Legal Notice</h2>
