@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import CarbonBadge from './CarbonBadge';
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2025); // Default fallback
@@ -40,13 +41,21 @@ export default function Footer() {
         { name: 'MUI Demo', href: '/mui-demo' },
       ],
     },
+    {
+      title: 'Legal',
+      links: [
+        { name: 'Privacy Policy', href: '/privacy' },
+        { name: 'Legal Mentions', href: '/legal' },
+        { name: 'Cookie Policy', href: '/cookies' },
+      ],
+    },
   ];
 
   return (
     <footer className="bg-gray-900 text-white transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Company Info - First */}
           <div className="col-span-1">
             <div className="text-2xl font-bold mb-4 text-white">ConnEthics</div>
             <p className="text-gray-300 mb-4">
@@ -58,7 +67,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Footer Sections */}
+          {/* Footer Sections - Services, Company, Resources, Legal */}
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-lg font-semibold mb-4 text-white">{section.title}</h3>
@@ -77,33 +86,18 @@ export default function Footer() {
             </div>
           ))}
         </div>
-
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-              <p className="text-gray-400 text-sm">
-                © {currentYear} ConnEthics. All rights reserved.
-              </p>
-            </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                href="/privacy"
-                className="text-gray-400 hover:text-white text-sm transition-all duration-200"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/legal"
-                className="text-gray-400 hover:text-white text-sm transition-all duration-200"
-              >
-                Legal Mentions
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-gray-400 hover:text-white text-sm transition-all duration-200"
-              >
-                Cookie Policy
-              </Link>
+        
+        {/* Bottom section with copyright and carbon badge on same line */}
+        <div className="mt-8 pt-4 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            {/* Copyright */}
+            <p className="text-gray-400 text-sm mb-0">
+              © {currentYear} ConnEthics. All rights reserved.
+            </p>
+            
+            {/* Carbon badge */}
+            <div className="flex-shrink-0">
+              <CarbonBadge />
             </div>
           </div>
         </div>
