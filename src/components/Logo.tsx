@@ -49,7 +49,7 @@ export default function Logo({ variant = 'header', className = '' }: LogoProps) 
       <div className={`font-bold ${getTextSize()} ${
         variant === 'footer' 
           ? 'text-white' 
-          : 'text-blue-900 dark:text-white'
+          : 'text-blue-900'
       } tracking-tight`}>
         ConnEthics
       </div>

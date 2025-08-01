@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRightIcon, CheckCircleIcon, ShieldCheckIcon, MapIcon, ChartBarIcon } from "@heroicons/react/24/outline";
-import { Button } from "@/design-system/components/Button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/design-system/components/Card";
+import { Button } from "@/design-system/components";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/design-system/components";
 
 export default function HomeRefactored() {
   const services = [

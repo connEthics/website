@@ -1,93 +1,165 @@
-export default function About() {
-  return (
-    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            About ConnEthics
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            ConnEthics is founded on the principles of ethical connections. We build 
-            products and animate business ecosystems based on radical candor, integrity, 
-            and innovation, bringing clarity and purpose to challenging environments.
-          </p>
-        </div>
+import { Box, Container, Grid, Typography } from '@mui/material';
+import { ConnEthicsHero, ConnEthicsCard } from '@/components/mui';
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Our Mission</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+export default function About() {
+  const values = [
+    {
+      title: "Radical Candor",
+      description: "Honest, direct communication that builds trust"
+    },
+    {
+      title: "Integrity", 
+      description: "Ethical consideration in every business decision"
+    },
+    {
+      title: "Innovation",
+      description: "Cutting-edge solutions for competitive environments"
+    },
+    {
+      title: "Strategic Alignment",
+      description: "Connecting technical excellence with business goals"
+    }
+  ];
+
+  const process = [
+    {
+      step: "1",
+      title: "Identify Challenges",
+      description: "We saw organizations struggling with identity management, competitive intelligence, and product strategy alignment."
+    },
+    {
+      step: "2", 
+      title: "Develop Solutions",
+      description: "We created comprehensive methodologies for self-sovereign identity, ecosystem analysis, and product leadership."
+    },
+    {
+      step: "3",
+      title: "Drive Impact", 
+      description: "We help organizations build ethical business ecosystems that create sustainable competitive advantage."
+    }
+  ];
+
+  return (
+    <Box sx={{ minHeight: '100vh', backgroundColor: 'background.default' }}>
+      {/* Hero Section */}
+      <ConnEthicsHero
+        variant="default"
+        title="About ConnEthics"
+        subtitle="Ethical Connections in Competitive Environments"
+        description="ConnEthics is founded on the principles of ethical connections. We build products and animate business ecosystems based on radical candor, integrity, and innovation, bringing clarity and purpose to challenging environments."
+      />
+
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        {/* Mission Section */}
+        <Grid container spacing={6} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, lg: 6 }}>
+            <Typography variant="h2" component="h2" gutterBottom sx={{ color: 'text.primary' }}>
+              Our Mission
+            </Typography>
+            <Typography variant="body1" paragraph sx={{ fontSize: '1.125rem', color: 'text.secondary', mb: 3 }}>
               Our mission is to foster ethical connections in a competitive world, bringing 
               clarity and purpose to challenging environments. We deliver high-quality 
               services that seamlessly align technical, operational, and execution 
               strategies with today&apos;s business standards.
-            </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            </Typography>
+            <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary' }}>
               We ensure ethical alignment across external business goals, internal team 
               dynamics, our technical stack, and the broader societal context through 
               self-sovereign identity, competitive intelligence, and strategic product leadership.
-            </p>
-          </div>
-          <div className="bg-blue-50 dark:bg-blue-900/20 border dark:border-blue-800 p-8 rounded-lg">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Our Values</h3>
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 font-bold mr-2">•</span>
-                <span><strong className="text-gray-900 dark:text-white">Radical Candor:</strong> Honest, direct communication that builds trust</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 font-bold mr-2">•</span>
-                <span><strong className="text-gray-900 dark:text-white">Integrity:</strong> Ethical consideration in every business decision</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 font-bold mr-2">•</span>
-                <span><strong className="text-gray-900 dark:text-white">Innovation:</strong> Cutting-edge solutions for competitive environments</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 font-bold mr-2">•</span>
-                <span><strong className="text-gray-900 dark:text-white">Strategic Alignment:</strong> Connecting technical excellence with business goals</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+            </Typography>
+          </Grid>
+          
+          <Grid size={{ xs: 12, lg: 6 }}>
+            <ConnEthicsCard variant="elevated">
+              <Typography variant="h3" component="h3" gutterBottom sx={{ color: 'text.primary' }}>
+                Our Values
+              </Typography>
+              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+                {values.map((value, index) => (
+                  <Box component="li" key={index} sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
+                    <Box
+                      sx={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: '50%',
+                        backgroundColor: 'primary.main',
+                        mt: 1,
+                        mr: 2,
+                        flexShrink: 0
+                      }}
+                    />
+                    <Box>
+                      <Typography component="span" sx={{ fontWeight: 600, color: 'text.primary' }}>
+                        {value.title}:
+                      </Typography>
+                      <Typography component="span" sx={{ ml: 1, color: 'text.secondary' }}>
+                        {value.description}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </ConnEthicsCard>
+          </Grid>
+        </Grid>
 
-        <div className="bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 p-12 rounded-lg">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Why We Started ConnEthics</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        {/* Why We Started Section */}
+        <ConnEthicsCard variant="outlined" sx={{ p: 6, mb: 8 }}>
+          <Box sx={{ textAlign: 'center', mb: 6 }}>
+            <Typography variant="h2" component="h2" gutterBottom sx={{ color: 'text.primary' }}>
+              Why We Started ConnEthics
+            </Typography>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: '1.125rem', 
+                color: 'text.secondary',
+                maxWidth: '48rem',
+                mx: 'auto'
+              }}
+            >
               In today&apos;s competitive business landscape, organizations need more than just 
               technical solutions—they need ethical frameworks that create sustainable 
               competitive advantage. We recognized the urgent need for services that combine 
               self-sovereign identity, strategic intelligence, and product leadership 
               to build trust in complex ecosystems.
-            </p>
-          </div>
+            </Typography>
+          </Box>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-700 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold">1</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Identify Challenges</h3>
-              <p className="text-gray-600 dark:text-gray-300">We saw organizations struggling with identity management, competitive intelligence, and product strategy alignment.</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-700 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Develop Solutions</h3>
-              <p className="text-gray-600 dark:text-gray-300">We created comprehensive methodologies for self-sovereign identity, ecosystem analysis, and product leadership.</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-900 dark:bg-blue-700 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Drive Impact</h3>
-              <p className="text-gray-600 dark:text-gray-300">We help organizations build ethical business ecosystems that create sustainable competitive advantage.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <Grid container spacing={4}>
+            {process.map((item, index) => (
+              <Grid size={{ xs: 12, md: 4 }} key={index}>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Box
+                    sx={{
+                      width: 64,
+                      height: 64,
+                      borderRadius: '50%',
+                      backgroundColor: 'primary.main',
+                      color: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mx: 'auto',
+                      mb: 2,
+                      fontSize: '1.5rem',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {item.step}
+                  </Box>
+                  <Typography variant="h4" component="h3" gutterBottom sx={{ color: 'text.primary' }}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {item.description}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </ConnEthicsCard>
+      </Container>
+    </Box>
   );
 }

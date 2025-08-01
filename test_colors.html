@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Colors Tab</title>
+    <script>
+        // Script pour tester l'onglet Colors du storybook
+        window.addEventListener('load', function() {
+            // Ouvrir le storybook dans un iframe pour tester
+            var iframe = document.createElement('iframe');
+            iframe.src = 'http://localhost:3000/storybook';
+            iframe.style.width = '100%';
+            iframe.style.height = '800px';
+            iframe.style.border = '1px solid #ccc';
+            document.body.appendChild(iframe);
+            
+            // Instructions
+            var instructions = document.createElement('div');
+            instructions.innerHTML = '<h2>Instructions de test:</h2><ol><li>Attendez que le storybook se charge</li><li>Cliquez sur l\'onglet "Colors"</li><li>Vérifiez si les couleurs s\'affichent correctement</li></ol>';
+            instructions.style.padding = '20px';
+            instructions.style.backgroundColor = '#f5f5f5';
+            instructions.style.margin = '20px';
+            instructions.style.borderRadius = '8px';
+            document.body.insertBefore(instructions, iframe);
+        });
+    </script>
+</head>
+<body>
+    <h1>Test du storybook ConnEthics - Onglet Colors</h1>
+</body>
+</html>

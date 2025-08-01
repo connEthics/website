@@ -1,53 +1,87 @@
 @import "tailwindcss";
 
-/* Force Tailwind to include dark mode classes */
-@layer base {
-  html {
-    color-scheme: light dark;
-  }
+/* ===============================================
+   SIMPLIFIED LIGHT MODE ONLY
+   =============================================== */
 
-  html.dark {
-    color-scheme: dark;
-  }
-
-  html.light {
-    color-scheme: light;
-  }
+/* Root color scheme - LIGHT ONLY */
+:root {
+  color-scheme: light;
+  --transition-theme: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Ensure dark mode works properly with explicit styles */
-@layer utilities {
-  .dark {
-    color-scheme: dark;
+/* Force light mode regardless of system preferences */
+html {
+  color-scheme: light !important;
+}
+
+/* Global smooth transitions */
+html {
+  transition: background-color 0.2s ease;
+  background-color: white !important;
+}
+
+*,
+*::before,
+*::after {
+  transition: var(--transition-theme);
+}
+
+/* Force body to always stay light - override any system dark mode */
+body {
+  background-color: white !important;
+  transition: var(--transition-theme);
+}
+
+/* Force all main containers to stay light */
+main {
+  background-color: white !important;
+}
+
+/* Override any potential dark mode styles from browser/system - ONLY backgrounds */
+@media (prefers-color-scheme: dark) {
+  html, body, main, [data-theme="light"] {
+    background-color: white !important;
   }
   
-  .light {
-    color-scheme: light;
+  /* Ensure containers stay light */
+  .min-h-screen {
+    background-color: white !important;
   }
 }
 
-/* Additional dark mode support for prose content */
-.dark .prose {
-  color: #e5e7eb;
+/* Ensure consistent cursor behavior for all interactive elements */
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
 }
 
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4,
-.dark .prose h5,
-.dark .prose h6 {
-  color: #f9fafb;
+button:disabled,
+[role="button"]:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  cursor: not-allowed;
 }
 
-.dark .prose strong {
-  color: #f9fafb;
+/* ===============================================
+   SIMPLE PRIMARY COLOR SYSTEM - LIGHT ONLY
+   =============================================== */
+:root {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
 }
 
-.dark .prose a {
-  color: #60a5fa;
-}
-
-.dark .prose a:hover {
-  color: #93c5fd;
-}
+@import "../design-system/styles/components.css";
