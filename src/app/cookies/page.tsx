@@ -1,23 +1,23 @@
 export default function Cookies() {
   return (
-    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">Cookie Policy</h1>
+        <div className="prose prose-lg max-w-none">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Cookie Policy</h1>
           
-          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
+          <div className="bg-white shadow-lg rounded-lg p-8">
             <div className="space-y-8">
               {/* Summary */}
-              <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <svg className="h-6 w-6 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h2 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">Good News!</h2>
-                    <p className="text-green-800 dark:text-green-200">
+                    <h2 className="text-lg font-semibold text-green-900 mb-2">Good News!</h2>
+                    <p className="text-green-800">
                       ConnEthics does not use traditional cookies on this website. We believe in respecting your privacy 
                       and keeping our website simple and transparent.
                     </p>
@@ -27,12 +27,12 @@ export default function Cookies() {
 
               {/* What are Cookies */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">What are Cookies?</h2>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">What are Cookies?</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
                   Cookies are small text files that are placed on your computer or mobile device when you visit a website. 
                   They are widely used to make websites work more efficiently and to provide information to website owners.
                 </p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   Common uses of cookies include remembering your preferences, keeping you logged in, tracking your 
                   behavior for advertising purposes, and analyzing website performance.
                 </p>
@@ -40,24 +40,24 @@ export default function Cookies() {
 
               {/* Our Approach */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Our Privacy-First Approach</h2>
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-300 mb-3">Why We Don&apos;t Use Cookies</h3>
-                  <ul className="space-y-2 text-blue-800 dark:text-blue-200">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Our Privacy-First Approach</h2>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-blue-900 mb-3">Why We Don&apos;t Use Cookies</h3>
+                  <ul className="space-y-2 text-blue-800">
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                      <span className="text-blue-600 mr-2">✓</span>
                       <span>We respect your privacy and don&apos;t want to track your personal browsing behavior</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                      <span className="text-blue-600 mr-2">✓</span>
                       <span>We believe in transparency and simplicity in our digital practices</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                      <span className="text-blue-600 mr-2">✓</span>
                       <span>Our website functions perfectly without storing data on your device</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                      <span className="text-blue-600 mr-2">✓</span>
                       <span>We align our technical choices with our ethical consulting values</span>
                     </li>
                   </ul>
@@ -66,16 +66,16 @@ export default function Cookies() {
 
               {/* Analytics */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Website Analytics</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Website Analytics</h2>
                 <div className="space-y-4">
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     While we don&apos;t use traditional cookies, we do want to understand how our website is performing 
                     and how we can improve it for our visitors. For this purpose, we use Vercel Analytics.
                   </p>
                   
-                  <div className="bg-gray-50 dark:bg-gray-800 border dark:border-gray-600 p-6 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">About Vercel Analytics</h3>
-                    <div className="space-y-3 text-gray-800 dark:text-gray-200">
+                  <div className="bg-gray-50 border p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">About Vercel Analytics</h3>
+                    <div className="space-y-3 text-gray-800">
                       <p>
                         <strong>Privacy-focused:</strong> Vercel Analytics is designed with privacy in mind and 
                         doesn&apos;t use traditional cookies or track personal information.
@@ -114,32 +114,32 @@ export default function Cookies() {
 
               {/* What We Collect */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">What Analytics Data We Collect</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">What Analytics Data We Collect</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">We Do Collect (Anonymously)</h3>
-                    <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                    <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
+                        <span className="text-green-600 mr-2">✓</span>
                         <span>Page views and popular content</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
+                        <span className="text-green-600 mr-2">✓</span>
                         <span>General geographic regions (country level)</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
+                        <span className="text-green-600 mr-2">✓</span>
                         <span>Device types (mobile, desktop, tablet)</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
+                        <span className="text-green-600 mr-2">✓</span>
                         <span>Referral sources (which sites link to us)</span>
                       </li>
                     </ul>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">We Don&apos;t Collect</h3>
-                    <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                    <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
                         <span className="text-red-600 mr-2">✗</span>
                         <span>Personal identifiers or IP addresses</span>
@@ -163,32 +163,32 @@ export default function Cookies() {
 
               {/* Third-Party Services */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Third-Party Services</h2>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Third-Party Services</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
                   Our website may contain links to external websites or services. These third-party websites 
                   may use their own cookies and have their own privacy policies. We are not responsible for 
                   the privacy practices of these external sites.
                 </p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   We recommend reviewing the privacy policies of any external websites you visit from our site.
                 </p>
               </div>
 
               {/* Your Rights */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Your Rights and Options</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Your Rights and Options</h2>
                 <div className="space-y-4">
-                  <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-4 rounded-lg">
-                    <h3 className="font-semibold text-green-900 dark:text-green-100 mb-2">No Action Needed</h3>
-                    <p className="text-green-800 dark:text-green-200">
+                  <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                    <h3 className="font-semibold text-green-900 mb-2">No Action Needed</h3>
+                    <p className="text-green-800">
                       Since we don&apos;t use cookies, you don&apos;t need to accept or decline anything to use our website. 
                       Your privacy is protected by default.
                     </p>
                   </div>
                   
-                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-4 rounded-lg">
-                    <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Browser Settings</h3>
-                    <p className="text-blue-800 dark:text-blue-200">
+                  <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                    <h3 className="font-semibold text-blue-900 mb-2">Browser Settings</h3>
+                    <p className="text-blue-800">
                       You can always configure your browser to block cookies from all websites if you prefer. 
                       This won&apos;t affect your experience on our website since we don&apos;t rely on them.
                     </p>
@@ -198,8 +198,8 @@ export default function Cookies() {
 
               {/* Changes to Policy */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Changes to This Policy</h2>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Changes to This Policy</h2>
+                <p className="text-gray-700 leading-relaxed">
                   If we ever decide to implement cookies in the future, we will update this policy and notify 
                   you prominently on our website. We are committed to maintaining transparency about any 
                   changes to our privacy practices.
@@ -208,21 +208,21 @@ export default function Cookies() {
 
               {/* Contact */}
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Questions About Our Cookie Policy?</h2>
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg">
-                  <p className="text-gray-800 dark:text-gray-200 mb-4">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Questions About Our Cookie Policy?</h2>
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                  <p className="text-gray-800 mb-4">
                     If you have any questions about our cookie policy or our privacy practices, we&apos;re here to help.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
                       href="mailto:dpo@connethics.com"
-                      className="inline-flex items-center px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200"
+                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
                     >
                       Contact Data Protection Officer
                     </a>
                     <a
                       href="/contact"
-                      className="inline-flex items-center px-4 py-2 border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors duration-200"
+                      className="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200"
                     >
                       General Contact Form
                     </a>
