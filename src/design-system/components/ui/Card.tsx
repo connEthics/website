@@ -9,9 +9,9 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const cardVariants = {
-  default: 'bg-white dark:bg-neutral-800 border dark:border-neutral-700',
-  elevated: 'bg-white dark:bg-neutral-800 shadow-lg border dark:border-neutral-700',
-  outlined: 'bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700',
+  default: 'bg-white border',
+  elevated: 'bg-white shadow-lg border',
+  outlined: 'bg-white border-2 border-neutral-200',
 };
 
 const cardPadding = {
@@ -88,7 +88,7 @@ export const CardTitle: React.FC<CardTitleProps> = ({
   return (
     <Component
       className={cn(
-        'font-semibold leading-none tracking-tight text-neutral-900 dark:text-white',
+        'font-semibold leading-none tracking-tight text-neutral-900',
         titleSizes[size],
         className
       )}
@@ -110,7 +110,7 @@ export const CardDescription: React.FC<CardDescriptionProps> = ({
 }) => {
   return (
     <p
-      className={cn('text-sm text-neutral-600 dark:text-neutral-300', className)}
+      className={cn('text-sm text-neutral-600', className)}
       {...props}
     >
       {children}

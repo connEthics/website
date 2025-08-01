@@ -9,6 +9,10 @@ import {
   Heading,
   Text
 } from "@/design-system/components";
+import ConnEthicsHero from "@/components/mui/ConnEthicsHero";
+import ConnEthicsButton from "@/components/mui/ConnEthicsButton";
+import ConnEthicsCard from "@/components/mui/ConnEthicsCard";
+import { Box } from "@mui/material";
 
 export default function Home() {
   const services = [
@@ -42,41 +46,25 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 transition-colors">
-      {/* Hero Section */}
-      <Section padding="xl" className="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-neutral-800 dark:to-neutral-900">
-        <Container>
-          <div className="text-center">
-            <Heading as="h1" size="6xl" className="mb-6">
-              Ethical Connections in a{" "}
-              <span className="text-primary-600 dark:text-primary-400">Competitive World</span>
-            </Heading>
-            <Text size="xl" variant="muted" className="mb-8 max-w-4xl mx-auto">
-              We build products and animate business ecosystems based on radical candor, 
-              integrity, and innovation. Delivering high-quality services that align 
-              technical, operational, and execution strategies.
-            </Text>
-            <Stack direction="horizontal" justify="center" gap="md" className="flex-col sm:flex-row">
-              <Link
-                href="/contact"
-                className="bg-primary-900 dark:bg-primary-700 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-800 dark:hover:bg-primary-600 transition-colors duration-200 flex items-center justify-center"
-              >
-                Start Your Journey
-                <ArrowRightIcon className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                href="/services"
-                className="border-2 border-primary-900 dark:border-primary-400 text-primary-900 dark:text-primary-400 px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-900 dark:hover:bg-primary-400 hover:text-white dark:hover:text-neutral-900 transition-colors duration-200 text-center"
-              >
-                Our Services
-              </Link>
-            </Stack>
-          </div>
-        </Container>
-      </Section>
+    <div className="min-h-screen bg-white transition-colors">
+      {/* Hero Section - Material UI Component */}
+      <ConnEthicsHero
+        title="Ethical Connections in a Competitive World"
+        subtitle="ConnEthics"
+        description="We build products and animate business ecosystems based on radical candor, integrity, and innovation. Delivering high-quality services that align technical, operational, and execution strategies."
+        primaryAction={{
+          label: "Start Your Journey",
+          href: "/contact"
+        }}
+        secondaryAction={{
+          label: "Our Services", 
+          href: "/services"
+        }}
+        variant="gradient"
+      />
 
       {/* Services Section */}
-      <Section padding="xl" className="bg-white dark:bg-neutral-900">
+      <Section padding="xl" className="bg-white">
         <Container>
           <div className="text-center mb-16">
             <Heading as="h2" size="4xl" className="mb-4">
@@ -94,8 +82,8 @@ export default function Home() {
               return (
                 <Card key={index} variant="elevated" padding="lg" className="h-full">
                   <CardHeader className="pb-4">
-                    <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                      <IconComponent className="h-6 w-6 text-primary-600" />
                     </div>
                     <CardTitle size="xl">
                       {service.title}
@@ -122,7 +110,7 @@ export default function Home() {
       </Section>
 
       {/* Benefits Section */}
-      <Section padding="xl" className="bg-neutral-100 dark:bg-neutral-800">
+      <Section padding="xl" className="bg-gray-50">
         <Container>
           <Grid cols={1} responsive={{ lg: 2 }} gap="xl" className="items-center">
             <div>
@@ -137,59 +125,47 @@ export default function Home() {
               <Grid cols={1} responsive={{ sm: 2 }} gap="md">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 text-green-500 dark:text-green-400 mr-3 flex-shrink-0" />
+                    <CheckCircleIcon className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
                     <Text variant="body">{benefit}</Text>
                   </div>
                 ))}
               </Grid>
             </div>
             
-            <Card variant="elevated" padding="lg">
-              <CardHeader>
-                <CardTitle size="2xl">
-                  Ready to Get Started?
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="mb-6">
+            <Box sx={{ maxWidth: 600 }}>
+              <ConnEthicsCard
+                variant="elevated"
+                title="Ready to Get Started?"
+                subtitle="Contact Us Today"
+                actions={
+                  <Link href="/contact" style={{ textDecoration: 'none' }}>
+                    <ConnEthicsButton variant="primary" size="large" fullWidth>
+                      Book Consultation
+                    </ConnEthicsButton>
+                  </Link>
+                }
+              >
+                <Text size="lg" variant="muted">
                   Schedule a consultation to discuss how we can help your
                   organization implement self-sovereign identity, gain competitive intelligence, 
                   and optimize product leadership strategies.
-                </CardDescription>
-                <Link
-                  href="/contact"
-                  className="bg-primary-900 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-800 dark:hover:bg-primary-600 transition-colors duration-200 inline-flex items-center w-full justify-center"
-                >
-                  Book Consultation
-                  <ArrowRightIcon className="ml-2 h-4 w-4" />
-                </Link>
-              </CardContent>
-            </Card>
+                </Text>
+              </ConnEthicsCard>
+            </Box>
           </Grid>
         </Container>
       </Section>
 
-      {/* CTA Section */}
-      <Section padding="xl" className="bg-primary-900 dark:bg-primary-800 text-white">
-        <Container>
-          <div className="text-center">
-            <Heading as="h2" size="4xl" className="mb-4 text-white">
-              Building Ethical Business Ecosystems
-            </Heading>
-            <Text size="xl" className="mb-8 max-w-3xl mx-auto text-primary-100">
-              Join leading organizations that trust ConnEthics to deliver clarity 
-              and purpose in challenging competitive environments.
-            </Text>
-            <Link
-              href="/about"
-              className="bg-white dark:bg-neutral-100 text-primary-900 dark:text-primary-800 px-8 py-4 rounded-lg text-lg font-medium hover:bg-neutral-100 dark:hover:bg-neutral-200 transition-colors duration-200 inline-flex items-center"
-            >
-              Learn About Us
-              <ArrowRightIcon className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </Container>
-      </Section>
+      {/* CTA Section - Material UI Hero */}
+      <ConnEthicsHero
+        title="Building Ethical Business Ecosystems"
+        description="Join leading organizations that trust ConnEthics to deliver clarity and purpose in challenging competitive environments."
+        primaryAction={{
+          label: "Learn About Us",
+          href: "/about"
+        }}
+        variant="default"
+      />
     </div>
   );
 }

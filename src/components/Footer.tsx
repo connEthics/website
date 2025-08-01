@@ -29,12 +29,13 @@ export default function Footer() {
         { name: 'White Papers', href: '/insights' },
         { name: 'Case Studies', href: '/insights' },
         { name: 'Newsletter', href: '/contact' },
+        { name: 'Design System', href: '/design-system-demo' },
       ],
     },
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -52,13 +53,13 @@ export default function Footer() {
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
+              <h3 className="text-lg font-semibold mb-4 text-white">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
+                      className="text-gray-300 hover:text-white transition-all duration-200"
                     >
                       {link.name}
                     </Link>
@@ -71,25 +72,28 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} ConnEthics. All rights reserved.
-            </p>
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+              <p className="text-gray-400 text-sm">
+                © {currentYear} ConnEthics. All rights reserved.
+              </p>
+              <div id="wcb" className="carbonbadge wcb-d"></div>
+            </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
                 href="/privacy"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
+                className="text-gray-400 hover:text-white text-sm transition-all duration-200"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/legal"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
+                className="text-gray-400 hover:text-white text-sm transition-all duration-200"
               >
                 Legal Mentions
               </Link>
               <Link
                 href="/cookies"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
+                className="text-gray-400 hover:text-white text-sm transition-all duration-200"
               >
                 Cookie Policy
               </Link>

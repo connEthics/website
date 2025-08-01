@@ -2,13 +2,13 @@ import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline
 
 export default function Contact() {
   return (
-    <div className="min-h-screen py-20 bg-white dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Get In Touch
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Ready to build ethical connections in your competitive environment? 
             Let&apos;s discuss how ConnEthics can bring clarity and purpose to your business challenges.
           </p>
@@ -17,29 +17,29 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
             <div className="space-y-6">
               <div className="flex items-start">
-                <EnvelopeIcon className="h-6 w-6 text-blue-600 dark:text-blue-400 mt-1 mr-4" />
+                <EnvelopeIcon className="h-6 w-6 text-blue-600 mt-1 mr-4" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3>
-                  <p className="text-gray-600 dark:text-gray-300">hello@connethics.com</p>
-                  <p className="text-gray-600 dark:text-gray-300">consultation@connethics.com</p>
+                  <h3 className="font-semibold text-gray-900">Email</h3>
+                  <p className="text-gray-600">hello@connethics.com</p>
+                  <p className="text-gray-600">consultation@connethics.com</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <PhoneIcon className="h-6 w-6 text-blue-600 dark:text-blue-400 mt-1 mr-4" />
+                <PhoneIcon className="h-6 w-6 text-blue-600 mt-1 mr-4" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3>
-                  <p className="text-gray-600 dark:text-gray-300">+33 6 62 62 78 94</p>
-                  <p className="text-gray-600 dark:text-gray-300">Available Mon-Fri, 9AM-6PM CET</p>
+                  <h3 className="font-semibold text-gray-900">Phone</h3>
+                  <p className="text-gray-600">+33 6 62 62 78 94</p>
+                  <p className="text-gray-600">Available Mon-Fri, 9AM-6PM CET</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <MapPinIcon className="h-6 w-6 text-blue-600 dark:text-blue-400 mt-1 mr-4" />
+                <MapPinIcon className="h-6 w-6 text-blue-600 mt-1 mr-4" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Office</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="font-semibold text-gray-900">Office</h3>
+                  <p className="text-gray-600">
                     21 rue Paul Déroulède<br />
                     92270 Bois-Colombes<br />
                     France
@@ -48,23 +48,23 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">What to Expect</h3>
-              <ul className="space-y-3 text-gray-800 dark:text-gray-200">
+            <div className="mt-12 bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">What to Expect</h3>
+              <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                  <span className="text-blue-600 mr-2">✓</span>
                   Initial consultation within 24 hours
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                  <span className="text-blue-600 mr-2">✓</span>
                   Customized assessment of your needs
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                  <span className="text-blue-600 mr-2">✓</span>
                   Detailed proposal and timeline
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
+                  <span className="text-blue-600 mr-2">✓</span>
                   Transparent pricing and deliverables
                 </li>
               </ul>
@@ -94,23 +94,23 @@ export default function Contact() {
                 Schedule a personalized consultation to discover tailored solutions for your organization.
               </p>
 
-              <div className="bg-blue-50 dark:bg-blue-800 border border-blue-200 dark:border-blue-600 p-6 rounded-lg mb-8">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-3">What We&apos;ll Cover:</h4>
-                <ul className="text-left space-y-2 text-gray-900 dark:text-gray-100">
+              <div className="bg-blue-50 p-6 rounded-lg mb-8">
+                <h4 className="font-semibold text-gray-900 mb-3">What We&apos;ll Cover:</h4>
+                <ul className="text-left space-y-2 text-gray-600">
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-300 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Understanding your current challenges and objectives
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-300 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Exploring relevant solutions and approaches
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-300 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Discussing next steps and potential collaboration
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-300 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Q&A session tailored to your specific needs
                   </li>
                 </ul>

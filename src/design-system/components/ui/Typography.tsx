@@ -45,7 +45,7 @@ export const Heading: React.FC<HeadingProps> = ({
   return (
     <Component
       className={cn(
-        'text-neutral-900 dark:text-white leading-tight tracking-tight',
+        'text-neutral-900 leading-tight tracking-tight',
         headingSizes[size],
         headingWeights[weight],
         className
@@ -78,10 +78,10 @@ const textSizes = {
 };
 
 const textVariants = {
-  body: 'text-neutral-900 dark:text-neutral-100',
-  muted: 'text-neutral-600 dark:text-neutral-300',
-  subtle: 'text-neutral-500 dark:text-neutral-400',
-  accent: 'text-primary-600 dark:text-primary-400',
+  body: 'text-neutral-900',
+  muted: 'text-neutral-600',
+  subtle: 'text-neutral-500',
+  accent: 'text-primary-600',
 };
 
 const textWeights = {
@@ -124,9 +124,9 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const linkVariants = {
-  default: 'text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300',
-  muted: 'text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100',
-  accent: 'text-primary-900 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300',
+  default: 'text-primary-600 hover:text-primary-700',
+  muted: 'text-neutral-600 hover:text-neutral-900',
+  accent: 'text-primary-900 hover:text-primary-800',
 };
 
 const linkUnderlines = {
@@ -145,7 +145,7 @@ export const Link: React.FC<LinkProps> = ({
   return (
     <a
       className={cn(
-        'transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-900 rounded-sm',
+        'transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white rounded-sm',
         linkVariants[variant],
         linkUnderlines[underline],
         className
@@ -169,14 +169,14 @@ export const Code: React.FC<CodeProps> = ({
   children,
   ...props
 }) => {
-  const baseClasses = 'font-mono text-neutral-800 dark:text-neutral-200';
+  const baseClasses = 'font-mono text-neutral-800';
   
   if (variant === 'block') {
     return (
       <pre
         className={cn(
           baseClasses,
-          'bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg overflow-x-auto border dark:border-neutral-700',
+          'bg-neutral-100 p-4 rounded-lg overflow-x-auto border',
           className
         )}
         {...props}
@@ -190,7 +190,7 @@ export const Code: React.FC<CodeProps> = ({
     <code
       className={cn(
         baseClasses,
-        'bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded text-sm border dark:border-neutral-700',
+        'bg-neutral-100 px-1.5 py-0.5 rounded text-sm border',
         className
       )}
       {...props}

@@ -1,6 +1,75 @@
 @import "tailwindcss";
 
-/* Custom CSS variables for primary colors */
+/* ===============================================
+   SIMPLIFIED LIGHT MODE ONLY
+   =============================================== */
+
+/* Root color scheme - LIGHT ONLY */
+:root {
+  color-scheme: light;
+  --transition-theme: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Force light mode regardless of system preferences */
+html {
+  color-scheme: light !important;
+}
+
+/* Global smooth transitions */
+html {
+  transition: background-color 0.2s ease;
+  background-color: white !important;
+}
+
+*,
+*::before,
+*::after {
+  transition: var(--transition-theme);
+}
+
+/* Force body to always stay light - override any system dark mode */
+body {
+  background-color: white !important;
+  transition: var(--transition-theme);
+}
+
+/* Force all main containers to stay light */
+main {
+  background-color: white !important;
+}
+
+/* Override any potential dark mode styles from browser/system - ONLY backgrounds */
+@media (prefers-color-scheme: dark) {
+  html, body, main, [data-theme="light"] {
+    background-color: white !important;
+  }
+  
+  /* Ensure containers stay light */
+  .min-h-screen {
+    background-color: white !important;
+  }
+}
+
+/* Ensure consistent cursor behavior for all interactive elements */
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[role="button"]:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
+/* ===============================================
+   SIMPLE PRIMARY COLOR SYSTEM - LIGHT ONLY
+   =============================================== */
 :root {
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
@@ -15,144 +84,4 @@
   --color-primary-950: #172554;
 }
 
-/* Utility classes for primary colors */
-.bg-primary-50 { background-color: var(--color-primary-50); }
-.bg-primary-100 { background-color: var(--color-primary-100); }
-.bg-primary-200 { background-color: var(--color-primary-200); }
-.bg-primary-300 { background-color: var(--color-primary-300); }
-.bg-primary-400 { background-color: var(--color-primary-400); }
-.bg-primary-500 { background-color: var(--color-primary-500); }
-.bg-primary-600 { background-color: var(--color-primary-600); }
-.bg-primary-700 { background-color: var(--color-primary-700); }
-.bg-primary-800 { background-color: var(--color-primary-800); }
-.bg-primary-900 { background-color: var(--color-primary-900); }
-.bg-primary-950 { background-color: var(--color-primary-950); }
-
-.text-primary-50 { color: var(--color-primary-50); }
-.text-primary-100 { color: var(--color-primary-100); }
-.text-primary-200 { color: var(--color-primary-200); }
-.text-primary-300 { color: var(--color-primary-300); }
-.text-primary-400 { color: var(--color-primary-400); }
-.text-primary-500 { color: var(--color-primary-500); }
-.text-primary-600 { color: var(--color-primary-600); }
-.text-primary-700 { color: var(--color-primary-700); }
-.text-primary-800 { color: var(--color-primary-800); }
-.text-primary-900 { color: var(--color-primary-900); }
-.text-primary-950 { color: var(--color-primary-950); }
-
-.border-primary-50 { border-color: var(--color-primary-50); }
-.border-primary-100 { border-color: var(--color-primary-100); }
-.border-primary-200 { border-color: var(--color-primary-200); }
-.border-primary-300 { border-color: var(--color-primary-300); }
-.border-primary-400 { border-color: var(--color-primary-400); }
-.border-primary-500 { border-color: var(--color-primary-500); }
-.border-primary-600 { border-color: var(--color-primary-600); }
-.border-primary-700 { border-color: var(--color-primary-700); }
-.border-primary-800 { border-color: var(--color-primary-800); }
-.border-primary-900 { border-color: var(--color-primary-900); }
-.border-primary-950 { border-color: var(--color-primary-950); }
-
-/* Hover states */
-.hover\:bg-primary-50:hover { background-color: var(--color-primary-50); }
-.hover\:bg-primary-100:hover { background-color: var(--color-primary-100); }
-.hover\:bg-primary-200:hover { background-color: var(--color-primary-200); }
-.hover\:bg-primary-300:hover { background-color: var(--color-primary-300); }
-.hover\:bg-primary-400:hover { background-color: var(--color-primary-400); }
-.hover\:bg-primary-500:hover { background-color: var(--color-primary-500); }
-.hover\:bg-primary-600:hover { background-color: var(--color-primary-600); }
-.hover\:bg-primary-700:hover { background-color: var(--color-primary-700); }
-.hover\:bg-primary-800:hover { background-color: var(--color-primary-800); }
-.hover\:bg-primary-900:hover { background-color: var(--color-primary-900); }
-.hover\:bg-primary-950:hover { background-color: var(--color-primary-950); }
-
-.hover\:text-primary-300:hover { color: var(--color-primary-300); }
-.hover\:text-primary-400:hover { color: var(--color-primary-400); }
-.hover\:text-primary-500:hover { color: var(--color-primary-500); }
-.hover\:text-primary-600:hover { color: var(--color-primary-600); }
-.hover\:text-primary-700:hover { color: var(--color-primary-700); }
-.hover\:text-primary-800:hover { color: var(--color-primary-800); }
-.hover\:text-primary-900:hover { color: var(--color-primary-900); }
-
-.hover\:border-primary-500:hover { border-color: var(--color-primary-500); }
-.hover\:border-primary-600:hover { border-color: var(--color-primary-600); }
-
-/* Focus ring colors */
-.focus\:ring-primary-500:focus { --tw-ring-color: var(--color-primary-500); }
-.focus\:border-primary-500:focus { border-color: var(--color-primary-500); }
-
-/* Dark mode variants */
-.dark .dark\:bg-primary-500 { background-color: var(--color-primary-500); }
-.dark .dark\:bg-primary-600 { background-color: var(--color-primary-600); }
-.dark .dark\:bg-primary-700 { background-color: var(--color-primary-700); }
-.dark .dark\:bg-primary-800 { background-color: var(--color-primary-800); }
-.dark .dark\:bg-primary-900\/20 { background-color: rgb(30 58 138 / 0.2); }
-.dark .dark\:bg-primary-900\/30 { background-color: rgb(30 58 138 / 0.3); }
-
-.dark .dark\:text-primary-200 { color: var(--color-primary-200); }
-.dark .dark\:text-primary-300 { color: var(--color-primary-300); }
-.dark .dark\:text-primary-400 { color: var(--color-primary-400); }
-
-.dark .dark\:border-primary-400 { border-color: var(--color-primary-400); }
-.dark .dark\:border-primary-600 { border-color: var(--color-primary-600); }
-.dark .dark\:border-primary-700 { border-color: var(--color-primary-700); }
-
-.dark .dark\:hover\:bg-primary-400:hover { background-color: var(--color-primary-400); }
-.dark .dark\:hover\:bg-primary-600:hover { background-color: var(--color-primary-600); }
-.dark .dark\:hover\:bg-primary-800:hover { background-color: var(--color-primary-800); }
-
-.dark .dark\:hover\:text-primary-300:hover { color: var(--color-primary-300); }
-.dark .dark\:hover\:text-primary-400:hover { color: var(--color-primary-400); }
-
 @import "../design-system/styles/components.css";
-
-/* Force Tailwind to include dark mode classes */
-@layer base {
-  html {
-    color-scheme: light dark;
-  }
-
-  html.dark {
-    color-scheme: dark;
-  }
-
-  html.light {
-    color-scheme: light;
-  }
-}
-
-/* Ensure dark mode works properly with explicit styles */
-@layer utilities {
-  .dark {
-    color-scheme: dark;
-  }
-  
-  .light {
-    color-scheme: light;
-  }
-}
-
-/* Additional dark mode support for prose content */
-.dark .prose {
-  color: #e5e7eb;
-}
-
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4,
-.dark .prose h5,
-.dark .prose h6 {
-  color: #f9fafb;
-}
-
-.dark .prose strong {
-  color: #f9fafb;
-}
-
-.dark .prose a {
-  color: #60a5fa;
-}
-
-.dark .prose a:hover {
-  color: #93c5fd;
-}
