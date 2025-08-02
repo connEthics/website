@@ -81,7 +81,7 @@ export default function SimpleCustomerPortalPage() {
                 Secure Portal Access
               </h3>
               <p className="text-sm text-gray-600 mb-6">
-                Click below to access your customer portal. You'll be asked to enter your email address and verify it with a one-time code sent by Stripe.
+                Click below to access your customer portal. You&apos;ll be asked to enter your email address and verify it with a one-time code sent by Stripe.
               </p>
             </div>
 
