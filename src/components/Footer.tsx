@@ -28,6 +28,7 @@ export default function Footer() {
       links: [
         { name: 'About Us', href: '/about' },
         { name: 'Our Team', href: '/about#team' },
+        { name: 'Customer Portal', href: '/customer-portal' },
         { name: 'Careers', href: '/contact' },
         { name: 'Contact', href: '/contact' },
       ],

@@ -12,6 +12,10 @@ import { ServiceTier, SERVICE_TIERS } from '@/lib/stripe';
 export default function ConsultingServicesPage() {
   const pricingRef = useRef<HTMLDivElement>(null);
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
+  const [customerEmail, setCustomerEmail] = useState<string>('');
+  const [showEmailInput, setShowEmailInput] = useState<boolean>(false);
+  const [pendingTier, setPendingTier] = useState<ServiceTier | null>(null);
+  const [pendingServiceKey, setPendingServiceKey] = useState<string | null>(null);
 
   useEffect(() => {
     // Check URL parameters for success/canceled state
@@ -44,15 +48,31 @@ export default function ConsultingServicesPage() {
   };
 
   const handleSelectTier = async (tier: ServiceTier) => {
-    try {
-      // Get the tier key from SERVICE_TIERS
-      const tierKey = Object.keys(SERVICE_TIERS).find(
-        key => SERVICE_TIERS[key as keyof typeof SERVICE_TIERS].name === tier.name
-      );
+    // Show email input form first
+    setPendingTier(tier);
+    setPendingServiceKey(null);
+    setShowEmailInput(true);
+  };
 
-      if (!tierKey) {
-        console.error('Tier key not found for:', tier.name);
-        return;
+  const proceedWithCheckout = async () => {
+    try {
+      let tierKey: string | undefined;
+      let additionalServiceKey: string | undefined;
+
+      if (pendingTier) {
+        // Get the tier key from SERVICE_TIERS
+        tierKey = Object.keys(SERVICE_TIERS).find(
+          key => SERVICE_TIERS[key as keyof typeof SERVICE_TIERS].name === pendingTier.name
+        );
+
+        if (!tierKey) {
+          console.error('Tier key not found for:', pendingTier.name);
+          return;
+        }
+      }
+
+      if (pendingServiceKey) {
+        additionalServiceKey = pendingServiceKey;
       }
 
       // Create checkout session
@@ -63,7 +83,9 @@ export default function ConsultingServicesPage() {
         },
         body: JSON.stringify({
           tierKey,
+          additionalServiceKey,
           returnUrl: window.location.origin + '/consulting-services',
+          customerEmail: customerEmail.trim() || undefined,
         }),
       });
 
@@ -88,49 +110,67 @@ export default function ConsultingServicesPage() {
         type: 'error',
         text: 'An error occurred. Please try again or contact us for assistance.'
       });
+    } finally {
+      // Reset form state
+      setShowEmailInput(false);
+      setPendingTier(null);
+      setPendingServiceKey(null);
+      setCustomerEmail('');
     }
   };
 
   const handleAdditionalService = async (serviceKey: string) => {
-    try {
-      // Create checkout session for additional service
-      const response = await fetch('/api/stripe/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          additionalServiceKey: serviceKey,
-          returnUrl: window.location.origin + '/consulting-services',
-        }),
-      });
-
-      const { url, error } = await response.json();
-
-      if (error) {
-        console.error('Error creating checkout session:', error);
-        setMessage({
-          type: 'error',
-          text: 'Unable to create checkout session. Please try again or contact us.'
-        });
-        return;
-      }
-
-      if (url) {
-        // Redirect to Stripe Checkout
-        window.location.href = url;
-      }
-    } catch (error) {
-      console.error('Error selecting additional service:', error);
-      setMessage({
-        type: 'error',
-        text: 'An error occurred. Please try again or contact us for assistance.'
-      });
-    }
+    // Show email input form first
+    setPendingServiceKey(serviceKey);
+    setPendingTier(null);
+    setShowEmailInput(true);
   };
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Email Input Modal */}
+      {showEmailInput && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">
+              Complete Your Purchase
+            </h3>
+            <p className="text-sm text-gray-600 mb-4">
+              {pendingTier ? `You've selected: ${pendingTier.name}` : 'Additional service selected'}
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              Please provide your email address (optional, but helps us link multiple purchases to your account):
+            </p>
+            <input
+              type="email"
+              value={customerEmail}
+              onChange={(e) => setCustomerEmail(e.target.value)}
+              placeholder="your-email@company.com"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 mb-4"
+            />
+            <div className="flex gap-3">
+              <button
+                onClick={proceedWithCheckout}
+                className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Continue to Payment
+              </button>
+              <button
+                onClick={() => {
+                  setShowEmailInput(false);
+                  setPendingTier(null);
+                  setPendingServiceKey(null);
+                  setCustomerEmail('');
+                }}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Message Display */}
       {message && (
         <div className={`p-4 mb-6 mx-4 sm:mx-6 lg:mx-8 rounded-md ${
@@ -194,30 +234,43 @@ export default function ConsultingServicesPage() {
             </p>
           </div>
           
-          {/* Placeholder for testimonials - to be implemented in Phase 3 */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Client Testimonials */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-gray-700 italic mb-4">
-                &ldquo;ConnEthics helped us scale our product organization from 20 to 100+ people while maintaining quality and velocity. Their strategic guidance was invaluable during our growth phase.&rdquo;
+                &ldquo;Working with ConnEthics on our entrepreneurship program exceeded all expectations. They helped us navigate from zero to €2 million in revenue within 18 months, establishing a lean but effective product and R&amp;D organization of 15 people. Their structured approach to innovation management was game-changing.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <p className="font-semibold text-gray-900">Sarah Chen</p>
-                  <p className="text-gray-600 text-sm">Head of Product, TechScale</p>
+                  <p className="font-semibold text-gray-900">Innovation Director</p>
+                  <p className="text-gray-600 text-sm">Belgian Insurance Group</p>
                 </div>
               </div>
             </div>
             
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-gray-700 italic mb-4">
-                &ldquo;The operational advisor engagement transformed how our teams work together. We saw immediate improvements in delivery speed and quality.&rdquo;
+                &ldquo;ConnEthics&apos; product due diligence was pivotal during a challenging funding transition. They provided clarity on delivery challenges, coached our portfolio company&apos;s leadership, and restored board confidence. This intervention directly enabled business growth and a successful Series A round.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <p className="font-semibold text-gray-900">Marcus Weber</p>
-                  <p className="text-gray-600 text-sm">CTO, FinTech Solutions</p>
+                  <p className="font-semibold text-gray-900">Managing Partner</p>
+                  <p className="text-gray-600 text-sm">Swiss VC</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <p className="text-gray-700 italic mb-4">
+                &ldquo;ConnEthics designed our global interoperability platform and guided our organization through complex digital transformation. Their work enabled us to deploy unified digital payment services and booking platforms worldwide, opening entirely new SMB market segments we previously couldn&apos;t address.&rdquo;
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                <div>
+                  <p className="font-semibold text-gray-900">IT Program Director</p>
+                  <p className="text-gray-600 text-sm">International Airline</p>
                 </div>
               </div>
             </div>

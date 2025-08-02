@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
 import { getStripeServer, SERVICE_TIERS, ADDITIONAL_SERVICES } from '@/lib/stripe';
 
 export async function POST(request: NextRequest) {
   try {
     const stripe = getStripeServer();
-    const { tierKey, additionalServiceKey, returnUrl } = await request.json();
+    const { tierKey, additionalServiceKey, returnUrl, customerEmail } = await request.json();
 
     // Validate input
     if (!tierKey && !additionalServiceKey) {
@@ -41,8 +42,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Look for existing customer if email is provided
+    let existingCustomer = null;
+    if (customerEmail) {
+      try {
+        const customers = await stripe.customers.list({
+          email: customerEmail,
+          limit: 1,
+        });
+        if (customers.data.length > 0) {
+          existingCustomer = customers.data[0];
+        }
+      } catch (error) {
+        console.log('Customer lookup failed, will create new customer:', error);
+      }
+    }
+
     // Create Checkout Session
-    const session = await stripe.checkout.sessions.create({
+    const sessionData: Stripe.Checkout.SessionCreateParams = {
       mode,
       payment_method_types: ['card'],
       line_items: [
@@ -51,12 +68,8 @@ export async function POST(request: NextRequest) {
           quantity: 1,
         },
       ],
-      success_url: `${returnUrl || process.env.NEXT_PUBLIC_BASE_URL}/consulting-services?session_id={CHECKOUT_SESSION_ID}&success=true`,
-      cancel_url: `${returnUrl || process.env.NEXT_PUBLIC_BASE_URL}/consulting-services?canceled=true`,
-      automatic_tax: {
-        enabled: true,
-      },
-      customer_creation: 'always',
+      success_url: `${returnUrl || process.env.NEXT_PUBLIC_BASE_URL + '/consulting-services'}?session_id={CHECKOUT_SESSION_ID}&success=true`,
+      cancel_url: `${returnUrl || process.env.NEXT_PUBLIC_BASE_URL + '/consulting-services'}?canceled=true`,
       consent_collection: {
         terms_of_service: 'required',
       },
@@ -70,7 +83,39 @@ export async function POST(request: NextRequest) {
         tier_key: tierKey || '',
         additional_service_key: additionalServiceKey || '',
       },
-    });
+      // For one-time payments, ensure invoice is created and appears in customer portal
+      ...(mode === 'payment' && {
+        invoice_creation: {
+          enabled: true,
+          invoice_data: {
+            description: `ConnEthics ${serviceName}`,
+            metadata: {
+              service_name: serviceName,
+              service_type: 'one_time',
+            }
+          }
+        }
+      })
+    };
+
+    // Handle customer assignment
+    if (existingCustomer) {
+      // Use existing customer
+      sessionData.customer = existingCustomer.id;
+      console.log(`Using existing customer: ${existingCustomer.id} (${existingCustomer.email})`);
+    } else {
+      // Only set customer_creation for payment mode (one-time payments)
+      // For subscriptions, Stripe will handle customer creation automatically
+      if (mode === 'payment') {
+        sessionData.customer_creation = 'always';
+      }
+      // For subscription mode, we don't set customer_creation - Stripe handles it
+    }
+
+    // Disable automatic tax for local testing (can be enabled in production)
+    // sessionData.automatic_tax = { enabled: true };
+
+    const session = await stripe.checkout.sessions.create(sessionData);
 
     return NextResponse.json({ 
       sessionId: session.id,
