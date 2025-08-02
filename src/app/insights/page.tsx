@@ -8,6 +8,15 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Guide Complet : Identité Souveraine (SSI) avec ACA-Py",
+      excerpt: "Documentation complète des scénarios d'identité souveraine avec ACA-Py, incluant des exemples pratiques et des cas d'usage entreprise.",
+      date: "August 2, 2025",
+      category: "Self-Sovereign Identity",
+      readTime: "12 min read",
+      slug: "identite-souveraine-aca-py-guide",
+      featured: true
+    },
+    {
       title: "Aligning Product Teams with Business Impact",
       excerpt: "Discover essential strategies for effectively aligning your product teams with business impact objectives and creating sustainable synergy in competitive environments.",
       date: "July 30, 2025",
@@ -139,8 +148,28 @@ export default function Insights() {
               
               return (
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
-                  <ConnEthicsCard variant="elevated" sx={{ height: '100%' }}>
+                  <ConnEthicsCard 
+                    variant="elevated" 
+                    sx={{ 
+                      height: '100%',
+                      ...(article.featured && {
+                        border: '2px solid',
+                        borderColor: 'primary.main',
+                        bgcolor: 'primary.50'
+                      })
+                    }}
+                  >
                     <Box sx={{ p: 4 }}>
+                      {article.featured && (
+                        <Box sx={{ mb: 2 }}>
+                          <Chip
+                            label="🌟 Article Featured"
+                            color="primary"
+                            size="small"
+                            sx={{ mb: 2 }}
+                          />
+                        </Box>
+                      )}
                       <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 3 }}>
                         <Chip
                           label={article.category}
