@@ -8,6 +8,15 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Guide Pratique : Identité Souveraine avec ACA-Py",
+      excerpt: "Guide complet pour comprendre et implémenter l'identité souveraine (SSI) avec ACA-Py. Scénarios pratiques, exemples de code et cas d'usage entreprise.",
+      date: "Août 2, 2025",
+      category: "Self-Sovereign Identity",
+      readTime: "15 min read",
+      slug: "identite-souveraine-aca-py-guide",
+      featured: true
+    },
+    {
       title: "Aligning Product Teams with Business Impact",
       excerpt: "Discover essential strategies for effectively aligning your product teams with business impact objectives and creating sustainable synergy in competitive environments.",
       date: "July 30, 2025",
@@ -139,7 +148,33 @@ export default function Insights() {
               
               return (
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
-                  <ConnEthicsCard variant="elevated" sx={{ height: '100%' }}>
+                  <ConnEthicsCard 
+                    variant="elevated" 
+                    sx={{ 
+                      height: '100%',
+                      ...(article.featured && {
+                        border: 2,
+                        borderColor: 'primary.main',
+                        position: 'relative',
+                        '&::before': {
+                          content: '"⭐"',
+                          position: 'absolute',
+                          top: -8,
+                          right: -8,
+                          backgroundColor: 'primary.main',
+                          color: 'white',
+                          borderRadius: '50%',
+                          width: 24,
+                          height: 24,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '12px',
+                          zIndex: 1
+                        }
+                      })
+                    }}
+                  >
                     <Box sx={{ p: 4 }}>
                       <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 3 }}>
                         <Chip
