@@ -20,15 +20,15 @@ interface ConnEthicsHeroProps {
     onClick?: () => void;
   };
   backgroundImage?: string;
-  variant?: 'default' | 'gradient' | 'minimal';
+  variant?: 'default' | 'gradient' | 'minimal' | 'large';
 }
 
 const HeroContainer = styled(Box)<{ customvariant?: string; bgimage?: string }>(({ theme, customvariant, bgimage }) => ({
   position: 'relative',
-  minHeight: '60vh',
+  minHeight: 'auto',
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(8, 0),
+  padding: theme.spacing(4, 0),
   
   ...(customvariant === 'gradient' && {
     background: `linear-gradient(135deg, ${theme.palette.primary.main}10 0%, ${theme.palette.primary.main}20 100%)`,
@@ -36,6 +36,11 @@ const HeroContainer = styled(Box)<{ customvariant?: string; bgimage?: string }>(
   
   ...(customvariant === 'minimal' && {
     backgroundColor: theme.palette.background.default,
+  }),
+  
+  ...(customvariant === 'large' && {
+    minHeight: '60vh',
+    padding: theme.spacing(8, 0),
   }),
   
   ...(bgimage && {

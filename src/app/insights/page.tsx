@@ -101,7 +101,7 @@ export default function Insights() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ minHeight: '10vh', bgcolor: 'background.default' }}>
       {/* Hero Section */}
       <ConnEthicsHero
         variant="default"
@@ -111,10 +111,10 @@ export default function Insights() {
       />
 
       {/* Content Section */}
-      <Box sx={{ py: 8, bgcolor: 'grey.50' }}>
+      <Box sx={{ py: '32px', bgcolor: 'grey.50' }}>
         <Container maxWidth="lg">
           {/* Category Filter */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 6 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 3 }}>
             {categories.map((category) => (
               <Chip
                 key={category}
@@ -154,29 +154,15 @@ export default function Insights() {
                       height: '100%',
                       ...(article.featured && {
                         border: 2,
-                        borderColor: 'primary.main',
-                        position: 'relative',
-                        '&::before': {
-                          content: '"⭐"',
-                          position: 'absolute',
-                          top: -8,
-                          right: -8,
-                          backgroundColor: 'primary.main',
-                          color: 'white',
-                          borderRadius: '50%',
-                          width: 24,
-                          height: 24,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '12px',
-                          zIndex: 1
-                        }
-                      })
+                        borderColor: 'primary.main'
+                      }),
+                      '& .MuiCardContent-root': {
+                        padding: 0
+                      }
                     }}
                   >
-                    <Box sx={{ p: 4 }}>
-                      <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 3 }}>
+                    <Box sx={{ p: 3 }}>
+                      <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 2 }}>
                         <Chip
                           label={article.category}
                           color="primary"
@@ -184,12 +170,31 @@ export default function Insights() {
                           onClick={() => handleCategoryFilter(article.category)}
                           sx={{ cursor: 'pointer' }}
                         />
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                          {article.readTime}
-                        </Typography>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            {article.readTime}
+                          </Typography>
+                          {article.featured && (
+                            <Box
+                              sx={{
+                                backgroundColor: 'primary.main',
+                                color: 'white',
+                                borderRadius: '50%',
+                                width: 20,
+                                height: 20,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '10px'
+                              }}
+                            >
+                              ⭐
+                            </Box>
+                          )}
+                        </Stack>
                       </Stack>
                       
-                      <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                      <Typography variant="h5" component="h3" sx={{ mb: 1.5, fontWeight: 600 }}>
                         {hasFullArticle ? (
                           <Link 
                             href={getArticleUrl()} 
@@ -213,7 +218,7 @@ export default function Insights() {
                         )}
                       </Typography>
                       
-                      <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
+                      <Typography variant="body1" sx={{ mb: 2.5, color: 'text.secondary' }}>
                         {article.excerpt}
                       </Typography>
                       
