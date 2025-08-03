@@ -32,7 +32,7 @@ export default function ACAyGuide() {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 force-light-mode">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 pt-20 pb-8">
         {/* Navigation */}
         <div className="mb-8">
           <Link 

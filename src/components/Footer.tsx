@@ -38,7 +38,7 @@ export default function Footer() {
         { name: 'White Papers', href: '/insights' },
         { name: 'Case Studies', href: '/insights' },
         { name: 'Newsletter', href: '/contact' },
-        { name: 'MUI Demo', href: '/mui-demo' },
+        { name: 'Verifiable Credentials Technologies', href: '/insights/verifiable-credentials-technologies' },
       ],
     },
     {
