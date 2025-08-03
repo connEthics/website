@@ -267,7 +267,7 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
       {/* Floating Navigation Toggle */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-4 right-4 z-50 bg-white shadow-lg rounded-full p-3 hover:bg-slate-50 transition-colors lg:hidden"
+        className="fixed top-20 right-4 z-50 bg-white shadow-lg rounded-full p-3 hover:bg-slate-50 transition-colors lg:hidden"
         aria-label="Toggle navigation"
       >
         {isMenuOpen ? (
@@ -279,9 +279,10 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
 
       {/* Floating Table of Contents */}
       <nav
-        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
+        className={`fixed top-16 right-0 w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } lg:translate-x-0 lg:w-64 lg:shadow-lg`}
+        style={{ height: 'calc(100vh - 4rem)' }}
       >
         <div className="p-6 h-full overflow-y-auto">
           <h3 className="text-lg font-semibold text-slate-900 mb-4">
