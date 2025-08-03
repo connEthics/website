@@ -119,7 +119,7 @@ git push origin feature/inpi-comptes-annuels
 ### 1. Test de Recherche INPI
 ```
 1. Aller sur /inpi-search
-2. Saisir SIREN: 552081317 (Chanel)
+2. Saisir SIREN: 844407866 (CONNETHICS)
 3. Appuyer sur Entrée ou cliquer Rechercher
 4. Vérifier que les résultats s'affichent
 ```
@@ -149,19 +149,6 @@ Impact : Mineur - n'empêche pas l'utilisation de l'application
 Status : Accepté pour cette version
 ```
 
-### Erreur "Unexpected token 'I', "Internal S"... is not valid JSON"
-```
-Cette erreur indique que l'API INPI retourne du HTML/texte au lieu de JSON.
-Causes possibles :
-1. URL d'API incorrecte
-2. Authentification qui échoue
-3. Endpoint non disponible
-
-Solutions :
-1. Vérifier INPI_API_BASE_URL (doit finir par /api)
-2. Tester vos identifiants avec: node debug-inpi-api.js
-3. Consulter les logs serveur pour plus de détails
-```
 
 ### Erreur 401 - Identifiants INPI Invalides
 ```

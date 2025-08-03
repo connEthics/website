@@ -8,6 +8,15 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Guide Pratique : Identité Souveraine avec ACA-Py",
+      excerpt: "Guide complet pour comprendre et implémenter l'identité souveraine (SSI) avec ACA-Py. Scénarios pratiques, exemples de code et cas d'usage entreprise.",
+      date: "Août 2, 2025",
+      category: "Self-Sovereign Identity",
+      readTime: "15 min read",
+      slug: "identite-souveraine-aca-py-guide",
+      featured: true
+    },
+    {
       title: "Aligning Product Teams with Business Impact",
       excerpt: "Discover essential strategies for effectively aligning your product teams with business impact objectives and creating sustainable synergy in competitive environments.",
       date: "July 30, 2025",
@@ -92,7 +101,7 @@ export default function Insights() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ minHeight: '10vh', bgcolor: 'background.default' }}>
       {/* Hero Section */}
       <ConnEthicsHero
         variant="default"
@@ -102,10 +111,10 @@ export default function Insights() {
       />
 
       {/* Content Section */}
-      <Box sx={{ py: 8, bgcolor: 'grey.50' }}>
+      <Box sx={{ py: '32px', bgcolor: 'grey.50' }}>
         <Container maxWidth="lg">
           {/* Category Filter */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 6 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 3 }}>
             {categories.map((category) => (
               <Chip
                 key={category}
@@ -139,9 +148,21 @@ export default function Insights() {
               
               return (
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
-                  <ConnEthicsCard variant="elevated" sx={{ height: '100%' }}>
-                    <Box sx={{ p: 4 }}>
-                      <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 3 }}>
+                  <ConnEthicsCard 
+                    variant="elevated" 
+                    sx={{ 
+                      height: '100%',
+                      ...(article.featured && {
+                        border: 2,
+                        borderColor: 'primary.main'
+                      }),
+                      '& .MuiCardContent-root': {
+                        padding: 0
+                      }
+                    }}
+                  >
+                    <Box sx={{ p: 3 }}>
+                      <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 2 }}>
                         <Chip
                           label={article.category}
                           color="primary"
@@ -149,12 +170,31 @@ export default function Insights() {
                           onClick={() => handleCategoryFilter(article.category)}
                           sx={{ cursor: 'pointer' }}
                         />
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                          {article.readTime}
-                        </Typography>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            {article.readTime}
+                          </Typography>
+                          {article.featured && (
+                            <Box
+                              sx={{
+                                backgroundColor: 'primary.main',
+                                color: 'white',
+                                borderRadius: '50%',
+                                width: 20,
+                                height: 20,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '10px'
+                              }}
+                            >
+                              ⭐
+                            </Box>
+                          )}
+                        </Stack>
                       </Stack>
                       
-                      <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                      <Typography variant="h5" component="h3" sx={{ mb: 1.5, fontWeight: 600 }}>
                         {hasFullArticle ? (
                           <Link 
                             href={getArticleUrl()} 
@@ -178,7 +218,7 @@ export default function Insights() {
                         )}
                       </Typography>
                       
-                      <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
+                      <Typography variant="body1" sx={{ mb: 2.5, color: 'text.secondary' }}>
                         {article.excerpt}
                       </Typography>
                       
