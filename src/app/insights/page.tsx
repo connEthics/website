@@ -8,7 +8,7 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
-      title: "Technologies des Titres de Compétences Vérifiables",
+      title: "Technologies des Verifiable Credentials",
       excerpt: "Guide complet des technologies et standards qui façonnent l'écosystème des Verifiable Credentials : DIDComm, OpenID4VC, eIDAS, W3C-VC et plus.",
       date: "Janvier 3, 2025",
       category: "Trust & Identity",

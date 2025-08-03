@@ -413,9 +413,9 @@ export default function VerifiableCredentialsTechPage() {
       {/* Hero Section */}
       <ConnEthicsHero
         variant="default"
-        title="Technologies des Titres de Compétences Vérifiables"
+        title="Technologies des Verifiable Credentials"
         subtitle="L'écosystème technologique des Verifiable Credentials"
-        description="Découvrez les principales technologies et standards qui façonnent l'avenir de l'identité numérique décentralisée et de la vérification des compétences."
+        description="Découvrez les principales technologies et standards qui façonnent l'avenir de l'identité numérique décentralisée."
       />
 
       {/* Content Section */}
@@ -425,8 +425,7 @@ export default function VerifiableCredentialsTechPage() {
           <Box sx={{ mb: 6, textAlign: 'center' }}>
             <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: '800px', mx: 'auto' }}>
               L&apos;écosystème des Verifiable Credentials repose sur un ensemble de technologies et standards en constante évolution. 
-              Cette page présente les principales technologies qui façonnent l&apos;avenir de l&apos;identité numérique décentralisée 
-              et de la vérification des compétences.
+              Cette page présente les principales technologies qui façonnent l&apos;avenir de l&apos;identité numérique décentralisée.
             </Typography>
           </Box>
 

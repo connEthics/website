@@ -1,6 +1,6 @@
-# Technologies des Titres de Compétences Vérifiables
+# Technologies des Verifiable Credentials
 
-L'écosystème des Verifiable Credentials (VC) repose sur un ensemble de technologies et standards en constante évolution. Cette page présente les principales technologies qui façonnent l'avenir de l'identité numérique décentralisée et de la vérification des compétences.
+L'écosystème des Verifiable Credentials (VC) repose sur un ensemble de technologies et standards en constante évolution. Cette page présente les principales technologies qui façonnent l'avenir de l'identité numérique décentralisée.
 
 ## Technologies
 
@@ -45,7 +45,7 @@ L'écosystème des Verifiable Credentials (VC) repose sur un ensemble de technol
 **Description:** Réglementation européenne pour l'identification électronique et les services de confiance, incluant les wallets d'identité numérique.
 **Organisme:** Commission Européenne
 **Lien principal:** https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation
-**Documentation:** https://ec.europa.eu/digital-single-market/en/trust-services-and-electronic-identification
+**Documentation:** https://digital-strategy.ec.europa.eu/en/policies/discover-eidas
 **Exemple de code:**
 ```json
 {
