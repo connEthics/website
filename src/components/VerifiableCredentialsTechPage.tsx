@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { 
   Box, 
   Container, 
@@ -10,17 +11,19 @@ import {
   Card, 
   CardContent, 
   Collapse, 
-  IconButton, 
   Chip,
   Stack,
   TextField,
-  InputAdornment
+  InputAdornment,
+  Button,
+  Divider
 } from '@mui/material'
 import { 
-  ExpandMore as ExpandMoreIcon, 
   Search as SearchIcon,
   Link as LinkIcon,
-  Code as CodeIcon
+  Code as CodeIcon,
+  Description as DocumentationIcon,
+  Visibility as VisibilityIcon
 } from '@mui/icons-material'
 import { ConnEthicsHero, ConnEthicsButton } from '@/components/mui'
 import CodeExample from '@/components/CodeExample'
@@ -35,6 +38,7 @@ interface Technology {
   exempleCode: string
   codeLanguage: string
   details: string
+  image: string
 }
 
 // Parse the markdown content to extract technologies
@@ -56,7 +60,8 @@ function parseTechnologies(): Technology[] {
   "content": "Your hovercraft is full of eels."
 }`,
       codeLanguage: 'json',
-      details: 'DIDComm permet aux agents d\'identité de communiquer de manière sécurisée et privée sans dépendre d\'infrastructures centralisées. Il supporte le chiffrement bout en bout, l\'authentification mutuelle et la gestion des métadonnées de routage.'
+      details: 'DIDComm permet aux agents d\'identité de communiquer de manière sécurisée et privée sans dépendre d\'infrastructures centralisées. Il supporte le chiffrement bout en bout, l\'authentification mutuelle et la gestion des métadonnées de routage.',
+      image: '/tech-logos/didcomm.svg'
     },
     {
       id: 'openid4vc',
@@ -76,7 +81,8 @@ function parseTechnologies(): Technology[] {
   }
 }`,
       codeLanguage: 'json',
-      details: 'OpenID4VC standardise les flux d\'émission et de présentation de credentials dans l\'écosystème OpenID, facilitant l\'adoption par les systèmes existants tout en maintenant l\'interopérabilité avec les standards W3C.'
+      details: 'OpenID4VC standardise les flux d\'émission et de présentation de credentials dans l\'écosystème OpenID, facilitant l\'adoption par les systèmes existants tout en maintenant l\'interopérabilité avec les standards W3C.',
+      image: '/tech-logos/openid4vc.svg'
     },
     {
       id: 'eidas',
@@ -96,7 +102,8 @@ function parseTechnologies(): Technology[] {
   }
 }`,
       codeLanguage: 'json',
-      details: 'eIDAS 2.0 introduit le European Digital Identity Wallet, créant un cadre réglementaire pour l\'identité numérique souveraine à l\'échelle européenne avec reconnaissance mutuelle entre États membres.'
+      details: 'eIDAS 2.0 introduit le European Digital Identity Wallet, créant un cadre réglementaire pour l\'identité numérique souveraine à l\'échelle européenne avec reconnaissance mutuelle entre États membres.',
+      image: '/tech-logos/eidas.svg'
     },
     {
       id: 'did-indy',
@@ -116,7 +123,8 @@ function parseTechnologies(): Technology[] {
   }]
 }`,
       codeLanguage: 'json',
-      details: 'Indy utilise une blockchain permissionnée pour créer un registre décentralisé d\'identifiants, avec des mécanismes avancés de révocation et de confidentialité via les zero-knowledge proofs.'
+      details: 'Indy utilise une blockchain permissionnée pour créer un registre décentralisé d\'identifiants, avec des mécanismes avancés de révocation et de confidentialité via les zero-knowledge proofs.',
+      image: '/tech-logos/did-indy.svg'
     },
     {
       id: 'sd-jwt',
@@ -136,7 +144,8 @@ function parseTechnologies(): Technology[] {
   }
 }`,
       codeLanguage: 'json',
-      details: 'SD-JWT permet aux détenteurs de credentials de révéler sélectivement des informations spécifiques sans exposer l\'ensemble des données, répondant aux exigences de minimisation des données du RGPD.'
+      details: 'SD-JWT permet aux détenteurs de credentials de révéler sélectivement des informations spécifiques sans exposer l\'ensemble des données, répondant aux exigences de minimisation des données du RGPD.',
+      image: '/tech-logos/sd-jwt.svg'
     },
     {
       id: 'json-ld',
@@ -160,7 +169,8 @@ function parseTechnologies(): Technology[] {
   }
 }`,
       codeLanguage: 'json',
-      details: 'JSON-LD fournit la couche sémantique des Verifiable Credentials, permettant l\'interopérabilité entre différents systèmes grâce à des vocabulaires standardisés et une compréhension machine du contenu.'
+      details: 'JSON-LD fournit la couche sémantique des Verifiable Credentials, permettant l\'interopérabilité entre différents systèmes grâce à des vocabulaires standardisés et une compréhension machine du contenu.',
+      image: '/tech-logos/json-ld.svg'
     },
     {
       id: 'mdoc',
@@ -185,7 +195,8 @@ function parseTechnologies(): Technology[] {
   }]
 }`,
       codeLanguage: 'json',
-      details: 'mdoc utilise CBOR et des mécanismes cryptographiques avancés pour créer des documents d\'identité physiques et numériques interopérables, avec support de la vérification hors ligne et de la divulgation sélective.'
+      details: 'mdoc utilise CBOR et des mécanismes cryptographiques avancés pour créer des documents d\'identité physiques et numériques interopérables, avec support de la vérification hors ligne et de la divulgation sélective.',
+      image: '/tech-logos/mdoc.svg'
     },
     {
       id: 'w3c-vc',
@@ -216,90 +227,117 @@ function parseTechnologies(): Technology[] {
   }
 }`,
       codeLanguage: 'json',
-      details: 'W3C-VC constitue la fondation de l\'écosystème des credentials vérifiables, définissant les concepts fondamentaux d\'émetteur, détenteur et vérificateur, ainsi que les mécanismes de preuve cryptographique.'
+      details: 'W3C-VC constitue la fondation de l\'écosystème des credentials vérifiables, définissant les concepts fondamentaux d\'émetteur, détenteur et vérificateur, ainsi que les mécanismes de preuve cryptographique.',
+      image: '/tech-logos/w3c-vc.svg'
     }
   ]
 }
 
-function TechnologyCard({ technology, expanded, onToggle }: { 
+function TechnologyCard({ technology, showCode, onToggleCode }: { 
   technology: Technology; 
-  expanded: boolean; 
-  onToggle: () => void;
+  showCode: boolean; 
+  onToggleCode: () => void;
 }) {
   return (
     <Card 
       sx={{ 
         height: '100%',
-        cursor: 'pointer',
         transition: 'all 0.3s ease',
         '&:hover': {
-          transform: 'translateY(-4px)',
+          transform: 'translateY(-2px)',
           boxShadow: 3
         }
       }}
     >
-      <CardContent sx={{ p: 3 }}>
-        <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 2 }}>
-          <Typography variant="h5" component="h3" sx={{ fontWeight: 600, color: 'primary.main' }}>
-            {technology.name}
-          </Typography>
-          <IconButton 
-            onClick={(e) => {
-              e.stopPropagation()
-              onToggle()
-            }}
-            sx={{ 
-              transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform 0.3s ease'
+      <CardContent sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column' }}>
+        {/* Header with image and title */}
+        <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
+          <Box
+            sx={{
+              width: 48,
+              height: 48,
+              position: 'relative',
+              flexShrink: 0
             }}
           >
-            <ExpandMoreIcon />
-          </IconButton>
+            <Image
+              src={technology.image}
+              alt={`${technology.name} logo`}
+              width={48}
+              height={48}
+              style={{ objectFit: 'contain' }}
+            />
+          </Box>
+          <Typography variant="h5" component="h3" sx={{ fontWeight: 600, color: 'primary.main', flex: 1 }}>
+            {technology.name}
+          </Typography>
         </Stack>
         
-        <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
+        {/* Description */}
+        <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary', flexGrow: 1 }}>
           {technology.description}
         </Typography>
         
+        {/* Organization */}
         <Chip
           label={technology.organisme}
           size="small"
           variant="outlined"
-          sx={{ mb: 2 }}
+          sx={{ mb: 2, alignSelf: 'flex-start' }}
         />
         
-        <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
-          <IconButton
+        {/* Links with labels */}
+        <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
+          <Button
             size="small"
+            startIcon={<LinkIcon />}
             component="a"
             href={technology.lienPrincipal}
             target="_blank"
             rel="noopener noreferrer"
-            sx={{ color: 'primary.main' }}
+            variant="outlined"
+            sx={{ textTransform: 'none' }}
           >
-            <LinkIcon fontSize="small" />
-          </IconButton>
-          <IconButton
+            Information
+          </Button>
+          <Button
             size="small"
+            startIcon={<DocumentationIcon />}
             component="a"
             href={technology.documentation}
             target="_blank"
             rel="noopener noreferrer"
-            sx={{ color: 'secondary.main' }}
+            variant="outlined"
+            color="secondary"
+            sx={{ textTransform: 'none' }}
           >
-            <CodeIcon fontSize="small" />
-          </IconButton>
+            Documentation
+          </Button>
         </Stack>
         
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <Box sx={{ mt: 2 }}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-              Détails
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 3, color: 'text.secondary' }}>
-              {technology.details}
-            </Typography>
-            
+        <Divider sx={{ my: 2 }} />
+        
+        {/* Details */}
+        <Typography variant="h6" sx={{ mb: 1.5, fontWeight: 600 }}>
+          Détails
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
+          {technology.details}
+        </Typography>
+        
+        {/* Code button */}
+        <Button
+          variant="contained"
+          startIcon={<CodeIcon />}
+          onClick={onToggleCode}
+          sx={{ mt: 'auto', textTransform: 'none' }}
+        >
+          {showCode ? 'Masquer le code' : 'Voir le code'}
+        </Button>
+        
+        {/* Code example */}
+        <Collapse in={showCode} timeout="auto" unmountOnExit>
+          <Box sx={{ mt: 3 }}>
             <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
               Exemple de code
             </Typography>
@@ -315,7 +353,7 @@ function TechnologyCard({ technology, expanded, onToggle }: {
 }
 
 export default function VerifiableCredentialsTechPage() {
-  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
+  const [showCodeCards, setShowCodeCards] = useState<Set<string>>(new Set())
   const [searchTerm, setSearchTerm] = useState('')
   
   const technologies = useMemo(() => parseTechnologies(), [])
@@ -329,8 +367,8 @@ export default function VerifiableCredentialsTechPage() {
     )
   }, [technologies, searchTerm])
   
-  const handleToggleExpand = (id: string) => {
-    setExpandedCards(prev => {
+  const handleToggleCode = (id: string) => {
+    setShowCodeCards(prev => {
       const newSet = new Set(prev)
       if (newSet.has(id)) {
         newSet.delete(id)
@@ -340,6 +378,18 @@ export default function VerifiableCredentialsTechPage() {
       return newSet
     })
   }
+  
+  const handleShowAllCode = () => {
+    const allIds = new Set(filteredTechnologies.map(tech => tech.id))
+    setShowCodeCards(allIds)
+  }
+  
+  const handleHideAllCode = () => {
+    setShowCodeCards(new Set())
+  }
+  
+  const allCodeVisible = filteredTechnologies.length > 0 && 
+    filteredTechnologies.every(tech => showCodeCards.has(tech.id))
   
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
@@ -380,8 +430,8 @@ export default function VerifiableCredentialsTechPage() {
             </Typography>
           </Box>
 
-          {/* Search */}
-          <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
+          {/* Search and Code Controls */}
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="center" justifyContent="center" sx={{ mb: 4 }}>
             <TextField
               placeholder="Rechercher une technologie..."
               variant="outlined"
@@ -396,7 +446,16 @@ export default function VerifiableCredentialsTechPage() {
                 ),
               }}
             />
-          </Box>
+            
+            <Button
+              variant="outlined"
+              startIcon={<VisibilityIcon />}
+              onClick={allCodeVisible ? handleHideAllCode : handleShowAllCode}
+              sx={{ textTransform: 'none', whiteSpace: 'nowrap' }}
+            >
+              {allCodeVisible ? 'Masquer tout le code' : 'Comparer tous les codes'}
+            </Button>
+          </Stack>
 
           {/* Technologies Grid */}
           <Grid container spacing={4} sx={{ mb: 10 }}>
@@ -404,8 +463,8 @@ export default function VerifiableCredentialsTechPage() {
               <Grid size={{ xs: 12, md: 6, lg: 4 }} key={technology.id}>
                 <TechnologyCard
                   technology={technology}
-                  expanded={expandedCards.has(technology.id)}
-                  onToggle={() => handleToggleExpand(technology.id)}
+                  showCode={showCodeCards.has(technology.id)}
+                  onToggleCode={() => handleToggleCode(technology.id)}
                 />
               </Grid>
             ))}
