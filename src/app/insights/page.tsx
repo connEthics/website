@@ -8,6 +8,15 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Guide Technique ACA-Py pour Développeurs",
+      excerpt: "Guide pratique pour développeurs et architectes : comprendre l'architecture d'ACA-Py, exemples de code fonctionnels et leçons apprises sur le terrain.",
+      date: "Août 4, 2025",
+      category: "Self-Sovereign Identity",
+      readTime: "20 min read",
+      slug: "guide-technique-aca-py-developpeurs",
+      featured: true
+    },
+    {
       title: "Technologies des Verifiable Credentials",
       excerpt: "Guide complet des technologies et standards qui façonnent l'écosystème des Verifiable Credentials : DIDComm, OpenID4VC, eIDAS, W3C-VC et plus.",
       date: "Janvier 3, 2025",
