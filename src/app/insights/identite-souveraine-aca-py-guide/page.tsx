@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // Read the markdown content at build time
 function getArticleContent() {
   try {
-    const filePath = join(process.cwd(), "ARTICLE_ACA_PY_2025.md")
+    const filePath = join(process.cwd(), "src/app/insights/identite-souveraine-aca-py-guide/ARTICLE_ACA_PY_2025.md")
     return readFileSync(filePath, "utf8")
   } catch (error) {
     console.error("Error reading article file:", error)
@@ -23,7 +23,7 @@ function getArticleContent() {
 
 Nous ne parvenons pas à charger le contenu de l'article. Veuillez réessayer plus tard.
 
-Le fichier markdown devrait se trouver à la racine du projet sous le nom ARTICLE_ACA_PY_2025.md.`
+Le fichier markdown devrait se trouver dans le répertoire de l'article sous le nom ARTICLE_ACA_PY_2025.md.`
   }
 }
 
