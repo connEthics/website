@@ -117,7 +117,7 @@ export default function Contact() {
               </div>
 
               <a 
-                href="https://calendar.app.google/z6hACk5AdXZFHSYw5"
+                href="https://calendar.app.google/YQyuLxBmRGoU9WSB9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors duration-200 text-lg"
