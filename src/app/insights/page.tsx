@@ -8,6 +8,15 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "NFC-enabled French Identity Card Reader",
+      excerpt: "Educational tool demonstrating NFC technology for reading French identity documents. Learn about MRTD standards, NFC protocols, and digital identity verification with hands-on examples.",
+      date: "August 10, 2025",
+      category: "Trust & Identity",
+      readTime: "15 min read",
+      slug: "nfc-french-identity-reader",
+      featured: true
+    },
+    {
       title: "Guide Technique ACA-Py pour Développeurs",
       excerpt: "Guide pratique pour développeurs et architectes : comprendre l'architecture d'ACA-Py, exemples de code fonctionnels et leçons apprises sur le terrain.",
       date: "Août 4, 2025",
