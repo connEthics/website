@@ -91,6 +91,68 @@ export default function NFCFrenchIdentityReader() {
     }
   }, []);
 
+  const parseNFCData = (message: any) => {
+    try {
+      // Attempt to parse actual NFC data
+      const records = message.message.records;
+      const extractedData: any = {};
+      let rawData = '';
+      
+      for (const record of records) {
+        const decoder = new TextDecoder();
+        const recordType = decoder.decode(record.recordType);
+        const data = new Uint8Array(record.data.buffer);
+        
+        rawData += `Record Type: ${recordType}\n`;
+        rawData += `Data: ${Array.from(data).map(b => b.toString(16).padStart(2, '0')).join(' ')}\n\n`;
+        
+        // Try to decode text records
+        if (recordType === 'T') {
+          const textData = decoder.decode(data.slice(3)); // Skip language code
+          rawData += `Text: ${textData}\n`;
+        }
+        
+        // For MRTD data, we'd need more sophisticated parsing
+        // This is a basic attempt to extract any readable information
+        if (data.length > 10) {
+          // Look for potential MRZ patterns or structured data
+          const dataString = decoder.decode(data);
+          const printableChars = dataString.replace(/[^\x20-\x7E]/g, '');
+          if (printableChars.length > 0) {
+            extractedData.possibleTextData = printableChars;
+          }
+        }
+      }
+      
+      // If we found meaningful data, structure it
+      if (Object.keys(extractedData).length > 0) {
+        return {
+          documentType: extractedData.documentType || 'Unknown Document',
+          documentNumber: extractedData.documentNumber || 'Not Available',
+          surname: extractedData.surname || 'Not Available',
+          givenNames: extractedData.givenNames || 'Not Available',
+          nationality: extractedData.nationality || 'Not Available',
+          dateOfBirth: extractedData.dateOfBirth || 'Not Available',
+          placeOfBirth: extractedData.placeOfBirth || 'Not Available',
+          sex: extractedData.sex || 'Not Available',
+          issueDate: extractedData.issueDate || 'Not Available',
+          expiryDate: extractedData.expiryDate || 'Not Available',
+          issuingAuthority: extractedData.issuingAuthority || 'Not Available',
+          readTimestamp: new Date().toISOString(),
+          readMethod: 'Real NFC',
+          rawData: rawData,
+          possibleTextData: extractedData.possibleTextData,
+          dataSource: 'Actual NFC Tag'
+        };
+      }
+      
+      return null;
+    } catch (error) {
+      console.error('Error parsing NFC data:', error);
+      return null;
+    }
+  };
+
   const handleReadNFC = useCallback(async () => {
     if (!isNFCSupported) {
       setError('NFC is not supported on this device or browser.');
@@ -100,35 +162,56 @@ export default function NFCFrenchIdentityReader() {
     try {
       setIsReading(true);
       setError(null);
+      setUseSampleData(false);
 
-      // Note: Actual NFC reading would require more complex MRTD parsing
-      // This is a simplified demonstration
       const ndef = new (window as any).NDEFReader();
       
       await ndef.scan();
       
-      ndef.addEventListener('reading', () => {
-        // In a real implementation, this would parse MRTD data
-        // For now, we simulate reading French ID card data
-        setCardData({
-          ...SAMPLE_FRENCH_ID_DATA,
-          readTimestamp: new Date().toISOString(),
-          readMethod: 'NFC',
-          rawData: 'Binary MRTD data would be displayed here...'
-        });
+      let realDataFound = false;
+      
+      ndef.addEventListener('reading', (event: any) => {
+        console.log('NFC tag detected:', event);
+        realDataFound = true;
+        
+        // Attempt to parse real NFC data
+        const parsedData = parseNFCData(event);
+        
+        if (parsedData) {
+          // We successfully extracted some real data
+          setCardData(parsedData);
+          setIsReading(false);
+        } else {
+          // We detected a tag but couldn't parse MRTD data
+          // This might be a French ID card that requires BAC (Basic Access Control)
+          const fallbackData = {
+            ...SAMPLE_FRENCH_ID_DATA,
+            readTimestamp: new Date().toISOString(),
+            readMethod: 'NFC (Fallback)',
+            rawData: 'NFC tag detected but MRTD data requires authentication (BAC). This may be a real French ID card.',
+            dataSource: 'NFC Tag Detected - Authentication Required'
+          };
+          setCardData(fallbackData);
+          setIsReading(false);
+          setError('Card detected but requires authentication. Many ID cards use BAC (Basic Access Control) which requires the MRZ data to unlock the chip.');
+        }
+      });
+
+      ndef.addEventListener('readingerror', () => {
+        setError('Error reading NFC tag. The card may not be compatible or may require authentication.');
         setIsReading(false);
       });
 
-      // Simulate reading after 3 seconds if no real card is detected
+      // Timeout after 10 seconds if no card is detected
       setTimeout(() => {
-        if (isReading) {
-          setError('No compatible card detected. Please try again or use sample data.');
+        if (isReading && !realDataFound) {
+          setError('No NFC tag detected. Please place a French ID card near your device or use sample data.');
           setIsReading(false);
         }
-      }, 3000);
+      }, 10000);
 
     } catch (err: any) {
-      setError(`NFC Error: ${err.message}`);
+      setError(`NFC Error: ${err.message}. Make sure NFC is enabled and try again.`);
       setIsReading(false);
     }
   }, [isNFCSupported, isReading]);
@@ -138,7 +221,8 @@ export default function NFCFrenchIdentityReader() {
       ...SAMPLE_FRENCH_ID_DATA,
       readTimestamp: new Date().toISOString(),
       readMethod: 'Sample Data',
-      rawData: 'Sample binary MRTD data for demonstration purposes...'
+      rawData: 'Sample binary MRTD data for demonstration purposes...',
+      dataSource: 'Mock Sample Data'
     });
     setUseSampleData(true);
     setError(null);
@@ -394,12 +478,21 @@ export default function NFCFrenchIdentityReader() {
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Chip 
-                    label={useSampleData ? 'Sample Data' : 'Live Data'} 
-                    color={useSampleData ? 'default' : 'success'} 
+                    label={cardData.dataSource || (useSampleData ? 'Sample Data' : 'Live Data')} 
+                    color={
+                      cardData.dataSource?.includes('Real') || cardData.dataSource?.includes('Actual') ? 'success' :
+                      cardData.dataSource?.includes('NFC Tag Detected') ? 'warning' :
+                      'default'
+                    } 
                     size="small" 
                   />
                   <Chip 
                     label={`Read: ${new Date(cardData.readTimestamp).toLocaleTimeString()}`} 
+                    variant="outlined" 
+                    size="small" 
+                  />
+                  <Chip 
+                    label={cardData.readMethod} 
                     variant="outlined" 
                     size="small" 
                   />
@@ -511,6 +604,40 @@ export default function NFCFrenchIdentityReader() {
                     <li>HTTPS connection (required for security)</li>
                     <li>User permission for NFC access</li>
                   </ul>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="h6">Real NFC Implementation & Limitations</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body1" paragraph>
+                    This tool attempts to read actual NFC data from French identity cards when available, 
+                    but faces several technical limitations:
+                  </Typography>
+                  <Typography variant="body1" paragraph>
+                    <strong>Web NFC API Limitations:</strong>
+                  </Typography>
+                  <ul>
+                    <li>Can only read NDEF (NFC Data Exchange Format) records</li>
+                    <li>Cannot access ISO 14443 Type A/B data directly</li>
+                    <li>No access to MRTD data groups without authentication</li>
+                    <li>Limited to simple tag detection and basic data reading</li>
+                  </ul>
+                  <Typography variant="body1" paragraph>
+                    <strong>French ID Card Security:</strong>
+                  </Typography>
+                  <ul>
+                    <li>Uses BAC (Basic Access Control) for data protection</li>
+                    <li>Requires MRZ (Machine Readable Zone) data for authentication</li>
+                    <li>Most sensitive data is encrypted and requires proper credentials</li>
+                    <li>Public data may still be readable depending on card configuration</li>
+                  </ul>
+                  <Typography variant="body1" paragraph>
+                    When a real card is detected, the tool will attempt to extract any available 
+                    data and clearly indicate the source and authentication status.
+                  </Typography>
                 </AccordionDetails>
               </Accordion>
             </Stack>
