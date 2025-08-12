@@ -8,6 +8,15 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Product Discovery Method with Opportunity Tree Solution",
+      excerpt: "A comprehensive guide to implementing structured product discovery using opportunity trees to drive meaningful business outcomes and align teams around customer value.",
+      date: "January 10, 2025",
+      category: "Product Leadership",
+      readTime: "12 min read",
+      slug: "product-discovery-opportunity-tree",
+      featured: true
+    },
+    {
       title: "Guide Technique ACA-Py pour Développeurs",
       excerpt: "Guide pratique pour développeurs et architectes : comprendre l'architecture d'ACA-Py, exemples de code fonctionnels et leçons apprises sur le terrain.",
       date: "Août 4, 2025",
