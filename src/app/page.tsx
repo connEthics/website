@@ -48,7 +48,7 @@ export default function Home() {
       />
 
       {/* 2. The Shift (Manifesto) */}
-      <Box sx={{ py: 12, bgcolor: 'white' }}>
+      <Box sx={{ py: 6, bgcolor: 'white' }}>
         <Container maxWidth="md">
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
@@ -74,7 +74,7 @@ export default function Home() {
       </Box>
 
       {/* 3. Strategic Pillars */}
-      <Box sx={{ py: 12, bgcolor: 'grey.50' }}>
+      <Box sx={{ py: 6, bgcolor: 'grey.50' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 10 }}>
             <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
@@ -139,7 +139,7 @@ export default function Home() {
       </Box>
 
       {/* 4. Latest Intelligence */}
-      <Box sx={{ py: 12, bgcolor: 'white' }}>
+      <Box sx={{ py: 6, bgcolor: 'white' }}>
         <Container maxWidth="lg">
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 8 }}>
             <Box>
@@ -195,7 +195,7 @@ export default function Home() {
       </Box>
 
       {/* 5. Footer CTA */}
-      <Box sx={{ py: 12, bgcolor: 'primary.900', color: 'white', textAlign: 'center' }}>
+      <Box sx={{ py: 6, bgcolor: 'primary.900', color: 'white', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
             Join the Vanguard
