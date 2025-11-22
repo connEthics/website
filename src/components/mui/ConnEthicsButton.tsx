@@ -5,7 +5,7 @@ import { Button, ButtonProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 interface ConnEthicsButtonProps extends Omit<ButtonProps, 'variant'> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent';
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -22,6 +22,16 @@ const StyledButton = styled(Button)<{ customvariant?: string }>(({ theme, custom
       backgroundColor: theme.palette.primary.dark,
       transform: 'translateY(-1px)',
       boxShadow: '0 4px 12px rgba(14, 165, 233, 0.3)',
+    },
+  }),
+
+  ...(customvariant === 'accent' && {
+    backgroundColor: theme.palette.accent?.main || '#ea580c',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: theme.palette.accent?.dark || '#c2410c',
+      transform: 'translateY(-1px)',
+      boxShadow: '0 4px 12px rgba(234, 88, 12, 0.3)',
     },
   }),
   

@@ -29,7 +29,55 @@ const brandColors = {
     800: '#262626',
     900: '#171717',
   },
+  accent: {
+    50: '#fff7ed',
+    100: '#ffedd5',
+    200: '#fed7aa',
+    300: '#fdba74',
+    400: '#fb923c',
+    500: '#f97316',
+    600: '#ea580c',
+    700: '#c2410c',
+    800: '#9a3412',
+    900: '#7c2d12',
+  },
 };
+
+// Extend the MUI Palette to include 'accent' and numeric scales
+declare module '@mui/material/styles' {
+  interface Palette {
+    accent: Palette['primary'];
+  }
+  interface PaletteOptions {
+    accent?: PaletteOptions['primary'];
+  }
+  
+  interface PaletteColor {
+    50?: string;
+    100?: string;
+    200?: string;
+    300?: string;
+    400?: string;
+    500?: string;
+    600?: string;
+    700?: string;
+    800?: string;
+    900?: string;
+  }
+  
+  interface SimplePaletteColorOptions {
+    50?: string;
+    100?: string;
+    200?: string;
+    300?: string;
+    400?: string;
+    500?: string;
+    600?: string;
+    700?: string;
+    800?: string;
+    900?: string;
+  }
+}
 
 const createConnEthicsTheme = () => {
   // Always use light mode for consistency regardless of system theme
@@ -42,11 +90,20 @@ const createConnEthicsTheme = () => {
         light: brandColors.primary[400],
         dark: brandColors.primary[800],
         contrastText: '#ffffff',
+        ...brandColors.primary, // Spread all numeric shades
       },
       secondary: {
         main: brandColors.neutral[600],
         light: brandColors.neutral[400],
         dark: brandColors.neutral[800],
+        ...brandColors.neutral,
+      },
+      accent: {
+        main: brandColors.accent[600],
+        light: brandColors.accent[400],
+        dark: brandColors.accent[800],
+        contrastText: '#ffffff',
+        ...brandColors.accent,
       },
       background: {
         default: '#ffffff',

@@ -4,17 +4,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
+import { NAVIGATION } from '@/lib/constants';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Insights', href: '/insights' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  const navigation = NAVIGATION.main;
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200 transition-all duration-200">

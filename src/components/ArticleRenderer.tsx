@@ -5,6 +5,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ChevronRightIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
+import ArticleHeader from './ArticleHeader';
+
 interface TableOfContentsItem {
   id: string;
   title: string;
@@ -16,9 +18,20 @@ interface ArticleRendererProps {
   title: string;
   description: string;
   tags: string[];
+  targetAudience?: string;
+  keyTakeaways?: string[];
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
 }
 
-export default function ArticleRenderer({ content, title, description, tags }: ArticleRendererProps) {
+export default function ArticleRenderer({ 
+  content, 
+  title, 
+  description, 
+  tags,
+  targetAudience,
+  keyTakeaways,
+  difficulty
+}: ArticleRendererProps) {
   const [tableOfContents, setTableOfContents] = useState<TableOfContentsItem[]>([]);
   const [activeSection, setActiveSection] = useState<string>('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -229,24 +242,14 @@ export default function ArticleRenderer({ content, title, description, tags }: A
       <div className="lg:pr-64">
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           {/* Header */}
-          <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              {title}
-            </h1>
-            <p className="text-xl text-slate-600 mb-6">
-              {description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </header>
+          <ArticleHeader 
+            title={title}
+            description={description}
+            tags={tags}
+            targetAudience={targetAudience}
+            keyTakeaways={keyTakeaways}
+            difficulty={difficulty}
+          />
 
           {/* Article Content */}
           <article className="bg-white rounded-lg shadow-lg p-8 prose prose-lg max-w-none">

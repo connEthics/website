@@ -1,41 +1,46 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography, Stack, Divider } from '@mui/material';
 import { ConnEthicsHero, ConnEthicsCard } from '@/components/mui';
+import { LightBulbIcon, ScaleIcon, EyeIcon, CubeTransparentIcon } from '@heroicons/react/24/outline';
 
 export default function About() {
-  const values = [
+  const principles = [
     {
       title: "Radical Candor",
-      description: "Honest, direct communication that builds trust"
+      description: "We tell you what you need to hear, not what you want to hear. In a crisis, clarity is kindness.",
+      icon: EyeIcon
     },
     {
-      title: "Integrity", 
-      description: "Ethical consideration in every business decision"
+      title: "Systemic Thinking", 
+      description: "We don't fix symptoms; we re-architect systems. We look at the second and third-order effects of every decision.",
+      icon: CubeTransparentIcon
     },
     {
-      title: "Innovation",
-      description: "Cutting-edge solutions for competitive environments"
+      title: "Ethical Realism",
+      description: "Ethics is not a constraint; it's a survival strategy. In a transparent world, bad actors eventually lose.",
+      icon: ScaleIcon
     },
     {
-      title: "Strategic Alignment",
-      description: "Connecting technical excellence with business goals"
+      title: "Pragmatic Innovation",
+      description: "We love technology, but we don't worship it. We use what works, whether it's AI, Blockchain, or a spreadsheet.",
+      icon: LightBulbIcon
     }
   ];
 
-  const process = [
+  const protocol = [
     {
-      step: "1",
-      title: "Identify Challenges",
-      description: "We saw organizations struggling with identity management, competitive intelligence, and product strategy alignment."
+      step: "01",
+      title: "Reconnaissance",
+      description: "We map the terrain. We analyze your competitors, your regulatory environment, and your internal capabilities. No assumptions."
     },
     {
-      step: "2", 
-      title: "Develop Solutions",
-      description: "We created comprehensive methodologies for self-sovereign identity, ecosystem analysis, and product leadership."
+      step: "02", 
+      title: "Architecture",
+      description: "We design the solution. Not just the software, but the governance, the team structure, and the economic model."
     },
     {
-      step: "3",
-      title: "Drive Impact", 
-      description: "We help organizations build ethical business ecosystems that create sustainable competitive advantage."
+      step: "03",
+      title: "Deployment", 
+      description: "We build the reality. We work alongside your teams to implement the changes, ensuring they stick long after we leave."
     }
   ];
 
@@ -43,122 +48,112 @@ export default function About() {
     <Box sx={{ minHeight: '100vh', backgroundColor: 'background.default' }}>
       {/* Hero Section */}
       <ConnEthicsHero
-        variant="default"
+        variant="gradient"
         title="About ConnEthics"
-        subtitle="Ethical Connections in Competitive Environments"
-        description="ConnEthics is founded on the principles of ethical connections. We build products and animate business ecosystems based on radical candor, integrity, and innovation, bringing clarity and purpose to challenging environments."
+        subtitle="Architects of the New Digital Order"
+        description="We exist to arm ethical leaders with the tools they need to survive and thrive. We believe that in a hyper-competitive world, integrity is the ultimate competitive advantage."
       />
 
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        {/* Mission Section */}
-        <Grid container spacing={6} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, lg: 6 }}>
-            <Typography variant="h2" component="h2" gutterBottom sx={{ color: 'text.primary' }}>
-              Our Mission
-            </Typography>
-            <Typography variant="body1" paragraph sx={{ fontSize: '1.125rem', color: 'text.secondary', mb: 3 }}>
-              Our mission is to foster ethical connections in a competitive world, bringing 
-              clarity and purpose to challenging environments. We deliver high-quality 
-              services that seamlessly align technical, operational, and execution 
-              strategies with today&apos;s business standards.
-            </Typography>
-            <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary' }}>
-              We ensure ethical alignment across external business goals, internal team 
-              dynamics, our technical stack, and the broader societal context through 
-              self-sovereign identity, competitive intelligence, and strategic product leadership.
-            </Typography>
-          </Grid>
-          
-          <Grid size={{ xs: 12, lg: 6 }}>
-            <ConnEthicsCard variant="elevated">
-              <Typography variant="h3" component="h3" gutterBottom sx={{ color: 'text.primary' }}>
-                Our Values
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {values.map((value, index) => (
-                  <Box component="li" key={index} sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
-                    <Box
-                      sx={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: '50%',
-                        backgroundColor: 'primary.main',
-                        mt: 1,
-                        mr: 2,
-                        flexShrink: 0
-                      }}
-                    />
-                    <Box>
-                      <Typography component="span" sx={{ fontWeight: 600, color: 'text.primary' }}>
-                        {value.title}:
-                      </Typography>
-                      <Typography component="span" sx={{ ml: 1, color: 'text.secondary' }}>
-                        {value.description}
-                      </Typography>
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-            </ConnEthicsCard>
-          </Grid>
-        </Grid>
+      <Container maxWidth="lg" sx={{ py: 12 }}>
+        {/* Mission Section - The "Why" */}
+        <Box sx={{ mb: 16, textAlign: 'center', maxWidth: '800px', mx: 'auto' }}>
+          <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
+            OUR MANIFESTO
+          </Typography>
+          <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 6, color: 'text.primary' }}>
+            We are not consultants.<br/>We are ecosystem builders.
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', lineHeight: 1.8, mb: 4 }}>
+            The digital world is becoming a battlefield. Data is weaponized, trust is eroding, and complexity is paralyzing. 
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', lineHeight: 1.8 }}>
+            Most agencies will sell you a tool to patch a leak. We provide the blueprint to rebuild the ship. We help you navigate chaos by aligning your technical stack with your ethical values.
+          </Typography>
+        </Box>
 
-        {/* Why We Started Section */}
-        <ConnEthicsCard variant="outlined" sx={{ p: 6, mb: 8 }}>
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h2" component="h2" gutterBottom sx={{ color: 'text.primary' }}>
-              Why We Started ConnEthics
+        <Divider sx={{ mb: 16 }} />
+
+        {/* Principles Section - The "How" */}
+        <Box sx={{ mb: 16 }}>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 8, textAlign: 'center' }}>
+            Operating Principles
+          </Typography>
+          <Grid container spacing={4}>
+            {principles.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Grid size={{ xs: 12, md: 6 }} key={index}>
+                  <ConnEthicsCard variant="elevated" sx={{ height: '100%', p: 4 }}>
+                    <Stack direction="row" spacing={3} alignItems="flex-start">
+                      <Box 
+                        sx={{ 
+                          p: 2, 
+                          borderRadius: 2, 
+                          bgcolor: 'primary.50', 
+                          color: 'primary.main',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        <Icon className="h-6 w-6" />
+                      </Box>
+                      <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                          {item.title}
+                        </Typography>
+                        <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+                          {item.description}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </ConnEthicsCard>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
+
+        {/* Protocol Section - The "What" */}
+        <Box sx={{ bgcolor: 'primary.900', borderRadius: 4, p: { xs: 4, md: 8 }, color: 'white' }}>
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
+              THE METHODOLOGY
             </Typography>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                fontSize: '1.125rem', 
-                color: 'text.secondary',
-                maxWidth: '48rem',
-                mx: 'auto'
-              }}
-            >
-              In today&apos;s competitive business landscape, organizations need more than just 
-              technical solutions—they need ethical frameworks that create sustainable 
-              competitive advantage. We recognized the urgent need for services that combine 
-              self-sovereign identity, strategic intelligence, and product leadership 
-              to build trust in complex ecosystems.
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 700, color: 'white' }}>
+              The ConnEthics Protocol
             </Typography>
           </Box>
           
-          <Grid container spacing={4}>
-            {process.map((item, index) => (
+          <Grid container spacing={6}>
+            {protocol.map((item, index) => (
               <Grid size={{ xs: 12, md: 4 }} key={index}>
-                <Box sx={{ textAlign: 'center' }}>
-                  <Box
-                    sx={{
-                      width: 64,
-                      height: 64,
-                      borderRadius: '50%',
-                      backgroundColor: 'primary.main',
+                <Box sx={{ position: 'relative', pl: 4, borderLeft: '2px solid', borderColor: 'primary.600' }}>
+                  <Typography 
+                    variant="h2" 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: -20, 
+                      left: 16, 
+                      opacity: 0.1, 
+                      fontWeight: 900, 
                       color: 'white',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mx: 'auto',
-                      mb: 2,
-                      fontSize: '1.5rem',
-                      fontWeight: 'bold'
+                      fontSize: '4rem'
                     }}
                   >
                     {item.step}
-                  </Box>
-                  <Typography variant="h4" component="h3" gutterBottom sx={{ color: 'text.primary' }}>
+                  </Typography>
+                  <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600, color: 'white', position: 'relative' }}>
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography variant="body1" sx={{ color: 'grey.400', lineHeight: 1.7 }}>
                     {item.description}
                   </Typography>
                 </Box>
               </Grid>
             ))}
           </Grid>
-        </ConnEthicsCard>
+        </Box>
       </Container>
     </Box>
   );
