@@ -286,7 +286,7 @@ export default function Services() {
               Ready to Deploy?
             </Typography>
             <Typography variant="h6" sx={{ mb: 6, maxWidth: '700px', mx: 'auto', opacity: 0.9, fontWeight: 400 }}>
-              The future belongs to those who build it. Let's architect your ecosystem today.
+              The future belongs to those who build it. Let&apos;s architect your ecosystem today.
             </Typography>
             <Link href="/contact" passHref legacyBehavior>
               <ConnEthicsButton

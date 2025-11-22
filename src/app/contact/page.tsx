@@ -118,7 +118,7 @@ export default function Contact() {
                   Book a Briefing
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'primary.100', fontSize: '1.125rem', lineHeight: 1.7 }}>
-                  No sales pitch. No fluff. A 30-minute high-level assessment of your ecosystem's vulnerabilities and opportunities.
+                  No sales pitch. No fluff. A 30-minute high-level assessment of your ecosystem&apos;s vulnerabilities and opportunities.
                 </Typography>
               </Box>
 

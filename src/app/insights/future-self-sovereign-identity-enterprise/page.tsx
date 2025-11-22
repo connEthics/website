@@ -89,7 +89,7 @@ export default function SSIEnterpriseArticle() {
             </p>
 
             <div className="bg-gray-50 p-6 rounded-lg my-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">1. The "Zero-Trust" Employee Badge</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">1. The &quot;Zero-Trust&quot; Employee Badge</h3>
               <p className="text-gray-700 mb-3">
                 Replace the plastic card with a VC in a mobile wallet. Use it to log in to workstations (passwordless), access physical buildings, and sign documents.
               </p>

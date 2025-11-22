@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { Box, Container, Typography, Chip, Stack, Divider, Card, CardContent, Grid } from '@mui/material';
+import { Box, Container, Typography, Chip, Stack, Divider, Card, CardContent } from '@mui/material';
 import ArticleHeader from '@/components/ArticleHeader';
 
 export default function VerifiableCredentialsArticle() {

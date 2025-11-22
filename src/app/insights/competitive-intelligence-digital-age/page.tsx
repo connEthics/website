@@ -113,13 +113,13 @@ export default function CompetitiveIntelligenceArticle() {
 
           <Box component="ol" sx={{ pl: 3, mb: 3 }}>
             <Typography component="li" variant="body1" sx={{ mb: 2 }}>
-              <strong>Establish Intelligence Requirements:</strong> Stop collecting "news". Define the strategic questions that keep you up at night.
+              <strong>Establish Intelligence Requirements:</strong> Stop collecting &quot;news&quot;. Define the strategic questions that keep you up at night.
             </Typography>
             <Typography component="li" variant="body1" sx={{ mb: 2 }}>
               <strong>Build Human Networks:</strong> Algorithms can&apos;t have coffee with a regulator. Human intelligence (HUMINT) remains king.
             </Typography>
             <Typography component="li" variant="body1" sx={{ mb: 2 }}>
-              <strong>Create Action Protocols:</strong> Intelligence without action is trivia. We help you build the "Red Phone" processes to react to threats.
+              <strong>Create Action Protocols:</strong> Intelligence without action is trivia. We help you build the &quot;Red Phone&quot; processes to react to threats.
             </Typography>
           </Box>
 
