@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeftIcon, ClockIcon, CalendarIcon, TagIcon, LightBulbIcon, UserGroupIcon, ChartBarIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftIcon, ClockIcon, CalendarIcon, TagIcon, LightBulbIcon, UserGroupIcon, ChartBarIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import { Box, Container, Typography, Chip, Stack, Divider, Card, CardContent, Grid, Alert } from '@mui/material';
 
 export default function ProductDiscoveryOpportunityTreeArticle() {
@@ -59,12 +59,44 @@ export default function ProductDiscoveryOpportunityTreeArticle() {
           <Typography variant="h5" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
             A comprehensive guide to implementing structured product discovery using opportunity trees to drive meaningful business outcomes and align teams around customer value.
           </Typography>
+
+          <Box sx={{ mt: 6, p: 3, bgcolor: 'grey.50', borderRadius: 2, border: '1px solid', borderColor: 'grey.200' }}>
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  Target Audience
+                </Typography>
+                <Typography variant="body2">
+                  Product Leaders, CPOs, and Heads of Product looking to bridge the gap between strategy and execution.
+                </Typography>
+              </Grid>
+              <Grid size={{ xs: 12, md: 8 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  Key Takeaways
+                </Typography>
+                <Stack spacing={1}>
+                  <Box sx={{ display: 'flex', alignItems: 'start' }}>
+                    <CheckCircleIcon style={{ width: 20, height: 20, color: '#2e7d32', marginRight: 8, flexShrink: 0 }} />
+                    <Typography variant="body2">Why "Feature Factories" fail to deliver business value.</Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'start' }}>
+                    <CheckCircleIcon style={{ width: 20, height: 20, color: '#2e7d32', marginRight: 8, flexShrink: 0 }} />
+                    <Typography variant="body2">How to map Business Outcomes to Solution Ideas using Opportunity Trees.</Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'start' }}>
+                    <CheckCircleIcon style={{ width: 20, height: 20, color: '#2e7d32', marginRight: 8, flexShrink: 0 }} />
+                    <Typography variant="body2">A 90-day roadmap to implement this shift in your organization.</Typography>
+                  </Box>
+                </Stack>
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
 
         {/* Article Content */}
         <Box component="article">
           <Typography variant="body1" paragraph>
-            In today&apos;s rapidly evolving business landscape, product teams face mounting pressure to deliver not just features, but <strong>meaningful outcomes</strong> that drive business growth. The challenge isn&apos;t finding things to build—it&apos;s discovering the <em>right things</em> to build that will create sustainable competitive advantage.
+            You are under immense pressure. Your stakeholders want features yesterday, but your board wants <strong>outcomes</strong> and <strong>growth</strong>. The disconnect is palpable. You don&apos;t need more ideas; you need a way to ensure every line of code contributes to a strategic goal. This isn&apos;t just about process; it&apos;s about sanity and impact.
           </Typography>
 
           <Alert severity="info" sx={{ my: 4 }}>
@@ -78,7 +110,7 @@ export default function ProductDiscoveryOpportunityTreeArticle() {
           </Typography>
 
           <Typography variant="body1" paragraph>
-            Traditional product development often follows a linear path: stakeholders request features, teams build them, and hope they create value. This approach leads to several critical business challenges:
+            We&apos;ve all been there. The roadmap is full, the team is busy, but the needle isn&apos;t moving. This &quot;Feature Factory&quot; mode is comfortable but dangerous. Here is why the traditional linear path is failing you:
           </Typography>
 
           <Box sx={{ my: 4, pl: 3, borderLeft: 4, borderColor: 'primary.main' }}>
@@ -131,7 +163,7 @@ export default function ProductDiscoveryOpportunityTreeArticle() {
           </Typography>
 
           <Typography variant="body1" paragraph>
-            The Opportunity Tree method, pioneered by Teresa Torres, provides a structured approach to product discovery that bridges the gap between business strategy and tactical execution. It creates a visual map connecting business outcomes to customer opportunities and potential solutions.
+            Before we dive into the <em>how</em>, let&apos;s clarify the <em>why</em>. You need a visual map that forces alignment. The Opportunity Tree method, pioneered by Teresa Torres, isn&apos;t just a diagram; it&apos;s a negotiation tool. It bridges the gap between business strategy and tactical execution by connecting three critical layers:
           </Typography>
 
           <Box sx={{ my: 4, p: 3, bgcolor: 'grey.50', borderRadius: 2 }}>
