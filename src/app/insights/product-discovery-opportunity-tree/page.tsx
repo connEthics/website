@@ -77,7 +77,7 @@ export default function ProductDiscoveryOpportunityTreeArticle() {
                 <Stack spacing={1}>
                   <Box sx={{ display: 'flex', alignItems: 'start' }}>
                     <CheckCircleIcon style={{ width: 20, height: 20, color: '#2e7d32', marginRight: 8, flexShrink: 0 }} />
-                    <Typography variant="body2">Why "Feature Factories" fail to deliver business value.</Typography>
+                    <Typography variant="body2">Why &quot;Feature Factories&quot; fail to deliver business value.</Typography>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'start' }}>
                     <CheckCircleIcon style={{ width: 20, height: 20, color: '#2e7d32', marginRight: 8, flexShrink: 0 }} />

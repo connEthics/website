@@ -54,9 +54,9 @@ export default function About() {
         description="We exist to arm ethical leaders with the tools they need to survive and thrive. We believe that in a hyper-competitive world, integrity is the ultimate competitive advantage."
       />
 
-      <Container maxWidth="lg" sx={{ py: 12 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
         {/* Mission Section - The "Why" */}
-        <Box sx={{ mb: 16, textAlign: 'center', maxWidth: '800px', mx: 'auto' }}>
+        <Box sx={{ mb: 8, textAlign: 'center', maxWidth: '800px', mx: 'auto' }}>
           <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
             OUR MANIFESTO
           </Typography>
@@ -71,10 +71,10 @@ export default function About() {
           </Typography>
         </Box>
 
-        <Divider sx={{ mb: 16 }} />
+        <Divider sx={{ mb: 8 }} />
 
         {/* Principles Section - The "How" */}
-        <Box sx={{ mb: 16 }}>
+        <Box sx={{ mb: 8 }}>
           <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 8, textAlign: 'center' }}>
             Operating Principles
           </Typography>

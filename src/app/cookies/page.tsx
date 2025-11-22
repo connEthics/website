@@ -1,6 +1,6 @@
 export default function Cookies() {
   return (
-    <div className="min-h-screen py-20 bg-white">
+    <div className="min-h-screen py-12 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="prose prose-lg max-w-none">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Cookie Policy</h1>

@@ -16,7 +16,7 @@ export default function Contact() {
         description="Ready to architect your ecosystem? Secure a channel with our team to discuss your challenges and define the parameters of our engagement."
       />
 
-      <Container maxWidth="lg" sx={{ py: 12 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
         <Grid container spacing={8}>
           {/* Left Column: Direct Comms & HQ */}
           <Grid size={{ xs: 12, lg: 5 }}>

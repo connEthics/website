@@ -108,9 +108,9 @@ export default function Services() {
       />
 
       {/* Services Section - Zig Zag Layout */}
-      <Box sx={{ py: 12, bgcolor: 'grey.50' }}>
+      <Box sx={{ py: 6, bgcolor: 'grey.50' }}>
         <Container maxWidth="lg">
-          <Stack spacing={16}>
+          <Stack spacing={8}>
             {services.map((service, index) => {
               const IconComponent = service.icon;
               const isEven = index % 2 === 0;
@@ -230,7 +230,7 @@ export default function Services() {
       </Box>
 
       {/* Engagement Models Section */}
-      <Box sx={{ py: 16, bgcolor: 'primary.900', color: 'white' }}>
+      <Box sx={{ py: 8, bgcolor: 'primary.900', color: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 12 }}>
             <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
@@ -279,7 +279,7 @@ export default function Services() {
       </Box>
 
       {/* CTA Section */}
-      <Box sx={{ py: 12, bgcolor: 'primary.main' }}>
+      <Box sx={{ py: 6, bgcolor: 'primary.main' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', color: 'white' }}>
             <Typography variant="h3" component="h2" sx={{ mb: 3, fontWeight: 800 }}>
