@@ -25,8 +25,9 @@ import {
   Description as DocumentationIcon,
   Visibility as VisibilityIcon
 } from '@mui/icons-material'
-import { ConnEthicsHero, ConnEthicsButton } from '@/components/mui'
+import { ConnEthicsButton } from '@/components/mui'
 import CodeExample from '@/components/CodeExample'
+import ArticleHeader from '@/components/ArticleHeader'
 
 interface Technology {
   id: string
@@ -410,13 +411,21 @@ export default function VerifiableCredentialsTechPage() {
         </Link>
       </Box>
 
-      {/* Hero Section */}
-      <ConnEthicsHero
-        variant="default"
-        title="Technologies des Verifiable Credentials"
-        subtitle="L'écosystème technologique des Verifiable Credentials"
-        description="Découvrez les principales technologies et standards qui façonnent l'avenir de l'identité numérique décentralisée."
-      />
+      <Container maxWidth="lg" sx={{ mb: 6 }}>
+        <ArticleHeader 
+          title="Technologies des Verifiable Credentials"
+          description="Découvrez les principales technologies et standards qui façonnent l'avenir de l'identité numérique décentralisée."
+          tags={["Verifiable Credentials", "W3C Standards", "DID", "Tech Stack"]}
+          targetAudience="Architectes Solutions, Développeurs, CTOs"
+          keyTakeaways={[
+            "Standards W3C pour les VCs",
+            "Comparatif des technologies d'émission",
+            "Solutions de portefeuilles numériques",
+            "Interopérabilité et standards"
+          ]}
+          difficulty="Intermediate"
+        />
+      </Container>
 
       {/* Content Section */}
       <Box sx={{ py: 4, bgcolor: 'grey.50' }}>

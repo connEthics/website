@@ -1,57 +1,41 @@
 import Link from "next/link";
-import { CheckCircleIcon, ShieldCheckIcon, MapIcon, ChartBarIcon } from "@heroicons/react/24/outline";
-import { 
-  Card, CardHeader, CardTitle, CardDescription, CardContent,
-  Container, 
-  Section,
-  Grid,
-  Stack,
-  Heading,
-  Text
-} from "@/design-system/components";
-import ConnEthicsHero from "@/components/mui/ConnEthicsHero";
-import ConnEthicsButton from "@/components/mui/ConnEthicsButton";
-import ConnEthicsCard from "@/components/mui/ConnEthicsCard";
-import { Box } from "@mui/material";
+import { ShieldCheckIcon, MapIcon, ChartBarIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Box, Container, Typography, Grid, Stack, Chip } from "@mui/material";
+import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from "@/components/mui";
+import { articles } from "@/lib/articles";
 
 export default function Home() {
-  const services = [
+  const pillars = [
     {
-      title: "Self-Sovereign Identity",
-      description: "Prepare for SSI integration and deployment. Empower individuals to securely control their digital identities.",
+      title: "Identity Architecture",
+      description: "The era of centralized identity is ending. We help you build the infrastructure for the user-centric future, moving from 'managing users' to 'empowering holders'.",
       icon: ShieldCheckIcon,
-      features: ["SSI architecture design", "Digital identity strategy", "Secure control frameworks"]
+      link: "/services#self-sovereign-identity"
     },
     {
-      title: "Ecosystem Cartography", 
-      description: "Generate actionable insights through competitive intelligence and economic warfare analysis.",
+      title: "Strategic Intelligence", 
+      description: "Your competitors are not just companies; they are ecosystems. We map the terrain—regulatory, technical, and competitive—so you can maneuver effectively.",
       icon: MapIcon,
-      features: ["Competitive intelligence", "Economic warfare analysis", "Business ecosystem mapping"]
+      link: "/services#ecosystem-cartography"
     },
     {
-      title: "Product Leadership",
-      description: "Align product roadmaps with strategic goals and OKRs using data-driven insights.",
+      title: "Operational Excellence",
+      description: "Execution is strategy. We optimize your delivery pipelines and team structures to ensure that what you build actually ships, on time and with quality.",
       icon: ChartBarIcon,
-      features: ["Strategic roadmap alignment", "OKR implementation", "Data-driven prioritization"]
+      link: "/services#product-management"
     },
   ];
 
-  const benefits = [
-    "Self-sovereign identity implementation",
-    "Strategic competitive intelligence",
-    "Enhanced trust and verification systems",
-    "Optimized product roadmaps and OKRs",
-    "Scalable product team structures",
-    "Ethical business ecosystem alignment",
-  ];
+  // Get the 3 most recent articles
+  const latestArticles = articles.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white transition-colors">
-      {/* Hero Section - Material UI Component */}
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      {/* 1. Hero Section */}
       <ConnEthicsHero
-        title="Ethical Connections in a Competitive World"
+        title="Architecting Trust in a Digital World"
         subtitle="ConnEthics"
-        description="We build products and animate business ecosystems based on radical candor, integrity, and innovation. Delivering high-quality services that align technical, operational, and execution strategies."
+        description="We help organizations navigate the complexity of the digital age. From Self-Sovereign Identity to Economic Warfare, we provide the maps and the tools to build ethical, resilient ecosystems."
         primaryAction={{
           label: "Start Your Journey",
           href: "/contact"
@@ -63,109 +47,179 @@ export default function Home() {
         variant="gradient"
       />
 
-      {/* Services Section */}
-      <Section padding="xl" className="bg-white">
-        <Container>
-          <div className="text-center mb-16">
-            <Heading as="h2" size="4xl" className="mb-4">
-              Our Expertise
-            </Heading>
-            <Text size="xl" variant="muted" className="max-w-3xl mx-auto">
-              We specialize in building ethical connections through self-sovereign identity, 
-              competitive intelligence, and strategic product leadership.
-            </Text>
-          </div>
+      {/* 2. The Shift (Manifesto) */}
+      <Box sx={{ py: 12, bgcolor: 'white' }}>
+        <Container maxWidth="md">
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
+              THE SHIFT
+            </Typography>
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 6, color: 'text.primary' }}>
+              The Old World is Dying.
+            </Typography>
+            <Typography variant="h5" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 4, fontWeight: 400 }}>
+              Trust is broken. Data is weaponized. Complexity is paralyzing.
+            </Typography>
+            <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary', lineHeight: 1.8, mb: 6 }}>
+              We believe that in this chaos, integrity is the ultimate competitive advantage. 
+              But integrity without capability is just a sentiment. We provide the <strong>architectural blueprints</strong> to build systems that are secure by design, human-centric by default, and strategically resilient.
+            </Typography>
+            <Link href="/about" passHref legacyBehavior>
+              <ConnEthicsButton variant="outline" size="large">
+                Read Our Manifesto
+              </ConnEthicsButton>
+            </Link>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* 3. Strategic Pillars */}
+      <Box sx={{ py: 12, bgcolor: 'grey.50' }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 10 }}>
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
+              Strategic Pillars
+            </Typography>
+            <Typography variant="h6" sx={{ color: 'text.secondary', maxWidth: '800px', mx: 'auto', fontWeight: 400 }}>
+              We don&apos;t just offer services; we provide a strategic framework for survival and growth.
+            </Typography>
+          </Box>
           
-          <Grid cols={1} responsive={{ md: 3 }} gap="lg">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
+          <Grid container spacing={4}>
+            {pillars.map((pillar, index) => {
+              const IconComponent = pillar.icon;
               return (
-                <Card key={index} variant="elevated" padding="lg" className="h-full">
-                  <CardHeader className="pb-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="h-6 w-6 text-primary-600" />
-                    </div>
-                    <CardTitle size="xl">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="mb-4">
-                      {service.description}
-                    </CardDescription>
-                    <Stack gap="xs">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center">
-                          <CheckCircleIcon className="h-4 w-4 text-primary-500 mr-2 flex-shrink-0" />
-                          <Text size="sm" variant="muted">{feature}</Text>
-                        </div>
-                      ))}
-                    </Stack>
-                  </CardContent>
-                </Card>
+                <Grid size={{ xs: 12, md: 4 }} key={index}>
+                  <ConnEthicsCard variant="elevated" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ p: 4, flexGrow: 1 }}>
+                      <Box 
+                        sx={{ 
+                          width: 64, 
+                          height: 64, 
+                          bgcolor: 'primary.50', 
+                          borderRadius: 2, 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center', 
+                          mb: 3
+                        }}
+                      >
+                        <IconComponent className="h-8 w-8 text-primary-600" />
+                      </Box>
+                      <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                        {pillar.title}
+                      </Typography>
+                      <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.6 }}>
+                        {pillar.description}
+                      </Typography>
+                    </Box>
+                    <Box sx={{ p: 4, pt: 0 }}>
+                      <Link href={pillar.link} passHref legacyBehavior>
+                        <Typography 
+                          component="a" 
+                          sx={{ 
+                            color: 'primary.main', 
+                            fontWeight: 600, 
+                            display: 'flex', 
+                            alignItems: 'center',
+                            textDecoration: 'none',
+                            '&:hover': { textDecoration: 'underline' }
+                          }}
+                        >
+                          Explore <ArrowRightIcon className="h-4 w-4 ml-2" />
+                        </Typography>
+                      </Link>
+                    </Box>
+                  </ConnEthicsCard>
+                </Grid>
               );
             })}
           </Grid>
         </Container>
-      </Section>
+      </Box>
 
-      {/* Benefits Section */}
-      <Section padding="xl" className="bg-gray-50">
-        <Container>
-          <Grid cols={1} responsive={{ lg: 2 }} gap="xl" className="items-center">
-            <div>
-              <Heading as="h2" size="4xl" className="mb-6">
-                Why Choose ConnEthics?
-              </Heading>
-              <Text size="lg" variant="muted" className="mb-8">
-                Our unique approach combines deep technical expertise with ethical
-                frameworks, ensuring your organization can build trust, enhance competitive 
-                intelligence, and scale product teams while maintaining integrity.
-              </Text>
-              <Grid cols={1} responsive={{ sm: 2 }} gap="md">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                    <Text variant="body">{benefit}</Text>
-                  </div>
-                ))}
-              </Grid>
-            </div>
-            
-            <Box sx={{ maxWidth: 600 }}>
-              <ConnEthicsCard
-                variant="elevated"
-                title="Ready to Get Started?"
-                subtitle="Contact Us Today"
-                actions={
-                  <Link href="/contact" style={{ textDecoration: 'none' }}>
-                    <ConnEthicsButton variant="primary" size="large" fullWidth>
-                      Book Consultation
-                    </ConnEthicsButton>
-                  </Link>
-                }
-              >
-                <Text size="lg" variant="muted">
-                  Schedule a consultation to discuss how we can help your
-                  organization implement self-sovereign identity, gain competitive intelligence, 
-                  and optimize product leadership strategies.
-                </Text>
-              </ConnEthicsCard>
+      {/* 4. Latest Intelligence */}
+      <Box sx={{ py: 12, bgcolor: 'white' }}>
+        <Container maxWidth="lg">
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 8 }}>
+            <Box>
+              <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 1, display: 'block' }}>
+                INSIGHTS
+              </Typography>
+              <Typography variant="h3" component="h2" sx={{ fontWeight: 700 }}>
+                Latest Intelligence
+              </Typography>
             </Box>
-          </Grid>
-        </Container>
-      </Section>
+            <Link href="/insights" passHref legacyBehavior>
+              <ConnEthicsButton variant="outline" size="medium" sx={{ display: { xs: 'none', md: 'inline-flex' } }}>
+                View All Insights
+              </ConnEthicsButton>
+            </Link>
+          </Stack>
 
-      {/* CTA Section - Material UI Hero */}
-      <ConnEthicsHero
-        title="Building Ethical Business Ecosystems"
-        description="Join leading organizations that trust ConnEthics to deliver clarity and purpose in challenging competitive environments."
-        primaryAction={{
-          label: "Learn About Us",
-          href: "/about"
-        }}
-        variant="default"
-      />
-    </div>
+          <Grid container spacing={4}>
+            {latestArticles.map((article, index) => (
+              <Grid size={{ xs: 12, md: 4 }} key={index}>
+                <ConnEthicsCard variant="outlined" sx={{ height: '100%', '&:hover': { borderColor: 'primary.main' }, transition: 'border-color 0.2s' }}>
+                  <Box sx={{ p: 3 }}>
+                    <Chip 
+                      label={article.category} 
+                      size="small" 
+                      sx={{ mb: 2, bgcolor: 'primary.50', color: 'primary.main', fontWeight: 600 }} 
+                    />
+                    <Typography variant="h6" component="h3" sx={{ mb: 2, fontWeight: 600, lineHeight: 1.4 }}>
+                      <Link href={`/insights/${article.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {article.title}
+                      </Link>
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      {article.excerpt}
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: 'text.disabled', fontWeight: 500 }}>
+                      {article.date} • {article.readTime}
+                    </Typography>
+                  </Box>
+                </ConnEthicsCard>
+              </Grid>
+            ))}
+          </Grid>
+          
+          <Box sx={{ mt: 6, textAlign: 'center', display: { xs: 'block', md: 'none' } }}>
+            <Link href="/insights" passHref legacyBehavior>
+              <ConnEthicsButton variant="outline" size="medium" fullWidth>
+                View All Insights
+              </ConnEthicsButton>
+            </Link>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* 5. Footer CTA */}
+      <Box sx={{ py: 12, bgcolor: 'primary.900', color: 'white', textAlign: 'center' }}>
+        <Container maxWidth="md">
+          <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
+            Join the Vanguard
+          </Typography>
+          <Typography variant="h6" sx={{ color: 'primary.100', mb: 6, fontWeight: 400, lineHeight: 1.6 }}>
+            The future belongs to those who build it with integrity. <br />
+            Ready to architect your ecosystem?
+          </Typography>
+          <Link href="/contact" passHref legacyBehavior>
+            <ConnEthicsButton 
+              variant="primary" 
+              size="large" 
+              sx={{ 
+                bgcolor: 'white', 
+                color: 'primary.900',
+                px: 6,
+                '&:hover': { bgcolor: 'primary.50' }
+              }}
+            >
+              Start the Conversation
+            </ConnEthicsButton>
+          </Link>
+        </Container>
+      </Box>
+    </Box>
   );
 }

@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import AdvancedMarkdownRenderer from "@/components/AdvancedMarkdownRenderer"
+import ArticleRenderer from "@/components/ArticleRenderer"
 import { readFileSync } from "fs"
 import { join } from "path"
 
@@ -43,60 +43,19 @@ export default function GuideTechniqueACApy() {
           </Link>
         </div>
 
-        {/* Article Content */}
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Guide Technique ACA-Py pour Développeurs
-            </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              Architecture, exemples de code et retours d&apos;expérience pratiques pour maîtriser Hyperledger Aries Cloud Agent Python.
-            </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                ACA-Py
-              </span>
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                Développement
-              </span>
-              <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                Architecture
-              </span>
-              <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                Guide Pratique
-              </span>
-            </div>
-          </header>
-
-          {/* Article Content */}
-          <article className="prose prose-lg prose-slate max-w-none">
-            <AdvancedMarkdownRenderer content={articleContent} />
-          </article>
-
-          {/* Footer */}
-          <footer className="mt-16 pt-8 border-t border-slate-200">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div>
-                <p className="text-sm text-slate-600">
-                  Publié le {new Date().toLocaleDateString('fr-FR', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
-                </p>
-                <p className="text-sm text-slate-600 mt-1">
-                  Par l&apos;équipe ConnEthics
-                </p>
-              </div>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Discuter de votre projet ACA-Py
-              </Link>
-            </div>
-          </footer>
-        </div>
+        <ArticleRenderer 
+          content={articleContent}
+          title="Guide Technique ACA-Py pour Développeurs"
+          description="Architecture, exemples de code et retours d'expérience pratiques pour maîtriser Hyperledger Aries Cloud Agent Python."
+          tags={["ACA-Py", "Développement", "Architecture", "Guide Pratique"]}
+          targetAudience="Développeurs Python, Architectes Solutions et CTOs techniques souhaitant implémenter la SSI."
+          keyTakeaways={[
+            "Comprendre l'architecture Contrôleur/Agent d'ACA-Py",
+            "Mettre en place un environnement de développement Docker en 5 minutes",
+            "Éviter les pièges courants de la gestion des webhooks et du multi-tenancy"
+          ]}
+          difficulty="Intermediate"
+        />
       </div>
     </div>
   )

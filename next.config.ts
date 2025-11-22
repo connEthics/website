@@ -24,6 +24,15 @@ const nextConfig: NextConfig = {
     
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/mui-demo",
+        destination: "/services",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
