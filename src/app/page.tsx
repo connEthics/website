@@ -7,22 +7,22 @@ import { articles } from "@/lib/articles";
 export default function Home() {
   const pillars = [
     {
-      title: "Identity Architecture",
-      description: "The era of centralized identity is ending. We help you build the infrastructure for the user-centric future, moving from 'managing users' to 'empowering holders'.",
+      title: "Identity Strategy",
+      description: "Prepare for the wallet revolution. We design the architecture that allows you to accept reusable identity, slashing your onboarding costs and eliminating fraud.",
       icon: ShieldCheckIcon,
-      link: "/services#self-sovereign-identity"
+      link: "/services#identity-architecture"
     },
     {
-      title: "Strategic Intelligence", 
-      description: "Your competitors are not just companies; they are ecosystems. We map the terrain—regulatory, technical, and competitive—so you can maneuver effectively.",
+      title: "Economic Intelligence", 
+      description: "Navigate the ecosystem. We map the regulatory and competitive terrain of eIDAS 2.0 so you can position your business where the value is being created.",
       icon: MapIcon,
-      link: "/services#ecosystem-cartography"
+      link: "/services#strategic-intelligence"
     },
     {
-      title: "Operational Excellence",
-      description: "Execution is strategy. We optimize your delivery pipelines and team structures to ensure that what you build actually ships, on time and with quality.",
+      title: "Product Leadership",
+      description: "Ship with purpose. We align your product teams with this new reality, ensuring that your roadmap delivers tangible business value, not just features.",
       icon: ChartBarIcon,
-      link: "/services#product-management"
+      link: "/services#product-strategy"
     },
   ];
 
@@ -33,9 +33,9 @@ export default function Home() {
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       {/* 1. Hero Section */}
       <ConnEthicsHero
-        title="Architecting Trust in a Digital World"
-        subtitle="ConnEthics"
-        description="We help organizations navigate the complexity of the digital age. From Self-Sovereign Identity to Economic Warfare, we provide the maps and the tools to build ethical, resilient ecosystems."
+        title="Turn Compliance into Competitive Advantage"
+        subtitle="eIDAS 2.0 Strategy Consulting"
+        description="The European Digital Identity Wallet is not just a regulation—it's a Blue Ocean opportunity. We help you lower KYC costs, boost conversion, and build trust with Reusable Identity."
         primaryAction={{
           label: "Start Your Journey",
           href: "/contact"
@@ -55,14 +55,14 @@ export default function Home() {
               THE SHIFT
             </Typography>
             <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 6, color: 'text.primary' }}>
-              The Old World is Dying.
+              The Rules of the Game Have Changed.
             </Typography>
             <Typography variant="h5" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 4, fontWeight: 400 }}>
-              Trust is broken. Data is weaponized. Complexity is paralyzing.
+              eIDAS 2.0 is shifting the power from platforms to people.
             </Typography>
             <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary', lineHeight: 1.8, mb: 6 }}>
-              We believe that in this chaos, integrity is the ultimate competitive advantage. 
-              But integrity without capability is just a sentiment. We provide the <strong>architectural blueprints</strong> to build systems that are secure by design, human-centric by default, and strategically resilient.
+              The drop in KYC barriers is a massive opportunity for those who move fast. 
+              We move you from "Managing Users" to "Empowering Holders". We provide the <strong>strategic intelligence</strong> and <strong>technical blueprints</strong> to turn this regulatory shift into your biggest growth engine.
             </Typography>
             <Link href="/about" passHref legacyBehavior>
               <ConnEthicsButton variant="outline" size="large">

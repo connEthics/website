@@ -81,19 +81,19 @@ export default function Services() {
 
   const engagementModels = [
     {
-      title: "The Audit",
-      description: "A 2-week deep dive into your current architecture or strategy. We deliver a brutal, honest report on where you stand and a roadmap for where you need to go.",
-      action: "Diagnose"
+      title: "eIDAS 2.0 Opportunity Radar",
+      description: "For C-Levels. We map your customer journeys to identify friction points and quantify the ROI of reusable identity. You get a clear Business Case: how much will you save on KYC, and how much will your conversion increase?",
+      action: "Strategy"
     },
     {
-      title: "The Sprint", 
-      description: "A 6-week targeted intervention to solve a specific problem—whether it's launching a POC for Verifiable Credentials or mapping a new market entry.",
-      action: "Execute"
+      title: "Wallet Integration Blueprint", 
+      description: "For CTOs & Innovation Leads. We design your target architecture (Buy vs Build), manage RFPs to select the right Identity Provider, and design ARF-compliant user journeys that users actually trust.",
+      action: "Tactics"
     },
     {
-      title: "The Partnership",
-      description: "Long-term fractional leadership. We embed with your team as interim CTOs, CPOs, or Lead Architects to drive sustained transformation.",
-      action: "Transform"
+      title: "Identity PMO",
+      description: "For Operational Teams. We steer the deployment, coordinate with QTSPs (Trust Service Providers), and manage change. We ensure your transition to the eIDAS 2.0 ecosystem is seamless and on time.",
+      action: "Operations"
     }
   ];
 
