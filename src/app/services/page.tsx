@@ -83,17 +83,20 @@ export default function Services() {
     {
       title: "eIDAS 2.0 Opportunity Radar",
       description: "For C-Levels. We map your customer journeys to identify friction points and quantify the ROI of reusable identity. You get a clear Business Case: how much will you save on KYC, and how much will your conversion increase?",
-      action: "Strategy"
+      action: "Strategy",
+      link: "/services/eidas-opportunity-radar"
     },
     {
       title: "Wallet Integration Blueprint", 
       description: "For CTOs & Innovation Leads. We design your target architecture (Buy vs Build), manage RFPs to select the right Identity Provider, and design ARF-compliant user journeys that users actually trust.",
-      action: "Tactics"
+      action: "Tactics",
+      link: "/services/wallet-integration-blueprint"
     },
     {
       title: "Identity PMO",
       description: "For Operational Teams. We steer the deployment, coordinate with QTSPs (Trust Service Providers), and manage change. We ensure your transition to the eIDAS 2.0 ecosystem is seamless and on time.",
-      action: "Operations"
+      action: "Operations",
+      link: "/services/identity-pmo"
     }
   ];
 
@@ -220,10 +223,47 @@ export default function Services() {
                       </Stack>
                     </Box>
 
-                    <Link href="/contact">
-                      <ConnEthicsButton variant="outline" size="medium">
-                        Explore Capability
-                      </ConnEthicsButton>
+                    <Link href={`/services/${service.id}`} style={{ textDecoration: 'none', display: 'block' }}>
+                      <Box 
+                        sx={{ 
+                          p: 3,
+                          bgcolor: 'primary.50',
+                          border: '2px solid',
+                          borderColor: 'primary.main',
+                          borderRadius: 1,
+                          transition: 'all 0.2s ease',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          '&:hover': {
+                            bgcolor: 'primary.main',
+                            '& .cta-text': { color: 'white' },
+                            '& .cta-arrow': { transform: 'translateX(4px)' }
+                          }
+                        }}
+                      >
+                        <Typography 
+                          className="cta-text"
+                          variant="button" 
+                          sx={{ 
+                            color: 'primary.main', 
+                            fontWeight: 700,
+                            transition: 'color 0.2s ease'
+                          }}
+                        >
+                          Explore Capability
+                        </Typography>
+                        <Box 
+                          className="cta-arrow"
+                          sx={{ 
+                            color: 'primary.main', 
+                            fontSize: '1.5rem',
+                            transition: 'all 0.2s ease'
+                          }}
+                        >
+                          →
+                        </Box>
+                      </Box>
                     </Link>
                   </Box>
                 </Box>
@@ -243,7 +283,7 @@ export default function Services() {
             <Typography variant="h3" component="h2" sx={{ mb: 3, fontWeight: 800, color: 'white' }}>
               Deployment Models
             </Typography>
-            <Typography variant="h6" sx={{ color: 'grey.400', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
+            <Typography variant="h6" sx={{ color: 'grey.200', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
               We adapt to the velocity of your organization. Whether you need a quick diagnostic or a long-term transformation partner.
             </Typography>
           </Box>
@@ -251,37 +291,53 @@ export default function Services() {
           <Grid container spacing={4}>
             {engagementModels.map((model, index) => (
               <Grid size={{ xs: 12, md: 4 }} key={index}>
-                <Box 
-                  sx={{ 
-                    p: 5,
-                    height: '100%',
-                    bgcolor: 'transparent',
-                    border: '1px solid',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    '&:hover': {
-                      borderColor: 'primary.500',
-                      bgcolor: 'rgba(255,255,255,0.02)',
-                      transform: 'translateY(-4px)'
-                    }
-                  }}
-                >
-                  {/* Header Line */}
-                  <Box sx={{ width: 40, height: 2, bgcolor: 'primary.500', mb: 4 }} />
-                  
-                  <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, display: 'block', mb: 1, fontFamily: 'monospace' }}>
-                    LEVEL_0{index + 1} {`// ${model.action.toUpperCase()}`}
-                  </Typography>
-                  <Typography variant="h4" component="h3" sx={{ mb: 3, fontWeight: 700, color: 'white' }}>
-                    {model.title}
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: 'grey.400', lineHeight: 1.7, mb: 4 }}>
-                    {model.description}
-                  </Typography>
+                <Link href={model.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                  <Box 
+                    sx={{ 
+                      p: 5,
+                      height: '100%',
+                      bgcolor: 'rgba(255,255,255,0.03)',
+                      border: '1px solid',
+                      borderColor: 'rgba(255,255,255,0.15)',
+                      transition: 'all 0.3s ease',
+                      position: 'relative',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        borderColor: 'primary.400',
+                        bgcolor: 'rgba(255,255,255,0.08)',
+                        transform: 'translateY(-4px)',
+                        boxShadow: '0 8px 30px rgba(14, 165, 233, 0.2)'
+                      }
+                    }}
+                  >
+                    {/* Header Line */}
+                    <Box sx={{ width: 40, height: 2, bgcolor: 'primary.400', mb: 4 }} />
+                    
+                    <Typography variant="overline" sx={{ color: 'primary.300', fontWeight: 700, display: 'block', mb: 1, fontFamily: 'monospace' }}>
+                      LEVEL_0{index + 1} {`// ${model.action.toUpperCase()}`}
+                    </Typography>
+                    <Typography variant="h4" component="h3" sx={{ mb: 3, fontWeight: 700, color: 'white' }}>
+                      {model.title}
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: 'grey.200', lineHeight: 1.7, mb: 4 }}>
+                      {model.description}
+                    </Typography>
 
-                  <Box sx={{ mt: 'auto' }}>
-                    <Link href="/contact">
+                    <Box 
+                      sx={{ 
+                        mt: 'auto',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        px: 3,
+                        py: 1.5,
+                        bgcolor: 'primary.500',
+                        borderRadius: 1,
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          bgcolor: 'primary.400'
+                        }
+                      }}
+                    >
                       <Typography 
                         component="span"
                         variant="button" 
@@ -290,19 +346,14 @@ export default function Services() {
                           fontWeight: 700, 
                           display: 'flex', 
                           alignItems: 'center',
-                          fontSize: '0.875rem',
-                          textDecoration: 'none',
-                          cursor: 'pointer',
-                          '&:hover': {
-                            color: 'primary.400'
-                          }
+                          fontSize: '0.875rem'
                         }}
                       >
                         INITIALIZE <Box component="span" sx={{ ml: 1, fontSize: '1.2em' }}>→</Box>
                       </Typography>
-                    </Link>
+                    </Box>
                   </Box>
-                </Box>
+                </Link>
               </Grid>
             ))}
           </Grid>
