@@ -131,14 +131,14 @@ export default function Insights() {
     <Box sx={{ minHeight: '10vh', bgcolor: 'background.default' }}>
       {/* Hero Section */}
       <ConnEthicsHero
-        variant="default"
-        title="Insights & Perspectives"
-        subtitle="Thought Leadership in Ethical Business"
-        description="Thought leadership on ethical business practices, competitive intelligence, and building trust in complex digital ecosystems."
+        variant="deep-ocean"
+        title="Insights &amp; Perspectives"
+        subtitle="THOUGHT_LEADERSHIP"
+        description="Strategic intelligence on eIDAS 2.0, Self-Sovereign Identity, and building trust in complex digital ecosystems."
       />
 
       {/* Content Section */}
-      <Box sx={{ py: '32px', bgcolor: 'grey.50' }}>
+      <Box sx={{ py: '32px', bgcolor: (theme) => theme.palette.mode === 'dark' ? 'grey.900' : 'grey.50' }}>
         <Container maxWidth="lg">
           {/* Category Filter */}
           <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 3 }}>
@@ -153,6 +153,8 @@ export default function Insights() {
                   px: 2, 
                   py: 0.5,
                   cursor: 'pointer',
+                  fontFamily: 'monospace',
+                  fontSize: '0.75rem',
                   '&:hover': {
                     bgcolor: selectedCategory === category ? 'primary.dark' : 'primary.main',
                     color: selectedCategory === category ? 'white' : 'white'
@@ -176,7 +178,7 @@ export default function Insights() {
               return (
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
                   <ConnEthicsCard 
-                    variant="elevated" 
+                    variant="blueprint" 
                     sx={{ 
                       height: '100%',
                       ...(article.featured && {
@@ -289,15 +291,49 @@ export default function Insights() {
       </Box>
 
       {/* CTA Section */}
-      <Box sx={{ py: 8, bgcolor: 'primary.main' }}>
-        <Container maxWidth="lg">
-          <ConnEthicsCard variant="outlined" sx={{ bgcolor: 'primary.main', borderColor: 'primary.light', textAlign: 'center', p: 6 }}>
+      <Box 
+        sx={{ 
+          py: 8, 
+          bgcolor: (theme) => theme.palette.mode === 'dark' ? '#030712' : '#0f172a',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px',
+            pointerEvents: 'none'
+          }
+        }}
+      >
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+          <Box sx={{ textAlign: 'center', p: 6 }}>
+            <Typography 
+              variant="overline" 
+              sx={{ 
+                color: 'primary.400', 
+                fontWeight: 700, 
+                letterSpacing: 2, 
+                mb: 2, 
+                display: 'block',
+                fontFamily: 'monospace'
+              }}
+            >
+              READY_TO_DEPLOY
+            </Typography>
             <Typography variant="h3" component="h2" sx={{ color: 'white', mb: 2, fontWeight: 600 }}>
               Ready to Transform Your Business?
             </Typography>
-            <Typography variant="h6" sx={{ color: 'primary.100', mb: 4, maxWidth: '600px', mx: 'auto' }}>
-              Leverage our expertise in Self-Sovereign Identity, Competitive Intelligence, 
-              and Ethical Product Leadership to drive meaningful change in your organization.
+            <Typography variant="h6" sx={{ color: 'grey.400', mb: 4, maxWidth: '600px', mx: 'auto' }}>
+              Leverage our expertise in eIDAS 2.0, Verifiable Credentials, 
+              and Strategic Intelligence to turn regulation into revenue.
             </Typography>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" sx={{ maxWidth: '400px', mx: 'auto' }}>
               <ConnEthicsButton
@@ -306,31 +342,33 @@ export default function Insights() {
                 href="/contact"
                 sx={{ 
                   bgcolor: 'white', 
-                  color: 'primary.main',
+                  color: 'grey.900',
+                  fontFamily: 'monospace',
                   '&:hover': {
                     bgcolor: 'grey.100'
                   }
                 }}
               >
-                Get Started Today
+                INITIALIZE →
               </ConnEthicsButton>
               <ConnEthicsButton
                 variant="outline"
                 size="large"
                 href="/services"
                 sx={{ 
-                  borderColor: 'white',
-                  color: 'white',
+                  borderColor: 'grey.600',
+                  color: 'grey.300',
+                  fontFamily: 'monospace',
                   '&:hover': {
-                    bgcolor: 'white',
-                    color: 'primary.main'
+                    bgcolor: 'rgba(255, 255, 255, 0.05)',
+                    borderColor: 'grey.400'
                   }
                 }}
               >
-                Explore Services
+                VIEW SERVICES
               </ConnEthicsButton>
             </Stack>
-          </ConnEthicsCard>
+          </Box>
         </Container>
       </Box>
     </Box>

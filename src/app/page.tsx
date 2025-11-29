@@ -7,22 +7,22 @@ import { articles } from "@/lib/articles";
 export default function Home() {
   const pillars = [
     {
-      title: "Identity Architecture",
-      description: "The era of centralized identity is ending. We help you build the infrastructure for the user-centric future, moving from 'managing users' to 'empowering holders'.",
+      title: "Identity Strategy",
+      description: "Prepare for the wallet revolution. We design the architecture that allows you to accept reusable identity, slashing your onboarding costs and eliminating fraud.",
       icon: ShieldCheckIcon,
-      link: "/services#self-sovereign-identity"
+      link: "/services#identity-architecture"
     },
     {
-      title: "Strategic Intelligence", 
-      description: "Your competitors are not just companies; they are ecosystems. We map the terrain—regulatory, technical, and competitive—so you can maneuver effectively.",
+      title: "Economic Intelligence", 
+      description: "Navigate the ecosystem. We map the regulatory and competitive terrain of eIDAS 2.0 so you can position your business where the value is being created.",
       icon: MapIcon,
-      link: "/services#ecosystem-cartography"
+      link: "/services#strategic-intelligence"
     },
     {
-      title: "Operational Excellence",
-      description: "Execution is strategy. We optimize your delivery pipelines and team structures to ensure that what you build actually ships, on time and with quality.",
+      title: "Product Leadership",
+      description: "Ship with purpose. We align your product teams with this new reality, ensuring that your roadmap delivers tangible business value, not just features.",
       icon: ChartBarIcon,
-      link: "/services#product-management"
+      link: "/services#product-strategy"
     },
   ];
 
@@ -33,9 +33,9 @@ export default function Home() {
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       {/* 1. Hero Section */}
       <ConnEthicsHero
-        title="Architecting Trust in a Digital World"
-        subtitle="ConnEthics"
-        description="We help organizations navigate the complexity of the digital age. From Self-Sovereign Identity to Economic Warfare, we provide the maps and the tools to build ethical, resilient ecosystems."
+        title="Turn Compliance into Competitive Advantage"
+        subtitle="eIDAS 2.0 Strategy Consulting"
+        description="The European Digital Identity Wallet is not just a regulation—it's a Blue Ocean opportunity. We help you lower KYC costs, boost conversion, and build trust with Reusable Identity."
         primaryAction={{
           label: "Start Your Journey",
           href: "/contact"
@@ -44,27 +44,44 @@ export default function Home() {
           label: "Our Services", 
           href: "/services"
         }}
-        variant="gradient"
+        variant="deep-ocean"
       />
 
       {/* 2. The Shift (Manifesto) */}
-      <Box sx={{ py: 6, bgcolor: 'white' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'white' }}>
         <Container maxWidth="md">
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
+          <Box 
+            sx={{ 
+              textAlign: 'left', 
+              pl: { xs: 2, md: 4 }, 
+              borderLeft: '4px solid', 
+              borderColor: 'primary.main' 
+            }}
+          >
+            <Typography 
+              variant="overline" 
+              sx={{ 
+                color: 'primary.main', 
+                fontWeight: 700, 
+                letterSpacing: 2, 
+                mb: 2, 
+                display: 'block',
+                fontFamily: 'monospace'
+              }}
+            >
               THE SHIFT
             </Typography>
-            <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 6, color: 'text.primary' }}>
-              The Old World is Dying.
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 800, mb: 4, color: 'text.primary', fontSize: { xs: '2rem', md: '3rem' } }}>
+              The Rules of the Game Have Changed.
             </Typography>
-            <Typography variant="h5" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 4, fontWeight: 400 }}>
-              Trust is broken. Data is weaponized. Complexity is paralyzing.
+            <Typography variant="h5" sx={{ color: 'text.secondary', lineHeight: 1.6, mb: 4, fontWeight: 500 }}>
+              eIDAS 2.0 is shifting the power from platforms to people.
             </Typography>
             <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary', lineHeight: 1.8, mb: 6 }}>
-              We believe that in this chaos, integrity is the ultimate competitive advantage. 
-              But integrity without capability is just a sentiment. We provide the <strong>architectural blueprints</strong> to build systems that are secure by design, human-centric by default, and strategically resilient.
+              The drop in KYC barriers is a massive opportunity for those who move fast. 
+              We move you from &quot;Managing Users&quot; to &quot;Empowering Holders&quot;. We provide the <strong>strategic intelligence</strong> and <strong>technical blueprints</strong> to turn this regulatory shift into your biggest growth engine.
             </Typography>
-            <Link href="/about" passHref legacyBehavior>
+            <Link href="/about">
               <ConnEthicsButton variant="outline" size="large">
                 Read Our Manifesto
               </ConnEthicsButton>
@@ -74,10 +91,10 @@ export default function Home() {
       </Box>
 
       {/* 3. Strategic Pillars */}
-      <Box sx={{ py: 6, bgcolor: 'grey.50' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'grey.50' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 10 }}>
-            <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 3 }}>
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 800, mb: 3 }}>
               Strategic Pillars
             </Typography>
             <Typography variant="h6" sx={{ color: 'text.secondary', maxWidth: '800px', mx: 'auto', fontWeight: 400 }}>
@@ -90,23 +107,25 @@ export default function Home() {
               const IconComponent = pillar.icon;
               return (
                 <Grid size={{ xs: 12, md: 4 }} key={index}>
-                  <ConnEthicsCard variant="elevated" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <ConnEthicsCard variant="blueprint" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ p: 4, flexGrow: 1 }}>
                       <Box 
                         sx={{ 
-                          width: 64, 
-                          height: 64, 
-                          bgcolor: 'primary.50', 
-                          borderRadius: 2, 
+                          width: 56, 
+                          height: 56, 
+                          bgcolor: 'white', 
+                          border: '1px solid',
+                          borderColor: 'divider',
+                          borderRadius: 1, 
                           display: 'flex', 
                           alignItems: 'center', 
                           justifyContent: 'center', 
                           mb: 3
                         }}
                       >
-                        <IconComponent className="h-8 w-8 text-primary-600" />
+                        <IconComponent className="h-7 w-7 text-primary-700" strokeWidth={2} />
                       </Box>
-                      <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                      <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 700, letterSpacing: '-0.02em' }}>
                         {pillar.title}
                       </Typography>
                       <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.6 }}>
@@ -114,19 +133,22 @@ export default function Home() {
                       </Typography>
                     </Box>
                     <Box sx={{ p: 4, pt: 0 }}>
-                      <Link href={pillar.link} passHref legacyBehavior>
+                      <Link href={pillar.link}>
                         <Typography 
-                          component="a" 
+                          component="span" 
                           sx={{ 
                             color: 'primary.main', 
-                            fontWeight: 600, 
+                            fontWeight: 700, 
                             display: 'flex', 
                             alignItems: 'center',
                             textDecoration: 'none',
+                            fontSize: '0.9rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
                             '&:hover': { textDecoration: 'underline' }
                           }}
                         >
-                          Explore <ArrowRightIcon className="h-4 w-4 ml-2" />
+                          Explore <ArrowRightIcon className="h-4 w-4 ml-2" strokeWidth={2.5} />
                         </Typography>
                       </Link>
                     </Box>
@@ -150,7 +172,7 @@ export default function Home() {
                 Latest Intelligence
               </Typography>
             </Box>
-            <Link href="/insights" passHref legacyBehavior>
+            <Link href="/insights">
               <ConnEthicsButton variant="outline" size="medium" sx={{ display: { xs: 'none', md: 'inline-flex' } }}>
                 View All Insights
               </ConnEthicsButton>
@@ -185,7 +207,7 @@ export default function Home() {
           </Grid>
           
           <Box sx={{ mt: 6, textAlign: 'center', display: { xs: 'block', md: 'none' } }}>
-            <Link href="/insights" passHref legacyBehavior>
+            <Link href="/insights">
               <ConnEthicsButton variant="outline" size="medium" fullWidth>
                 View All Insights
               </ConnEthicsButton>
@@ -204,7 +226,7 @@ export default function Home() {
             The future belongs to those who build it with integrity. <br />
             Ready to architect your ecosystem?
           </Typography>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact">
             <ConnEthicsButton 
               variant="primary" 
               size="large" 

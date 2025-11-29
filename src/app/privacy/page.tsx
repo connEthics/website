@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon, ShieldCheckIcon, EyeIcon, UserIcon, DocumentTextIcon, ClockIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import { Box, Container, Typography, Grid, Stack, Button } from '@mui/material';
+import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/mui';
+import Link from 'next/link';
 
 export default function Privacy() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({
-    summary: true, // Start with summary expanded
+    summary: true,
   });
 
   const toggleSection = (sectionId: string) => {
@@ -39,76 +42,113 @@ export default function Privacy() {
   ];
 
   return (
-    <div className="min-h-screen py-12 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We believe in transparency. Here&apos;s how we handle your personal information with care and respect.
-          </p>
-        </div>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      {/* Hero Section */}
+      <ConnEthicsHero
+        variant="deep-ocean"
+        title="Privacy Policy"
+        subtitle="DATA_PROTECTION"
+        description="We believe in transparency. Here's how we handle your personal information with care and respect."
+      />
 
-        {/* Privacy Summary - Always Visible */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-blue-900 flex items-center">
-              <DocumentTextIcon className="h-6 w-6 mr-2" />
-              Privacy at a Glance
-            </h2>
-            <button
+      <Container maxWidth="lg" sx={{ py: 6 }}>
+        {/* Privacy at a Glance */}
+        <Box sx={{ mb: 6 }}>
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'space-between',
+              mb: 3
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <DocumentTextIcon className="h-6 w-6 text-primary-600" />
+              <Typography 
+                variant="overline" 
+                sx={{ 
+                  color: 'primary.main', 
+                  fontWeight: 700, 
+                  letterSpacing: 2,
+                  fontFamily: 'monospace'
+                }}
+              >
+                PRIVACY_AT_GLANCE
+              </Typography>
+            </Box>
+            <Button
               onClick={() => toggleSection('summary')}
-              className="text-blue-600 hover:text-blue-800"
+              sx={{ color: 'primary.main', minWidth: 'auto' }}
             >
               {expandedSections.summary ? (
                 <ChevronDownIcon className="h-5 w-5" />
               ) : (
                 <ChevronRightIcon className="h-5 w-5" />
               )}
-            </button>
-          </div>
+            </Button>
+          </Box>
           
           {expandedSections.summary && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Grid container spacing={3}>
               {summaryPoints.map((point, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <div className="text-blue-600 mt-1">{point.icon}</div>
-                  <div>
-                    <h3 className="font-medium text-blue-900">{point.title}</h3>
-                    <p className="text-blue-700 text-sm">{point.description}</p>
-                  </div>
-                </div>
+                <Grid size={{ xs: 12, md: 6 }} key={index}>
+                  <ConnEthicsCard variant="blueprint" sx={{ p: 3 }}>
+                    <Stack direction="row" spacing={3} alignItems="flex-start">
+                      <Box sx={{ color: 'primary.main', mt: 0.5 }}>
+                        {point.icon}
+                      </Box>
+                      <Box>
+                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 0.5 }}>
+                          {point.title}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                          {point.description}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </ConnEthicsCard>
+                </Grid>
               ))}
-            </div>
+            </Grid>
           )}
-        </div>
+        </Box>
 
         {/* Quick Actions */}
-        <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="mailto:dpo@connethics.com?subject=Data%20Access%20Request"
-              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-            >
-              Request My Data
-            </a>
-            <a
-              href="mailto:dpo@connethics.com?subject=Data%20Deletion%20Request"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200"
-            >
-              Delete My Data
-            </a>
-            <a
-              href="mailto:dpo@connethics.com?subject=Privacy%20Question"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200"
-            >
-              Ask a Question
-            </a>
-          </div>
-        </div>
+        <Box sx={{ mb: 6 }}>
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              color: 'primary.main', 
+              fontWeight: 700, 
+              letterSpacing: 2, 
+              display: 'block',
+              mb: 2,
+              fontFamily: 'monospace'
+            }}
+          >
+            QUICK_ACTIONS
+          </Typography>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+            <Link href="mailto:dpo@connethics.com?subject=Data%20Access%20Request">
+              <ConnEthicsButton variant="primary">
+                Request My Data
+              </ConnEthicsButton>
+            </Link>
+            <Link href="mailto:dpo@connethics.com?subject=Data%20Deletion%20Request">
+              <ConnEthicsButton variant="outline">
+                Delete My Data
+              </ConnEthicsButton>
+            </Link>
+            <Link href="mailto:dpo@connethics.com?subject=Privacy%20Question">
+              <ConnEthicsButton variant="outline">
+                Ask a Question
+              </ConnEthicsButton>
+            </Link>
+          </Stack>
+        </Box>
 
         {/* Collapsible Sections */}
-        <div className="space-y-4">
+        <Stack spacing={3}>
           {/* Introduction */}
           <CollapsibleSection
             id="introduction"
@@ -117,17 +157,15 @@ export default function Privacy() {
             isExpanded={expandedSections.introduction}
             onToggle={() => toggleSection('introduction')}
           >
-            <div className="prose prose-gray max-w-none">
-              <p className="text-gray-700 leading-relaxed">
-                This Privacy Policy describes our policies and procedures on the collection, use, and disclosure 
-                of your information when you use our service. We&apos;ll tell you about your privacy rights and how 
-                the law protects you.
-              </p>
-              <p className="text-gray-700 leading-relaxed mt-4">
-                We use your personal data to provide and improve our service. By using our service, you agree 
-                to the collection and use of information in accordance with this Privacy Policy.
-              </p>
-            </div>
+            <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}>
+              This Privacy Policy describes our policies and procedures on the collection, use, and disclosure 
+              of your information when you use our service. We&apos;ll tell you about your privacy rights and how 
+              the law protects you.
+            </Typography>
+            <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+              We use your personal data to provide and improve our service. By using our service, you agree 
+              to the collection and use of information in accordance with this Privacy Policy.
+            </Typography>
           </CollapsibleSection>
 
           {/* What We Collect */}
@@ -138,26 +176,34 @@ export default function Privacy() {
             isExpanded={expandedSections.collect}
             onToggle={() => toggleSection('collect')}
           >
-            <div className="space-y-4">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Personal Information You Provide</h4>
-                <ul className="space-y-1 text-gray-700">
-                  <li>• Name and email address (when contacting us)</li>
-                  <li>• Phone number (if you choose to provide it)</li>
-                  <li>• Company information (for business inquiries)</li>
-                  <li>• Message content (in consultation requests)</li>
-                </ul>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Information We Collect Automatically</h4>
-                <ul className="space-y-1 text-gray-700">
-                  <li>• Device information (browser type, operating system)</li>
-                  <li>• Usage data (pages visited, time spent)</li>
-                  <li>• IP address and location data</li>
-                  <li>• Cookies and similar technologies</li>
-                </ul>
-              </div>
-            </div>
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Box sx={{ p: 3, bgcolor: 'grey.50', borderRadius: 1 }}>
+                  <Typography variant="subtitle2" sx={{ fontFamily: 'monospace', color: 'text.secondary', mb: 2 }}>
+                    {'// PERSONAL_INFO'}
+                  </Typography>
+                  <Stack spacing={1}>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Name and email address (when contacting us)</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Phone number (if you choose to provide it)</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Company information (for business inquiries)</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Message content (in consultation requests)</Typography>
+                  </Stack>
+                </Box>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Box sx={{ p: 3, bgcolor: 'grey.50', borderRadius: 1 }}>
+                  <Typography variant="subtitle2" sx={{ fontFamily: 'monospace', color: 'text.secondary', mb: 2 }}>
+                    {'// AUTO_COLLECTED'}
+                  </Typography>
+                  <Stack spacing={1}>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Device information (browser type, operating system)</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Usage data (pages visited, time spent)</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• IP address and location data</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>• Cookies and similar technologies</Typography>
+                  </Stack>
+                </Box>
+              </Grid>
+            </Grid>
           </CollapsibleSection>
 
           {/* How We Use Information */}
@@ -168,24 +214,32 @@ export default function Privacy() {
             isExpanded={expandedSections.use}
             onToggle={() => toggleSection('use')}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Primary Uses</h4>
-                <ul className="space-y-1 text-blue-800">
-                  <li>• Respond to your inquiries</li>
-                  <li>• Provide consultation services</li>
-                  <li>• Send service updates</li>
-                </ul>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-green-900 mb-2">Improvement Uses</h4>
-                <ul className="space-y-1 text-green-800">
-                  <li>• Analyze website usage</li>
-                  <li>• Improve our services</li>
-                  <li>• Develop new features</li>
-                </ul>
-              </div>
-            </div>
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Box sx={{ p: 3, bgcolor: 'primary.50', borderRadius: 1 }}>
+                  <Typography variant="subtitle2" sx={{ fontFamily: 'monospace', color: 'primary.main', mb: 2 }}>
+                    {'// PRIMARY_USES'}
+                  </Typography>
+                  <Stack spacing={1}>
+                    <Typography variant="body2" sx={{ color: 'primary.900' }}>• Respond to your inquiries</Typography>
+                    <Typography variant="body2" sx={{ color: 'primary.900' }}>• Provide consultation services</Typography>
+                    <Typography variant="body2" sx={{ color: 'primary.900' }}>• Send service updates</Typography>
+                  </Stack>
+                </Box>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Box sx={{ p: 3, bgcolor: 'success.50', borderRadius: 1 }}>
+                  <Typography variant="subtitle2" sx={{ fontFamily: 'monospace', color: 'success.main', mb: 2 }}>
+                    {'// IMPROVEMENT_USES'}
+                  </Typography>
+                  <Stack spacing={1}>
+                    <Typography variant="body2" sx={{ color: 'success.900' }}>• Analyze website usage</Typography>
+                    <Typography variant="body2" sx={{ color: 'success.900' }}>• Improve our services</Typography>
+                    <Typography variant="body2" sx={{ color: 'success.900' }}>• Develop new features</Typography>
+                  </Stack>
+                </Box>
+              </Grid>
+            </Grid>
           </CollapsibleSection>
 
           {/* Data Security */}
@@ -196,27 +250,35 @@ export default function Privacy() {
             isExpanded={expandedSections.security}
             onToggle={() => toggleSection('security')}
           >
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <GlobeAltIcon className="h-6 w-6 text-green-600 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">French Data Hosting</h4>
-                  <p className="text-gray-700">Your data is hosted on French territory (Paris region) in compliance with European data protection standards.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <ShieldCheckIcon className="h-6 w-6 text-blue-600 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Security Measures</h4>
-                  <p className="text-gray-700">We use industry-standard encryption, secure data transmission, and regular security audits to protect your information.</p>
-                </div>
-              </div>
-              <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
-                <p className="text-yellow-800 text-sm">
+            <Stack spacing={4}>
+              <Stack direction="row" spacing={3} alignItems="flex-start">
+                <Box sx={{ color: 'success.main', mt: 0.5 }}>
+                  <GlobeAltIcon className="h-6 w-6" />
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>French Data Hosting</Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    Your data is hosted on French territory (Paris region) in compliance with European data protection standards.
+                  </Typography>
+                </Box>
+              </Stack>
+              <Stack direction="row" spacing={3} alignItems="flex-start">
+                <Box sx={{ color: 'primary.main', mt: 0.5 }}>
+                  <ShieldCheckIcon className="h-6 w-6" />
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Security Measures</Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    We use industry-standard encryption, secure data transmission, and regular security audits to protect your information.
+                  </Typography>
+                </Box>
+              </Stack>
+              <Box sx={{ p: 3, bgcolor: 'warning.50', borderRadius: 1, border: '1px solid', borderColor: 'warning.200' }}>
+                <Typography variant="body2" sx={{ color: 'warning.900' }}>
                   <strong>Important:</strong> While we implement strong security measures, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
-                </p>
-              </div>
-            </div>
+                </Typography>
+              </Box>
+            </Stack>
           </CollapsibleSection>
 
           {/* Your Rights */}
@@ -227,56 +289,46 @@ export default function Privacy() {
             isExpanded={expandedSections.rights}
             onToggle={() => toggleSection('rights')}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-3">Under GDPR, you have the right to:</h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span><strong>Access</strong> your personal data</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span><strong>Correct</strong> inaccurate information</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span><strong>Delete</strong> your data</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span><strong>Restrict</strong> processing</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span><strong>Data portability</strong></span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span><strong>Object</strong> to processing</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-3">How to exercise your rights:</h4>
-                <div className="space-y-3">
-                  <a
-                    href="mailto:dpo@connethics.com"
-                    className="block p-3 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors duration-200"
-                  >
-                    <div className="font-medium text-blue-900">Email our DPO</div>
-                    <div className="text-blue-700 text-sm">dpo@connethics.com</div>
-                  </a>
-                  <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-                    <div className="font-medium text-gray-900">Response Time</div>
-                    <div className="text-gray-700 text-sm">We&apos;ll respond within 30 days</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Grid container spacing={4}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>Under GDPR, you have the right to:</Typography>
+                <Stack spacing={1.5}>
+                  {[
+                    { right: 'Access', desc: 'your personal data' },
+                    { right: 'Correct', desc: 'inaccurate information' },
+                    { right: 'Delete', desc: 'your data' },
+                    { right: 'Restrict', desc: 'processing' },
+                    { right: 'Data portability', desc: '' },
+                    { right: 'Object', desc: 'to processing' },
+                  ].map((item, index) => (
+                    <Stack key={index} direction="row" spacing={1.5} alignItems="flex-start">
+                      <Typography sx={{ color: 'primary.main' }}>✓</Typography>
+                      <Typography variant="body2">
+                        <strong>{item.right}</strong>{item.desc && ` ${item.desc}`}
+                      </Typography>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>How to exercise your rights:</Typography>
+                <Stack spacing={2}>
+                  <Link href="mailto:dpo@connethics.com" style={{ textDecoration: 'none' }}>
+                    <Box sx={{ p: 2, bgcolor: 'primary.50', borderRadius: 1, border: '1px solid', borderColor: 'primary.200', '&:hover': { bgcolor: 'primary.100' } }}>
+                      <Typography variant="subtitle2" sx={{ color: 'primary.900' }}>Email our DPO</Typography>
+                      <Typography variant="body2" sx={{ color: 'primary.700' }}>dpo@connethics.com</Typography>
+                    </Box>
+                  </Link>
+                  <Box sx={{ p: 2, bgcolor: 'grey.50', borderRadius: 1, border: '1px solid', borderColor: 'divider' }}>
+                    <Typography variant="subtitle2">Response Time</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>We&apos;ll respond within 30 days</Typography>
+                  </Box>
+                </Stack>
+              </Grid>
+            </Grid>
           </CollapsibleSection>
 
-          {/* Contact Information */}
+          {/* Contact */}
           <CollapsibleSection
             id="contact"
             title="Questions or Concerns?"
@@ -284,44 +336,69 @@ export default function Privacy() {
             isExpanded={expandedSections.contact}
             onToggle={() => toggleSection('contact')}
           >
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
-              <div className="text-center">
-                <h4 className="font-semibold text-gray-900 mb-2">We&apos;re Here to Help</h4>
-                <p className="text-gray-700 mb-4">
+            <Box 
+              sx={{ 
+                p: 4, 
+                bgcolor: 'grey.900',
+                borderRadius: 1,
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundImage: `
+                    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '40px 40px',
+                  pointerEvents: 'none'
+                }
+              }}
+            >
+              <Box sx={{ position: 'relative', zIndex: 1 }}>
+                <Typography variant="h6" sx={{ color: 'white', mb: 1, fontWeight: 600 }}>We&apos;re Here to Help</Typography>
+                <Typography variant="body2" sx={{ color: 'grey.400', mb: 3 }}>
                   Have questions about this privacy policy or how we handle your data?
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <a
-                    href="mailto:dpo@connethics.com"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    Contact Data Protection Officer
-                  </a>
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-                  >
-                    General Contact Form
-                  </a>
-                </div>
-              </div>
-            </div>
+                </Typography>
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+                  <Link href="mailto:dpo@connethics.com">
+                    <ConnEthicsButton 
+                      variant="primary"
+                      sx={{ bgcolor: 'white', color: 'grey.900', '&:hover': { bgcolor: 'grey.100' } }}
+                    >
+                      Contact DPO
+                    </ConnEthicsButton>
+                  </Link>
+                  <Link href="/contact">
+                    <ConnEthicsButton 
+                      variant="outline"
+                      sx={{ borderColor: 'grey.600', color: 'grey.300', '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' } }}
+                    >
+                      General Contact
+                    </ConnEthicsButton>
+                  </Link>
+                </Stack>
+              </Box>
+            </Box>
           </CollapsibleSection>
-        </div>
+        </Stack>
 
         {/* Footer */}
-        <div className="mt-12 text-center">
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <p className="text-gray-600 text-sm mb-2">
-              Last updated: July 30, 2025
-            </p>
-            <p className="text-gray-500 text-xs">
-              This privacy policy is designed to be clear and accessible. If you need clarification on any point, please don&apos;t hesitate to contact us.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <Box sx={{ mt: 8, textAlign: 'center' }}>
+          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1 }}>
+            Last updated: July 30, 2025
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.disabled' }}>
+            This privacy policy is designed to be clear and accessible. If you need clarification on any point, please don&apos;t hesitate to contact us.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 }
 
@@ -337,26 +414,39 @@ interface CollapsibleSectionProps {
 
 function CollapsibleSection({ title, icon, children, isExpanded, onToggle }: CollapsibleSectionProps) {
   return (
-    <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-      <button
+    <ConnEthicsCard variant="blueprint" sx={{ overflow: 'hidden' }}>
+      <Box
+        component="button"
         onClick={onToggle}
-        className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+        sx={{
+          width: '100%',
+          px: 3,
+          py: 2.5,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          bgcolor: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          '&:hover': { bgcolor: 'grey.50' },
+          transition: 'background-color 0.2s'
+        }}
       >
-        <div className="flex items-center space-x-3">
-          <div className="text-blue-600">{icon}</div>
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-        </div>
+        <Stack direction="row" spacing={2} alignItems="center">
+          <Box sx={{ color: 'primary.main' }}>{icon}</Box>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>{title}</Typography>
+        </Stack>
         {isExpanded ? (
           <ChevronDownIcon className="h-5 w-5 text-gray-500" />
         ) : (
           <ChevronRightIcon className="h-5 w-5 text-gray-500" />
         )}
-      </button>
+      </Box>
       {isExpanded && (
-        <div className="px-6 pb-6">
+        <Box sx={{ px: 3, pb: 3 }}>
           {children}
-        </div>
+        </Box>
       )}
-    </div>
+    </ConnEthicsCard>
   );
 }

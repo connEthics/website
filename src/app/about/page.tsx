@@ -48,25 +48,25 @@ export default function About() {
     <Box sx={{ minHeight: '100vh', backgroundColor: 'background.default' }}>
       {/* Hero Section */}
       <ConnEthicsHero
-        variant="gradient"
-        title="About ConnEthics"
-        subtitle="Architects of the New Digital Order"
+        variant="deep-ocean"
+        title="We Build the Infrastructure of Trust"
+        subtitle="About ConnEthics"
         description="We exist to arm ethical leaders with the tools they need to survive and thrive. We believe that in a hyper-competitive world, integrity is the ultimate competitive advantage."
       />
 
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
         {/* Mission Section - The "Why" */}
-        <Box sx={{ mb: 8, textAlign: 'center', maxWidth: '800px', mx: 'auto' }}>
-          <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
+        <Box sx={{ mb: 8, textAlign: 'left', maxWidth: '800px', mx: 'auto', pl: { xs: 2, md: 4 }, borderLeft: '4px solid', borderColor: 'primary.main' }}>
+          <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block', fontFamily: 'monospace' }}>
             OUR MANIFESTO
           </Typography>
-          <Typography variant="h3" component="h2" sx={{ fontWeight: 700, mb: 6, color: 'text.primary' }}>
+          <Typography variant="h3" component="h2" sx={{ fontWeight: 800, mb: 6, color: 'text.primary' }}>
             We are not consultants.<br/>We are ecosystem builders.
           </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', lineHeight: 1.8, mb: 4 }}>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary', lineHeight: 1.8, mb: 4 }}>
             The digital world is becoming a battlefield. Data is weaponized, trust is eroding, and complexity is paralyzing. 
           </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', lineHeight: 1.8 }}>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', color: 'text.secondary', lineHeight: 1.8 }}>
             Most agencies will sell you a tool to patch a leak. We provide the blueprint to rebuild the ship. We help you navigate chaos by aligning your technical stack with your ethical values.
           </Typography>
         </Box>
@@ -75,7 +75,7 @@ export default function About() {
 
         {/* Principles Section - The "How" */}
         <Box sx={{ mb: 8 }}>
-          <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 8, textAlign: 'center' }}>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 800, mb: 8, textAlign: 'center' }}>
             Operating Principles
           </Typography>
           <Grid container spacing={4}>
@@ -83,23 +83,25 @@ export default function About() {
               const Icon = item.icon;
               return (
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
-                  <ConnEthicsCard variant="elevated" sx={{ height: '100%', p: 4 }}>
+                  <ConnEthicsCard variant="blueprint" sx={{ height: '100%', p: 4 }}>
                     <Stack direction="row" spacing={3} alignItems="flex-start">
                       <Box 
                         sx={{ 
                           p: 2, 
-                          borderRadius: 2, 
-                          bgcolor: 'primary.50', 
+                          borderRadius: 1, 
+                          border: '1px solid',
+                          borderColor: 'divider',
+                          bgcolor: 'white', 
                           color: 'primary.main',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center'
                         }}
                       >
-                        <Icon className="h-6 w-6" />
+                        <Icon className="h-6 w-6" strokeWidth={2} />
                       </Box>
                       <Box>
-                        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                        <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
                           {item.title}
                         </Typography>
                         <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>

@@ -10,7 +10,7 @@ interface ConnEthicsCardProps {
   subtitle?: string;
   children: React.ReactNode;
   actions?: React.ReactNode;
-  variant?: 'default' | 'elevated' | 'outlined';
+  variant?: 'default' | 'elevated' | 'outlined' | 'blueprint';
   className?: string;
   sx?: SxProps<Theme>;
   onClick?: () => void;
@@ -26,6 +26,18 @@ const StyledCard = styled(Card)<{ customvariant?: string }>(({ theme, customvari
     '&:hover': {
       transform: 'translateY(-4px)',
       boxShadow: '0 16px 48px rgba(0, 0, 0, 0.12)',
+    },
+  }),
+
+  ...(customvariant === 'blueprint' && {
+    borderRadius: '4px',
+    border: `1px solid ${theme.palette.divider}`,
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
+    boxShadow: 'none',
+    '&:hover': {
+      borderColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: `0 0 0 1px ${theme.palette.primary.main}`,
     },
   }),
   
