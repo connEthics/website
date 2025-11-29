@@ -234,7 +234,7 @@ export default function Services() {
       </Box>
 
       {/* Engagement Models Section */}
-      <Box sx={{ py: 8, bgcolor: '#0f172a', color: 'white' }}>
+      <Box sx={{ py: 8, bgcolor: 'neutral.900', color: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 12 }}>
             <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block', fontFamily: 'monospace' }}>
