@@ -229,7 +229,7 @@ export default function ProductStrategy() {
       </Box>
 
       {/* Anti-Patterns Section */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'neutral.900', color: 'white' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#171717', color: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 10 }}>
             <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block', fontFamily: 'monospace' }}>

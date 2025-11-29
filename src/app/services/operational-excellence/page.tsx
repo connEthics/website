@@ -281,7 +281,7 @@ export default function OperationalExcellence() {
       </Box>
 
       {/* Team Topologies Section */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'neutral.900', color: 'white' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#171717', color: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 10 }}>
             <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block', fontFamily: 'monospace' }}>
@@ -290,7 +290,7 @@ export default function OperationalExcellence() {
             <Typography variant="h3" component="h2" sx={{ fontWeight: 800, mb: 3, color: 'white' }}>
               Organize for Fast Flow
             </Typography>
-            <Typography variant="h6" sx={{ color: 'grey.400', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
+            <Typography variant="h6" sx={{ color: 'grey.200', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
               Team structure determines delivery speed. We apply the Team Topologies framework to design organizations optimized for your identity initiative.
             </Typography>
           </Box>
@@ -303,23 +303,24 @@ export default function OperationalExcellence() {
                     p: 5,
                     height: '100%',
                     border: '1px solid',
-                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderColor: 'rgba(255,255,255,0.15)',
+                    bgcolor: 'rgba(255,255,255,0.03)',
                     transition: 'all 0.3s ease',
                     '&:hover': {
                       borderColor: 'primary.500',
-                      bgcolor: 'rgba(255,255,255,0.02)'
+                      bgcolor: 'rgba(255,255,255,0.06)'
                     }
                   }}
                 >
                   <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.400' }}>
                     {topology.type}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: 'grey.300', mb: 3, lineHeight: 1.7 }}>
+                  <Typography variant="body1" sx={{ color: 'grey.200', mb: 3, lineHeight: 1.7 }}>
                     {topology.description}
                   </Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, bgcolor: 'rgba(255,255,255,0.05)' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid', borderColor: 'rgba(255,255,255,0.1)' }}>
                     <BoltIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
-                    <Typography variant="body2" sx={{ color: 'grey.400' }}>
+                    <Typography variant="body2" sx={{ color: 'grey.200' }}>
                       {topology.benefit}
                     </Typography>
                   </Box>
