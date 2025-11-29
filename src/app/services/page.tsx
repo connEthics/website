@@ -101,14 +101,14 @@ export default function Services() {
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       {/* Hero Section */}
       <ConnEthicsHero
-        variant="default"
+        variant="deep-ocean"
         title="Strategic Capabilities"
         subtitle="Engineering Trust in a Zero-Trust World"
         description="We don't just consult. We build the infrastructure for your survival. From cryptographic trust to economic warfare analysis, we provide the arsenal you need to lead."
       />
 
       {/* Services Section - Zig Zag Layout */}
-      <Box sx={{ py: 6, bgcolor: 'grey.50' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#f8fafc' }}>
         <Container maxWidth="lg">
           <Stack spacing={8}>
             {services.map((service, index) => {
@@ -131,18 +131,19 @@ export default function Services() {
                     <Box 
                       sx={{ 
                         bgcolor: 'white',
-                        borderRadius: 4,
+                        borderRadius: 1,
                         p: 8,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.15)',
                         height: '100%',
                         minHeight: 320,
                         position: 'relative',
                         overflow: 'hidden',
                         border: '1px solid',
-                        borderColor: 'grey.100'
+                        borderColor: 'divider',
+                        backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)',
+                        backgroundSize: '20px 20px'
                       }}
                     >
                       <Box 
@@ -151,25 +152,26 @@ export default function Services() {
                           top: 0,
                           left: 0,
                           right: 0,
-                          height: 4,
+                          height: 2,
                           bgcolor: 'primary.main'
                         }} 
                       />
-                      <IconComponent style={{ width: 140, height: 140, color: '#0284c7', opacity: 0.8, strokeWidth: 1 }} />
+                      <IconComponent style={{ width: 120, height: 120, color: '#0f172a', opacity: 0.8, strokeWidth: 0.8 }} />
                       
-                      {/* Decorative elements */}
-                      <Box 
+                      {/* Technical Label */}
+                      <Typography 
+                        variant="caption" 
                         sx={{ 
-                          position: 'absolute',
-                          bottom: -40,
-                          right: -40,
-                          width: 160,
-                          height: 160,
-                          borderRadius: '50%',
-                          bgcolor: 'primary.50',
-                          zIndex: 0
-                        }} 
-                      />
+                          position: 'absolute', 
+                          bottom: 16, 
+                          right: 16, 
+                          fontFamily: 'monospace', 
+                          color: 'text.disabled',
+                          fontWeight: 700
+                        }}
+                      >
+                        CAPABILITY_0{index + 1} {`// ${service.category.toUpperCase()}`}
+                      </Typography>
                     </Box>
                   </Box>
 
@@ -180,12 +182,15 @@ export default function Services() {
                       sx={{ 
                         mb: 3, 
                         fontWeight: 700,
-                        bgcolor: 'primary.50',
+                        bgcolor: 'transparent',
                         color: 'primary.main',
+                        border: '1px solid',
+                        borderColor: 'primary.main',
                         textTransform: 'uppercase',
                         letterSpacing: '0.05em',
                         fontSize: '0.75rem',
-                        height: 32
+                        height: 32,
+                        borderRadius: 1
                       }} 
                     />
                     <Typography variant="h3" component="h3" sx={{ mb: 3, fontWeight: 800, color: 'text.primary', letterSpacing: '-0.02em' }}>
@@ -201,14 +206,13 @@ export default function Services() {
                           <Box key={featureIndex} sx={{ display: 'flex', alignItems: 'center' }}>
                             <Box 
                               sx={{ 
-                                width: 6, 
-                                height: 6, 
-                                borderRadius: '50%', 
+                                width: 4, 
+                                height: 4, 
                                 bgcolor: 'primary.main', 
                                 mr: 2
                               }}
                             />
-                            <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 500 }}>
+                            <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 500, fontFamily: 'monospace' }}>
                               {feature}
                             </Typography>
                           </Box>
@@ -216,7 +220,7 @@ export default function Services() {
                       </Stack>
                     </Box>
 
-                    <Link href="/contact" passHref legacyBehavior>
+                    <Link href="/contact">
                       <ConnEthicsButton variant="outline" size="medium">
                         Explore Capability
                       </ConnEthicsButton>
@@ -230,13 +234,13 @@ export default function Services() {
       </Box>
 
       {/* Engagement Models Section */}
-      <Box sx={{ py: 8, bgcolor: 'primary.900', color: 'white' }}>
+      <Box sx={{ py: 8, bgcolor: '#0f172a', color: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 12 }}>
-            <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block' }}>
-              HOW WE ENGAGE
+            <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block', fontFamily: 'monospace' }}>
+              ENGAGEMENT_PROTOCOLS
             </Typography>
-            <Typography variant="h3" component="h2" sx={{ mb: 3, fontWeight: 700, color: 'white' }}>
+            <Typography variant="h3" component="h2" sx={{ mb: 3, fontWeight: 800, color: 'white' }}>
               Deployment Models
             </Typography>
             <Typography variant="h6" sx={{ color: 'grey.400', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
@@ -251,26 +255,53 @@ export default function Services() {
                   sx={{ 
                     p: 5,
                     height: '100%',
-                    borderRadius: 4,
-                    bgcolor: 'grey.800',
+                    bgcolor: 'transparent',
                     border: '1px solid',
-                    borderColor: 'grey.700',
+                    borderColor: 'rgba(255,255,255,0.1)',
                     transition: 'all 0.3s ease',
+                    position: 'relative',
                     '&:hover': {
                       borderColor: 'primary.500',
-                      transform: 'translateY(-8px)'
+                      bgcolor: 'rgba(255,255,255,0.02)',
+                      transform: 'translateY(-4px)'
                     }
                   }}
                 >
-                  <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, display: 'block', mb: 1 }}>
-                    {model.action}
+                  {/* Header Line */}
+                  <Box sx={{ width: 40, height: 2, bgcolor: 'primary.500', mb: 4 }} />
+                  
+                  <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, display: 'block', mb: 1, fontFamily: 'monospace' }}>
+                    LEVEL_0{index + 1} {`// ${model.action.toUpperCase()}`}
                   </Typography>
                   <Typography variant="h4" component="h3" sx={{ mb: 3, fontWeight: 700, color: 'white' }}>
                     {model.title}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: 'grey.400', lineHeight: 1.7 }}>
+                  <Typography variant="body1" sx={{ color: 'grey.400', lineHeight: 1.7, mb: 4 }}>
                     {model.description}
                   </Typography>
+
+                  <Box sx={{ mt: 'auto' }}>
+                    <Link href="/contact">
+                      <Typography 
+                        component="span"
+                        variant="button" 
+                        sx={{ 
+                          color: 'white', 
+                          fontWeight: 700, 
+                          display: 'flex', 
+                          alignItems: 'center',
+                          fontSize: '0.875rem',
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                          '&:hover': {
+                            color: 'primary.400'
+                          }
+                        }}
+                      >
+                        INITIALIZE <Box component="span" sx={{ ml: 1, fontSize: '1.2em' }}>→</Box>
+                      </Typography>
+                    </Link>
+                  </Box>
                 </Box>
               </Grid>
             ))}
@@ -288,7 +319,7 @@ export default function Services() {
             <Typography variant="h6" sx={{ mb: 6, maxWidth: '700px', mx: 'auto', opacity: 0.9, fontWeight: 400 }}>
               The future belongs to those who build it. Let&apos;s architect your ecosystem today.
             </Typography>
-            <Link href="/contact" passHref legacyBehavior>
+            <Link href="/contact">
               <ConnEthicsButton
                 variant="secondary"
                 size="large"

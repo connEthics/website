@@ -1,134 +1,231 @@
+'use client';
+
+import { Box, Container, Typography, Grid, Stack } from '@mui/material';
+import { ConnEthicsHero, ConnEthicsCard } from '@/components/mui';
+import { DocumentTextIcon, ShieldCheckIcon, ScaleIcon, LockClosedIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+
+const legalDocuments = [
+  {
+    title: 'Sales Terms and Conditions',
+    description: 'Terms and conditions for our consulting services and business relationships',
+    href: '/legal/sales-terms-and-conditions',
+    icon: DocumentTextIcon,
+    variant: 'primary' as const
+  },
+  {
+    title: 'General Purchasing Conditions',
+    description: 'Terms and conditions for our procurement and vendor relationships',
+    href: '/legal/general-purchasing-conditions',
+    icon: ScaleIcon,
+    variant: 'primary' as const
+  },
+  {
+    title: 'SSIP Safety Schemes',
+    description: 'Safety requirements and certification standards for all suppliers',
+    href: '/legal/ssip-safety-schemes',
+    icon: ShieldCheckIcon,
+    variant: 'warning' as const
+  },
+  {
+    title: 'Privacy Policy',
+    description: 'How we collect, use, and protect your personal information',
+    href: '/privacy',
+    icon: LockClosedIcon,
+    variant: 'primary' as const
+  }
+];
+
 export default function Legal() {
   return (
-    <div className="min-h-screen py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Legal Information</h1>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      {/* Hero Section */}
+      <ConnEthicsHero
+        variant="deep-ocean"
+        title="Legal Information"
+        subtitle="COMPLIANCE_FRAMEWORK"
+        description="Our legal framework ensures transparent, ethical, and compliant business relationships."
+      />
+
+      <Container maxWidth="lg" sx={{ py: 6 }}>
+        {/* Legal Documents Grid */}
+        <Box sx={{ mb: 8 }}>
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              color: 'primary.main', 
+              fontWeight: 700, 
+              letterSpacing: 2, 
+              mb: 2, 
+              display: 'block',
+              fontFamily: 'monospace'
+            }}
+          >
+            LEGAL_DOCUMENTS
+          </Typography>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 4 }}>
+            Regulatory Framework
+          </Typography>
           
-          {/* Navigation to Legal Documents */}
-          <div className="mb-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-blue-900 mb-4">Legal Documents</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <a 
-                href="/legal/sales-terms-and-conditions" 
-                className="block p-4 bg-white border border-blue-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
-              >
-                <h3 className="font-semibold text-blue-900 mb-2">Sales Terms and Conditions</h3>
-                <p className="text-sm text-blue-700">
-                  Terms and conditions for our consulting services and business relationships
-                </p>
-              </a>
-              <a 
-                href="/legal/general-purchasing-conditions" 
-                className="block p-4 bg-white border border-blue-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
-              >
-                <h3 className="font-semibold text-blue-900 mb-2">General Purchasing Conditions</h3>
-                <p className="text-sm text-blue-700">
-                  Terms and conditions for our procurement and vendor relationships
-                </p>
-              </a>
-              <a 
-                href="/legal/ssip-safety-schemes" 
-                className="block p-4 bg-white border border-red-200 rounded-lg hover:border-red-400 hover:shadow-md transition-all"
-              >
-                <h3 className="font-semibold text-red-900 mb-2">SSIP Safety Schemes</h3>
-                <p className="text-sm text-red-700">
-                  Safety requirements and certification standards for all suppliers
-                </p>
-              </a>
-              <a 
-                href="/privacy" 
-                className="block p-4 bg-white border border-blue-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
-              >
-                <h3 className="font-semibold text-blue-900 mb-2">Privacy Policy</h3>
-                <p className="text-sm text-blue-700">
-                  How we collect, use, and protect your personal information
-                </p>
-              </a>
-            </div>
-          </div>
-          
-          <div className="bg-white shadow-lg rounded-lg p-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Legal Notice</h2>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Site Publisher</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  This site is published by:
-                </p>
-                <div className="mt-3 text-gray-700">
-                  <p><strong>ConnEthics SASU</strong></p>
-                  <p>Registered with the R.C.S. of Nanterre under number 844 407 866</p>
-                  <p>21 rue Paul Déroulède</p>
-                  <p>92270 Bois-Colombes</p>
-                  <p>France</p>
-                  <p className="mt-2">
+          <Grid container spacing={3}>
+            {legalDocuments.map((doc, index) => {
+              const IconComponent = doc.icon;
+              return (
+                <Grid size={{ xs: 12, md: 6 }} key={index}>
+                  <Link href={doc.href} style={{ textDecoration: 'none' }}>
+                    <ConnEthicsCard 
+                      variant="blueprint" 
+                      sx={{ 
+                        p: 3, 
+                        height: '100%',
+                        cursor: 'pointer',
+                        '&:hover': {
+                          borderColor: doc.variant === 'warning' ? 'warning.main' : 'primary.main',
+                          boxShadow: (theme) => `0 0 0 1px ${doc.variant === 'warning' ? theme.palette.warning.main : theme.palette.primary.main}`
+                        }
+                      }}
+                    >
+                      <Stack direction="row" spacing={3} alignItems="flex-start">
+                        <Box 
+                          sx={{ 
+                            p: 1.5, 
+                            bgcolor: doc.variant === 'warning' ? 'warning.50' : 'primary.50', 
+                            borderRadius: 2, 
+                            color: doc.variant === 'warning' ? 'warning.main' : 'primary.main' 
+                          }}
+                        >
+                          <IconComponent className="h-6 w-6" />
+                        </Box>
+                        <Box>
+                          <Typography 
+                            variant="h6" 
+                            sx={{ 
+                              fontWeight: 600, 
+                              color: doc.variant === 'warning' ? 'warning.dark' : 'text.primary',
+                              mb: 1 
+                            }}
+                          >
+                            {doc.title}
+                          </Typography>
+                          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            {doc.description}
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </ConnEthicsCard>
+                  </Link>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
+
+        {/* Legal Notice */}
+        <Box 
+          sx={{ 
+            bgcolor: (theme) => theme.palette.mode === 'dark' ? 'grey.900' : 'grey.50',
+            borderRadius: 1,
+            p: { xs: 4, md: 6 },
+            border: '1px solid',
+            borderColor: 'divider'
+          }}
+        >
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              color: 'primary.main', 
+              fontWeight: 700, 
+              letterSpacing: 2, 
+              mb: 2, 
+              display: 'block',
+              fontFamily: 'monospace'
+            }}
+          >
+            LEGAL_NOTICE
+          </Typography>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 4 }}>
+            Entity Information
+          </Typography>
+
+          <Grid container spacing={4}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Stack spacing={4}>
+                <Box>
+                  <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontFamily: 'monospace', mb: 1 }}>
+                    {'// PUBLISHER'}
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 600 }}>ConnEthics SASU</Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    RCS Nanterre: 844 407 866
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+                    21 rue Paul Déroulède<br />
+                    92270 Bois-Colombes, France
+                  </Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontFamily: 'monospace', mb: 1 }}>
+                    {'// PUBLICATION_DIRECTOR'}
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 600 }}>Frederic CHOUDAT</Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontFamily: 'monospace', mb: 1 }}>
+                    {'// INSURANCE'}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                     Professional liability insurance taken out with Coover and guaranteed by HISCOX
-                  </p>
-                  <p className="mt-2">
-                    Email: <a href="mailto:contact@connethics.com" className="text-blue-600 hover:text-blue-800">contact@connethics.com</a>
-                  </p>
-                </div>
-              </div>
+                  </Typography>
+                </Box>
+              </Stack>
+            </Grid>
 
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Publication Director</h3>
-                <p className="text-gray-700">
-                  Frederic CHOUDAT
-                </p>
-              </div>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Stack spacing={4}>
+                <Box>
+                  <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontFamily: 'monospace', mb: 1 }}>
+                    {'// HOSTING'}
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 600 }}>Vercel Inc.</Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    650 California St<br />
+                    San Francisco, CA 94108, United States
+                  </Typography>
+                </Box>
 
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Website Hosting</h3>
-                <p className="text-gray-700 mb-3">
-                  This site is hosted by:
-                </p>
-                <div className="text-gray-700">
-                  <p><strong>Vercel Inc.</strong></p>
-                  <p>650 California St</p>
-                  <p>San Francisco, CA 94108</p>
-                  <p>United States</p>
-                </div>
-              </div>
+                <Box>
+                  <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontFamily: 'monospace', mb: 1 }}>
+                    {'// INFRASTRUCTURE_REGION'}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    <strong>Paris, France (West)</strong> - eu-west-3 - cdg1
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+                    In accordance with our commitment to digital sovereignty, we host our data on French territory.
+                  </Typography>
+                </Box>
 
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Hosting Infrastructure</h3>
-                <p className="text-gray-700 mb-3">
-                  <strong>Region:</strong> Paris, France (West) - eu-west-3 - cdg1
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  In accordance with our commitment to digital sovereignty, we have made the deliberate choice 
-                  to host our data on French territory, while benefiting from Vercel&apos;s high-performance infrastructure.
-                </p>
-              </div>
+                <Box>
+                  <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontFamily: 'monospace', mb: 1 }}>
+                    {'// CONTACT'}
+                  </Typography>
+                  <Link href="mailto:contact@connethics.com" style={{ textDecoration: 'none' }}>
+                    <Typography variant="body1" sx={{ color: 'primary.main', '&:hover': { textDecoration: 'underline' } }}>
+                      contact@connethics.com
+                    </Typography>
+                  </Link>
+                </Box>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Box>
 
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Security and Compliance</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Although our hosting provider is an American company, we have implemented strict measures 
-                  to guarantee the protection of your data on French territory. Vercel maintains high security 
-                  standards, documented on their{' '}
-                  <a 
-                    href="https://security.vercel.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800"
-                  >
-                    security portal
-                  </a>.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 text-sm">
-              Last updated: July 2025
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <Typography variant="body2" sx={{ textAlign: 'center', color: 'text.secondary', mt: 6 }}>
+          Last updated: July 2025
+        </Typography>
+      </Container>
+    </Box>
   );
 }

@@ -20,7 +20,7 @@ interface ConnEthicsHeroProps {
     onClick?: () => void;
   };
   backgroundImage?: string;
-  variant?: 'default' | 'gradient' | 'minimal' | 'large';
+  variant?: 'default' | 'gradient' | 'minimal' | 'large' | 'deep-ocean';
 }
 
 const HeroContainer = styled(Box)<{ customvariant?: string; bgimage?: string }>(({ theme, customvariant, bgimage }) => ({
@@ -32,6 +32,19 @@ const HeroContainer = styled(Box)<{ customvariant?: string; bgimage?: string }>(
   
   ...(customvariant === 'gradient' && {
     background: `linear-gradient(135deg, ${theme.palette.primary.main}10 0%, ${theme.palette.primary.main}20 100%)`,
+  }),
+
+  ...(customvariant === 'deep-ocean' && {
+    backgroundColor: theme.palette.mode === 'dark' ? '#030712' : '#0f172a', // neutral.950 / neutral.900
+    backgroundImage: `
+      radial-gradient(circle at 50% 50%, ${theme.palette.primary.main}15 0%, transparent 50%),
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+    `,
+    backgroundSize: '100% 100%, 40px 40px, 40px 40px',
+    color: 'white',
+    minHeight: '50vh',
+    padding: theme.spacing(6, 0),
   }),
   
   ...(customvariant === 'minimal' && {
