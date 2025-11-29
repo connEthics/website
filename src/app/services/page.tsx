@@ -108,7 +108,7 @@ export default function Services() {
       />
 
       {/* Services Section - Zig Zag Layout */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#f8fafc' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'grey.50' }}>
         <Container maxWidth="lg">
           <Stack spacing={8}>
             {services.map((service, index) => {
