@@ -13,7 +13,8 @@ import {
   CheckCircleIcon,
   ArrowPathIcon,
   ClockIcon,
-  CubeTransparentIcon
+  CubeTransparentIcon,
+  SparklesIcon
 } from '@heroicons/react/24/outline';
 
 export default function OperationalExcellence() {
@@ -42,6 +43,11 @@ export default function OperationalExcellence() {
       icon: WrenchScrewdriverIcon,
       title: "Technical Debt Management",
       description: "Pay down debt strategically. We help you identify, quantify, and prioritize technical debt that threatens your eIDAS 2.0 timeline."
+    },
+    {
+      icon: SparklesIcon,
+      title: "AI Adoption & Context Engineering",
+      description: "Integrate AI through team collaboration, shared practices, and change management. We formalize knowledge production processes using DDD governance, Team Topologies, and Lean/Flow principles—6Sigma for the AI era."
     }
   ];
 

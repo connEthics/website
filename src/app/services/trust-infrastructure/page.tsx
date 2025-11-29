@@ -290,19 +290,20 @@ export default function TrustInfrastructure() {
                       sx={{ 
                         p: 4,
                         border: '1px solid',
-                        borderColor: 'rgba(255,255,255,0.1)',
+                        borderColor: 'rgba(255,255,255,0.2)',
+                        bgcolor: 'rgba(255,255,255,0.05)',
                         height: '100%',
                         transition: 'all 0.3s ease',
                         '&:hover': {
-                          borderColor: 'primary.500',
-                          bgcolor: 'rgba(255,255,255,0.02)'
+                          borderColor: 'primary.400',
+                          bgcolor: 'rgba(255,255,255,0.08)'
                         }
                       }}
                     >
                       <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, color: 'white' }}>
                         {useCase.title}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: 'grey.400', lineHeight: 1.7 }}>
+                      <Typography variant="body2" sx={{ color: 'grey.200', lineHeight: 1.7 }}>
                         {useCase.description}
                       </Typography>
                     </Box>

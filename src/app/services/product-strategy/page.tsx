@@ -248,26 +248,28 @@ export default function ProductStrategy() {
                     p: 5,
                     height: '100%',
                     border: '1px solid',
-                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderColor: 'rgba(255,255,255,0.2)',
+                    bgcolor: 'rgba(255,255,255,0.03)',
+                    borderRadius: 1,
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      borderColor: 'primary.500',
-                      bgcolor: 'rgba(255,255,255,0.02)'
+                      borderColor: 'primary.400',
+                      bgcolor: 'rgba(255,255,255,0.06)'
                     }
                   }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-                    <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'error.main' }} />
+                    <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: 'error.main' }} />
                     <Typography variant="h5" sx={{ fontWeight: 700, color: 'white' }}>
                       {pattern.problem}
                     </Typography>
                   </Box>
-                  <Typography variant="body1" sx={{ color: 'grey.400', mb: 3, lineHeight: 1.7 }}>
+                  <Typography variant="body1" sx={{ color: 'grey.200', mb: 3, lineHeight: 1.7 }}>
                     {pattern.description}
                   </Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 3, bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid', borderColor: 'primary.700' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 3, bgcolor: 'rgba(56, 189, 248, 0.1)', border: '1px solid', borderColor: 'primary.500', borderRadius: 1 }}>
                     <CheckCircleIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
-                    <Typography variant="body2" sx={{ color: 'primary.300' }}>
+                    <Typography variant="body2" sx={{ color: 'primary.200', fontWeight: 500 }}>
                       {pattern.solution}
                     </Typography>
                   </Box>
