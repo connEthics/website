@@ -283,7 +283,7 @@ export default function Services() {
             <Typography variant="h3" component="h2" sx={{ mb: 3, fontWeight: 800, color: 'white' }}>
               Deployment Models
             </Typography>
-            <Typography variant="h6" sx={{ color: 'grey.400', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
+            <Typography variant="h6" sx={{ color: 'grey.200', maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
               We adapt to the velocity of your organization. Whether you need a quick diagnostic or a long-term transformation partner.
             </Typography>
           </Box>
@@ -319,7 +319,7 @@ export default function Services() {
                     <Typography variant="h4" component="h3" sx={{ mb: 3, fontWeight: 700, color: 'white' }}>
                       {model.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ color: 'grey.300', lineHeight: 1.7, mb: 4 }}>
+                    <Typography variant="body1" sx={{ color: 'grey.200', lineHeight: 1.7, mb: 4 }}>
                       {model.description}
                     </Typography>
 

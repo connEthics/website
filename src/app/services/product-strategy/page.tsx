@@ -247,29 +247,43 @@ export default function ProductStrategy() {
                   sx={{ 
                     p: 5,
                     height: '100%',
-                    border: '1px solid',
-                    borderColor: 'rgba(255,255,255,0.2)',
-                    bgcolor: 'rgba(255,255,255,0.03)',
-                    borderRadius: 1,
+                    border: '2px solid',
+                    borderColor: 'rgba(255,255,255,0.25)',
+                    bgcolor: 'rgba(15, 23, 42, 0.8)',
+                    borderRadius: 2,
                     transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                     '&:hover': {
                       borderColor: 'primary.400',
-                      bgcolor: 'rgba(255,255,255,0.06)'
+                      bgcolor: 'rgba(15, 23, 42, 0.95)',
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 8px 30px rgba(14, 165, 233, 0.2)'
                     }
                   }}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-                    <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: 'error.main' }} />
-                    <Typography variant="h5" sx={{ fontWeight: 700, color: 'white' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
+                    <Box sx={{ width: 14, height: 14, borderRadius: '50%', bgcolor: 'error.400', boxShadow: '0 0 10px rgba(239, 68, 68, 0.5)' }} />
+                    <Typography variant="h5" sx={{ fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>
                       {pattern.problem}
                     </Typography>
                   </Box>
-                  <Typography variant="body1" sx={{ color: 'grey.200', mb: 3, lineHeight: 1.7 }}>
+                  <Typography variant="body1" sx={{ color: 'grey.100', mb: 4, lineHeight: 1.8, fontSize: '1.05rem' }}>
                     {pattern.description}
                   </Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 3, bgcolor: 'rgba(56, 189, 248, 0.1)', border: '1px solid', borderColor: 'primary.500', borderRadius: 1 }}>
-                    <CheckCircleIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
-                    <Typography variant="body2" sx={{ color: 'primary.200', fontWeight: 500 }}>
+                  <Box 
+                    sx={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: 2, 
+                      p: 3, 
+                      bgcolor: 'rgba(14, 165, 233, 0.15)', 
+                      border: '2px solid', 
+                      borderColor: 'primary.400', 
+                      borderRadius: 2 
+                    }}
+                  >
+                    <CheckCircleIcon className="h-6 w-6 text-primary-300 flex-shrink-0" />
+                    <Typography variant="body1" sx={{ color: 'primary.100', fontWeight: 600 }}>
                       {pattern.solution}
                     </Typography>
                   </Box>

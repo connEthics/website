@@ -329,7 +329,7 @@ export default function WalletIntegrationBlueprint() {
                       <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 700, color: 'white' }}>
                         {item.title}
                       </Typography>
-                      <Typography variant="body1" sx={{ color: 'grey.400', lineHeight: 1.7 }}>
+                      <Typography variant="body1" sx={{ color: 'grey.200', lineHeight: 1.7 }}>
                         {item.description}
                       </Typography>
                     </Box>
