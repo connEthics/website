@@ -83,17 +83,20 @@ export default function Services() {
     {
       title: "eIDAS 2.0 Opportunity Radar",
       description: "For C-Levels. We map your customer journeys to identify friction points and quantify the ROI of reusable identity. You get a clear Business Case: how much will you save on KYC, and how much will your conversion increase?",
-      action: "Strategy"
+      action: "Strategy",
+      link: "/services/eidas-opportunity-radar"
     },
     {
       title: "Wallet Integration Blueprint", 
       description: "For CTOs & Innovation Leads. We design your target architecture (Buy vs Build), manage RFPs to select the right Identity Provider, and design ARF-compliant user journeys that users actually trust.",
-      action: "Tactics"
+      action: "Tactics",
+      link: "/services/wallet-integration-blueprint"
     },
     {
       title: "Identity PMO",
       description: "For Operational Teams. We steer the deployment, coordinate with QTSPs (Trust Service Providers), and manage change. We ensure your transition to the eIDAS 2.0 ecosystem is seamless and on time.",
-      action: "Operations"
+      action: "Operations",
+      link: "/services/identity-pmo"
     }
   ];
 
@@ -220,7 +223,7 @@ export default function Services() {
                       </Stack>
                     </Box>
 
-                    <Link href="/contact">
+                    <Link href={`/services/${service.id}`}>
                       <ConnEthicsButton variant="outline" size="medium">
                         Explore Capability
                       </ConnEthicsButton>
@@ -281,7 +284,7 @@ export default function Services() {
                   </Typography>
 
                   <Box sx={{ mt: 'auto' }}>
-                    <Link href="/contact">
+                    <Link href={model.link}>
                       <Typography 
                         component="span"
                         variant="button" 
