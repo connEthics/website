@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ChevronRightIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 interface TableOfContentsItem {
@@ -236,6 +237,31 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
         return;
       }
       
+      // Handle images
+      const imageMatch = line.match(/^!\[(.*?)\]\((.*?)\)/);
+      if (imageMatch) {
+        flushListItems();
+        const [, alt, src] = imageMatch;
+        result.push(
+          <div key={index} className="my-8">
+            <Image 
+              src={src} 
+              alt={alt} 
+              width={800}
+              height={450}
+              className="rounded-lg shadow-md w-full h-auto"
+              style={{ width: '100%', height: 'auto' }}
+            />
+            {alt && (
+              <p className="text-sm text-slate-500 text-center mt-2 italic">
+                {alt}
+              </p>
+            )}
+          </div>
+        );
+        return;
+      }
+
       // Handle paragraphs
       if (line.trim() && !line.match(/^[#*-]|^\||^>/)) {
         flushListItems();
@@ -263,7 +289,7 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
   const parsedContent = parseMarkdown(content);
 
   return (
-    <div className="relative">
+    <div className="relative lg:flex lg:flex-row-reverse lg:gap-8">
       {/* Floating Navigation Toggle */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -279,12 +305,11 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
 
       {/* Floating Table of Contents */}
       <nav
-        className={`fixed top-16 right-0 w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
+        className={`fixed top-16 right-0 bottom-0 w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } lg:translate-x-0 lg:w-64 lg:shadow-lg`}
-        style={{ height: 'calc(100vh - 4rem)' }}
+        } lg:translate-x-0 lg:static lg:w-64 lg:shadow-none lg:bg-transparent lg:h-auto lg:block`}
       >
-        <div className="p-6 h-full overflow-y-auto">
+        <div className="h-full overflow-y-auto p-6 lg:p-0 lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)]">
           <h3 className="text-lg font-semibold text-slate-900 mb-4">
             Table des matières
           </h3>
@@ -321,7 +346,7 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
       )}
 
       {/* Main Content */}
-      <div className="lg:pr-64">
+      <div className="flex-1 min-w-0">
         <article className="prose prose-lg max-w-none">
           <div className="space-y-2">
             {parsedContent}

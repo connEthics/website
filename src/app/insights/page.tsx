@@ -8,6 +8,24 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Gouvernance du Contexte à l'Ère de l'IA Agentique",
+      excerpt: "Propriété Intellectuelle, Opérations et Stratégie : Comment maîtriser la 'sauce secrète' de vos agents IA. Analyse des risques et modèles de détention.",
+      date: "December 28, 2025",
+      category: "AI Governance",
+      readTime: "10 min read",
+      slug: "gouvernance-contexte-ia-agentique",
+      featured: true
+    },
+    {
+      title: "Arazzo: The Missing Link in API Orchestration",
+      excerpt: "From static endpoints to executable workflows. Discover how Arazzo and our open-source tools are transforming API integration.",
+      date: "December 28, 2025",
+      category: "Developer Tools",
+      readTime: "5 min read",
+      slug: "arazzo-api-workflows",
+      featured: true
+    },
+    {
       title: "Product Discovery Method with Opportunity Tree Solution",
       excerpt: "A comprehensive guide to implementing structured product discovery using opportunity trees to drive meaningful business outcomes and align teams around customer value.",
       date: "January 10, 2025",
@@ -91,7 +109,9 @@ export default function Insights() {
     "Ecosystem Cartography", 
     "Trust & Identity",
     "Product Leadership",
-    "Business Ethics"
+    "Business Ethics",
+    "Developer Tools",
+    "AI Governance"
   ], []);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
