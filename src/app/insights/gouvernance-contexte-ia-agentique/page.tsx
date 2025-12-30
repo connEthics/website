@@ -70,14 +70,10 @@ export default function AiGovernanceGuide() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div>
                 <p className="text-sm text-slate-600">
-                  Publié le {new Date().toLocaleDateString('fr-FR', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+                  Publié le 28 décembre 2025
                 </p>
                 <p className="text-sm text-slate-600 mt-1">
-                  Par l&apos;équipe ConnEthics
+                  Par Frédéric CHOUDAT | Fondateur de ConnEthics
                 </p>
               </div>
               <div className="flex gap-4">

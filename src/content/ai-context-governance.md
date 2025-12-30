@@ -87,7 +87,7 @@ La stratégie de protection doit s'adapter à la juridiction cible, car les rég
 
 *   **Union Européenne (AI Act & Secret des Affaires)** :
     *   **Transparence (AI Act)** : Si les artefacts configurent une IA interagissant avec des humains, la transparence est obligatoire.
-    *   **Secret des Affaires** : Pour que le Modèle B soit robuste, il ne suffit pas de séparer le stockage. Il faut prouver des "mesures raisonnables de protection" (traçabilité, chiffrement spécifique).
+    *   **Secret des Affaires** : Pour que le **Dépôt Contexte Client** soit robuste, il ne suffit pas de séparer le stockage. Il faut prouver des "mesures raisonnables de protection" (traçabilité, chiffrement spécifique).
 *   **États-Unis (Copyright & Work for Hire)** :
     *   **Human Authorship** : Le Copyright Office refuse la protection aux œuvres générées par IA. La valeur juridique se déplace donc du résultat (Output) vers la commande (Input/Prompt). Protéger le fichier `agent.yaml` est crucial.
     *   **Work for Hire** : Le risque que des contractors revendiquent la propriété de leurs "prompts personnels" est élevé. Des clauses de "Prompt Assignment" sont indispensables.
@@ -97,14 +97,14 @@ La stratégie de protection doit s'adapter à la juridiction cible, car les rég
 La gouvernance ne s'arrête pas à la détention ("À qui ça appartient ?"), elle doit traiter la responsabilité ("Qui paie quand ça casse ?").
 
 *   **Responsabilité Civile (Hallucinations Destructrices)** : Contrairement au code déterministe, un prompt correct peut produire une action fautive (ex: suppression de base de données). Les contrats doivent plafonner la responsabilité pour les aléas inhérents aux LLM ou imposer une validation humaine (Human-in-the-loop) pour les actions critiques.
-*   **Droit Social (Surveillance)** : Centraliser les "User Rules" (Modèle D vers B) peut être perçu comme une surveillance de l'activité des salariés. L'analyse des prompts pour déduire la performance individuelle nécessite une consultation du CSE et une approche "Privacy by Design".
+*   **Droit Social (Surveillance)** : Centraliser les "User Rules" (des préférences locales vers un dépôt partagé) peut être perçu comme une surveillance de l'activité des salariés. L'analyse des prompts pour déduire la performance individuelle nécessite une consultation du CSE et une approche "Privacy by Design".
 *   **Hygiène de Licence** : Attention à la "contamination" par des prompts Open Source (CC-BY-SA) copiés-collés depuis des forums, qui pourraient impacter le statut juridique des projets propriétaires.
 
 ---
 
 ## Analyse du Delivery Manager : Industrialiser le Partage des Pratiques
 
-Pour le Delivery Manager, la coexistence de ces quatre modèles de stockage crée un défi de synchronisation. L'objectif est de transformer les préférences individuelles (Modèle D) en actifs collectifs (Modèles A, B ou C).
+Pour le Delivery Manager, la coexistence de ces différents lieux de stockage crée un défi de synchronisation. L'objectif est de transformer les préférences individuelles (locales) en actifs collectifs (versionnés et partagés).
 
 ### Stratégie InnerSource pour les Artefacts
 
@@ -148,7 +148,7 @@ Le PromptOps applique les principes du GitOps aux artefacts d'IA, mais avec une 
 ### Sécurisation de la Supply Chain Agentique
 
 *   **Scan des configurations** : Les outils de sécurité doivent scanner les fichiers `.cursorrules` et `.agent` pour détecter des injections de prompts malveillantes ou des fuites de données (ex: un prompt système qui contient des données PII en exemple).
-*   **Signature des Artefacts** : Si l'ESN fournit un "pack d'agents" (Modèle C), ces fichiers doivent être signés numériquement pour garantir qu'ils n'ont pas été altérés.
+*   **Signature des Artefacts** : Si l'ESN fournit un "pack d'agents" (Dépôt Actif Fournisseur), ces fichiers doivent être signés numériquement pour garantir qu'ils n'ont pas été altérés.
 
 ### Le Mur de l'Observabilité et du Coût (FinOps)
 
@@ -168,7 +168,7 @@ Le client final doit adapter ses exigences pour ne pas acheter une "boîte noire
 Les contrats d'outsourcing doivent inclure des SLA spécifiques aux agents utilisés ou livrés :
 
 *   **Taux de succès (Loop Rate)** : Pour un agent autonome défini par un `.agent`, quel est le pourcentage de tâches complétées sans intervention humaine? (KPI critique : "Steps per Task").
-*   **Transparence des Outils** : Le fournisseur doit déclarer si le code est produit par des configurations stockées en local (Modèle D - Risque) ou via des agents partagés et auditables (Modèle B/C).
+*   **Transparence des Outils** : Le fournisseur doit déclarer si le code est produit par des configurations stockées en local (Risque Shadow IP) ou via des agents partagés et auditables (Dépôts Client ou Fournisseur).
 
 ### Audit de la "Sauce Secrète"
 
