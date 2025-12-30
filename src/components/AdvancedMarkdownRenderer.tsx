@@ -76,22 +76,67 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
     const lines = markdown.split('\n');
     const result: React.ReactElement[] = [];
     let headingIndex = 0;
-    let listItems: string[] = [];
+    
+    interface ListItem {
+      text: string;
+      level: number;
+      type: 'ul' | 'ol';
+    }
+    let listItems: ListItem[] = [];
+    
     let inCodeBlock = false;
     let codeBlockContent: string[] = [];
     let inTable = false;
     let tableRows: string[][] = [];
 
+    const renderNestedList = (items: ListItem[], baseLevel: number = 0): React.ReactElement => {
+      if (items.length === 0) return <></>;
+
+      const rootType = items[0].type;
+      const Tag = rootType;
+      const listClass = rootType === 'ul' ? "list-disc" : "list-decimal";
+      
+      const elements: React.ReactElement[] = [];
+      let i = 0;
+      
+      while (i < items.length) {
+        const item = items[i];
+        const content = <span dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(item.text) }} />;
+        
+        const children: ListItem[] = [];
+        let j = i + 1;
+        
+        while (j < items.length && items[j].level > item.level) {
+          children.push(items[j]);
+          j++;
+        }
+        
+        elements.push(
+          <li key={i} className="text-lg leading-relaxed my-1">
+            {content}
+            {children.length > 0 && renderNestedList(children, item.level + 1)}
+          </li>
+        );
+        
+        i = j;
+      }
+
+      return (
+        <Tag className={`${listClass} list-inside text-slate-700 mb-4 space-y-1 ${baseLevel > 0 ? 'ml-6' : 'ml-4'}`}>
+          {elements}
+        </Tag>
+      );
+    };
+
     const flushListItems = () => {
       if (listItems.length > 0) {
+        const minLevel = Math.min(...listItems.map(i => i.level));
+        const normalizedItems = listItems.map(i => ({ ...i, level: i.level - minLevel }));
+        
         result.push(
-          <ul key={`list-${result.length}`} className="list-disc list-inside text-slate-700 mb-6 space-y-2 ml-4">
-            {listItems.map((item, index) => (
-              <li key={index} className="text-lg leading-relaxed">
-                <span dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(item) }} />
-              </li>
-            ))}
-          </ul>
+          <div key={`list-${result.length}`} className="mb-6">
+            {renderNestedList(normalizedItems)}
+          </div>
         );
         listItems = [];
       }
@@ -187,9 +232,14 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
       }
       
       // Handle lists
-      if (line.match(/^[-*]\s+/)) {
-        const text = line.replace(/^[-*]\s+/, '');
-        listItems.push(text);
+      const listMatch = line.match(/^(\s*)([-*]|\d+\.)\s+(.*)/);
+      if (listMatch) {
+        const indent = listMatch[1].length;
+        const type = listMatch[2].match(/\d+\./) ? 'ol' : 'ul';
+        const text = listMatch[3];
+        // Normalize indent (assuming 2 spaces per level)
+        const level = Math.floor(indent / 2); 
+        listItems.push({ text, level, type });
         return;
       }
       
@@ -263,7 +313,8 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
       }
 
       // Handle paragraphs
-      if (line.trim() && !line.match(/^[#*-]|^\||^>/)) {
+      // Allow lines starting with * (bold) or - (if not a list/hr) to be paragraphs if they weren't caught above
+      if (line.trim() && !line.match(/^[#]|^\||^>/)) {
         flushListItems();
         result.push(
           <p key={index} className="text-lg text-slate-700 mb-4 leading-relaxed">
