@@ -5,9 +5,9 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 
 export const metadata: Metadata = {
-  title: 'Gouvernance du Contexte : Propriété Intellectuelle et Stratégie à l\'Ère de l\'IA Agentique | ConnEthics',
-  description: 'Analyse approfondie de la gestion des artefacts agentiques (.cursorrules, .agent) : enjeux juridiques, propriété intellectuelle et stratégies opérationnelles pour les DSI.',
-  keywords: ['IA Agentique', 'Gouvernance IA', 'Propriété Intellectuelle', 'Shadow AI', 'PromptOps', 'Cursor', 'MCP', 'Model Context Protocol'],
+  title: 'Shadow AI & Propriété Intellectuelle : Qui possède vraiment vos Agents IA ? | ConnEthics',
+  description: 'Vos développeurs utilisent des assistants IA, mais qui possède les règles métier ? Guide de gouvernance pour sécuriser votre patrimoine agentique (.cursorrules, .agent) face aux risques de Shadow AI.',
+  keywords: ['IA Agentique', 'Gouvernance IA', 'Propriété Intellectuelle', 'Shadow AI', 'PromptOps', 'Cursor', 'MCP', 'Model Context Protocol', 'Sécurité IA', 'Conformité AI Act'],
 }
 
 // Read the markdown content at build time
@@ -41,7 +41,7 @@ export default function AiGovernanceGuide() {
         <div className="bg-white rounded-lg shadow-lg p-8">
           <header className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              La Gouvernance du Contexte à l&apos;Ère de l&apos;IA Agentique
+              Shadow AI & Propriété Intellectuelle : Qui possède vraiment vos Agents IA ?
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
               Propriété Intellectuelle, Opérations et Stratégie : Comment maîtriser la &quot;sauce secrète&quot; de vos agents IA.
@@ -70,28 +70,24 @@ export default function AiGovernanceGuide() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div>
                 <p className="text-sm text-slate-600">
-                  Publié le {new Date().toLocaleDateString('fr-FR', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+                  Publié le 28 décembre 2025
                 </p>
                 <p className="text-sm text-slate-600 mt-1">
-                  Par l&apos;équipe ConnEthics
+                  Par Frédéric CHOUDAT | Fondateur de ConnEthics
                 </p>
               </div>
               <div className="flex gap-4">
                 <Link
-                    href="/ai-governance"
-                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    href="/contact"
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md"
                 >
-                    Voir l&apos;Infographie Interactive
+                    Discuter de votre Gouvernance IA
                 </Link>
                 <Link
-                    href="/contact"
+                    href="/ai-governance"
                     className="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
                 >
-                    Nous Contacter
+                    Voir l&apos;Infographie Interactive
                 </Link>
               </div>
             </div>
