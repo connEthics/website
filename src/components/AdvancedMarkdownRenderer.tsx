@@ -12,9 +12,10 @@ interface TableOfContentsItem {
 
 interface AdvancedMarkdownRendererProps {
   content: string;
+  enableTOC?: boolean;
 }
 
-export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRendererProps) {
+export default function AdvancedMarkdownRenderer({ content, enableTOC = true }: AdvancedMarkdownRendererProps) {
   const [tableOfContents, setTableOfContents] = useState<TableOfContentsItem[]>([]);
   const [activeSection, setActiveSection] = useState<string>('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,6 +24,8 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
   useEffect(() => {
     setMounted(true);
     
+    if (!enableTOC) return;
+
     // Extract table of contents from markdown content
     const headings = content.match(/^#{1,3}\s+(.+)$/gm) || [];
     const toc = headings.map((heading, index) => {
@@ -33,10 +36,10 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
     });
     
     setTableOfContents(toc);
-  }, [content]);
+  }, [content, enableTOC]);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || !enableTOC) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,7 +64,7 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
     });
 
     return () => observer.disconnect();
-  }, [tableOfContents, mounted]);
+  }, [tableOfContents, mounted, enableTOC]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -340,56 +343,60 @@ export default function AdvancedMarkdownRenderer({ content }: AdvancedMarkdownRe
   const parsedContent = parseMarkdown(content);
 
   return (
-    <div className="relative lg:flex lg:flex-row-reverse lg:gap-8">
+    <div className={`relative ${enableTOC ? 'lg:flex lg:flex-row-reverse lg:gap-8' : ''}`}>
       {/* Floating Navigation Toggle */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-20 right-4 z-50 bg-white shadow-lg rounded-full p-3 hover:bg-slate-50 transition-colors lg:hidden"
-        aria-label="Toggle navigation"
-      >
-        {isMenuOpen ? (
-          <XMarkIcon className="h-6 w-6 text-slate-600" />
-        ) : (
-          <Bars3Icon className="h-6 w-6 text-slate-600" />
-        )}
-      </button>
+      {enableTOC && (
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="fixed top-20 right-4 z-50 bg-white shadow-lg rounded-full p-3 hover:bg-slate-50 transition-colors lg:hidden"
+          aria-label="Toggle navigation"
+        >
+          {isMenuOpen ? (
+            <XMarkIcon className="h-6 w-6 text-slate-600" />
+          ) : (
+            <Bars3Icon className="h-6 w-6 text-slate-600" />
+          )}
+        </button>
+      )}
 
       {/* Floating Table of Contents */}
-      <nav
-        className={`fixed top-16 right-0 bottom-0 w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } lg:translate-x-0 lg:static lg:w-64 lg:shadow-none lg:bg-transparent lg:h-auto lg:block`}
-      >
-        <div className="h-full overflow-y-auto p-6 lg:p-0 lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)]">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">
-            Table des matières
-          </h3>
-          <ul className="space-y-2">
-            {tableOfContents.map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`w-full text-left py-2 px-3 rounded-lg transition-colors text-sm ${
-                    activeSection === item.id
-                      ? 'bg-blue-100 text-blue-700 font-medium'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                  } ${item.level === 2 ? 'ml-4' : item.level === 3 ? 'ml-8' : ''}`}
-                >
-                  <span className="flex items-center">
-                    {item.level > 1 && (
-                      <ChevronRightIcon className="h-4 w-4 mr-1 flex-shrink-0" />
-                    )}
-                    {item.title}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+      {enableTOC && (
+        <nav
+          className={`fixed top-16 right-0 bottom-0 w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          } lg:translate-x-0 lg:static lg:w-64 lg:shadow-none lg:bg-transparent lg:h-auto lg:block`}
+        >
+          <div className="h-full overflow-y-auto p-6 lg:p-0 lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)]">
+            <h3 className="text-lg font-semibold text-slate-900 mb-4">
+              Table des matières
+            </h3>
+            <ul className="space-y-2">
+              {tableOfContents.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className={`w-full text-left py-2 px-3 rounded-lg transition-colors text-sm ${
+                      activeSection === item.id
+                        ? 'bg-blue-100 text-blue-700 font-medium'
+                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    } ${item.level === 2 ? 'ml-4' : item.level === 3 ? 'ml-8' : ''}`}
+                  >
+                    <span className="flex items-center">
+                      {item.level > 1 && (
+                        <ChevronRightIcon className="h-4 w-4 mr-1 flex-shrink-0" />
+                      )}
+                      {item.title}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      )}
 
       {/* Overlay for mobile menu - transparent for content visibility */}
-      {isMenuOpen && (
+      {enableTOC && isMenuOpen && (
         <div
           className="fixed inset-0 z-30 lg:hidden"
           onClick={() => setIsMenuOpen(false)}
