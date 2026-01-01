@@ -67,10 +67,10 @@ export default function Article5() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    Votre Documentation vaut de l'Or : Comment transformer votre "Dette Documentaire" en Actif Stratégique
+                    Votre Documentation vaut de l&apos;Or : Comment transformer votre &quot;Dette Documentaire&quot; en Actif Stratégique
                   </h3>
                   <p className="text-slate-600 text-sm line-clamp-3">
-                    La documentation n'est plus une corvée, c'est le Training Set de vos IA. Découvrez comment le Knowledge Management devient un enjeu d'Intelligence Économique.
+                    La documentation n&apos;est plus une corvée, c&apos;est le Training Set de vos IA. Découvrez comment le Knowledge Management devient un enjeu d&apos;Intelligence Économique.
                   </p>
                 </div>
               </Link>

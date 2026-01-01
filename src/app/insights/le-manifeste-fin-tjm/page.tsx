@@ -67,10 +67,10 @@ export default function Article1() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    Le Piège de la Vitesse : Comment l'IA peut transformer votre DSI en usine à dette technique
+                    Le Piège de la Vitesse : Comment l&apos;IA peut transformer votre DSI en usine à dette technique
                   </h3>
                   <p className="text-slate-600 text-sm line-clamp-3">
-                    L'IA accélère la production de code, mais attention au "Value Gap". Découvrez comment le Product Management doit évoluer pour filtrer l'inutile et construire de vrais avantages concurrentiels.
+                    L&apos;IA accélère la production de code, mais attention au &quot;Value Gap&quot;. Découvrez comment le Product Management doit évoluer pour filtrer l&apos;inutile et construire de vrais avantages concurrentiels.
                   </p>
                 </div>
               </Link>

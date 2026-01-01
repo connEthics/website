@@ -67,10 +67,10 @@ export default function Article4() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    L'Illusion du Contrôle : Pourquoi votre contrat de maintenance ne vous protège plus des risques de l'IA
+                    L&apos;Illusion du Contrôle : Pourquoi votre contrat de maintenance ne vous protège plus des risques de l&apos;IA
                   </h3>
                   <p className="text-slate-600 text-sm line-clamp-3">
-                    Shadow AI, contamination juridique, failles de sécurité... Découvrez les nouveaux risques de la Supply Chain logicielle et les 3 modèles d'engagement pour 2025.
+                    Shadow AI, contamination juridique, failles de sécurité... Découvrez les nouveaux risques de la Supply Chain logicielle et les 3 modèles d&apos;engagement pour 2025.
                   </p>
                 </div>
               </Link>
@@ -84,10 +84,10 @@ export default function Article4() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    Le Crash Test : Comment empêcher l'IA de détruire votre production en 3 secondes
+                    Le Crash Test : Comment empêcher l&apos;IA de détruire votre production en 3 secondes
                   </h3>
                   <p className="text-slate-600 text-sm line-clamp-3">
-                    L'IA industrialise la production, mais aussi le risque. Découvrez comment sécuriser votre "Usine IA" avec les principes DORA : Small Batches, Circuit Breakers et AI Security.
+                    L&apos;IA industrialise la production, mais aussi le risque. Découvrez comment sécuriser votre &quot;Usine IA&quot; avec les principes DORA : Small Batches, Circuit Breakers et AI Security.
                   </p>
                 </div>
               </Link>
