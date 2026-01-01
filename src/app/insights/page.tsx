@@ -8,6 +8,51 @@ import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/m
 export default function Insights() {
   const articles = useMemo(() => [
     {
+      title: "Le Crash Test : Comment empêcher l'IA de détruire votre production en 3 secondes",
+      excerpt: "L'IA industrialise la production, mais aussi le risque. Découvrez comment sécuriser votre 'Usine IA' avec les principes DORA : Small Batches, Circuit Breakers et AI Security.",
+      date: "Janvier 1, 2026",
+      category: "DORA 2025",
+      readTime: "5 min read",
+      slug: "securite-industrialisation",
+      featured: true
+    },
+    {
+      title: "Votre Documentation vaut de l'Or : Comment transformer votre \"Dette Documentaire\" en Actif Stratégique",
+      excerpt: "La documentation n'est plus une corvée, c'est le Training Set de vos IA. Découvrez comment le Knowledge Management devient un enjeu d'Intelligence Économique.",
+      date: "Janvier 1, 2026",
+      category: "DORA 2025",
+      readTime: "5 min read",
+      slug: "le-carburant-data-ie",
+      featured: true
+    },
+    {
+      title: "L'Illusion du Contrôle : Pourquoi votre contrat de maintenance ne vous protège plus des risques de l'IA",
+      excerpt: "Shadow AI, contamination juridique, failles de sécurité... Découvrez les nouveaux risques de la Supply Chain logicielle et les 3 modèles d'engagement pour 2025.",
+      date: "Janvier 1, 2026",
+      category: "DORA 2025",
+      readTime: "5 min read",
+      slug: "architecture-delivery",
+      featured: true
+    },
+    {
+      title: "Le Piège de la Vitesse : Comment l'IA peut transformer votre DSI en usine à dette technique",
+      excerpt: "L'IA accélère la production de code, mais attention au 'Value Gap'. Découvrez comment le Product Management doit évoluer pour filtrer l'inutile.",
+      date: "Janvier 1, 2026",
+      category: "DORA 2025",
+      readTime: "5 min read",
+      slug: "la-methode-product-management",
+      featured: true
+    },
+    {
+      title: "La Fin du TJM : Pourquoi acheter du temps est devenu le plus gros risque de la DSI",
+      excerpt: "L'IA générative brise l'équation historique des services numériques. Découvrez pourquoi le modèle TJM est obsolète et comment passer à une obligation de performance.",
+      date: "Janvier 1, 2026",
+      category: "DORA 2025",
+      readTime: "5 min read",
+      slug: "le-manifeste-fin-tjm",
+      featured: true
+    },
+    {
       title: "Gouvernance du Contexte à l'Ère de l'IA Agentique",
       excerpt: "Propriété Intellectuelle, Opérations et Stratégie : Comment maîtriser la 'sauce secrète' de vos agents IA. Analyse des risques et modèles de détention.",
       date: "December 28, 2025",
@@ -105,6 +150,7 @@ export default function Insights() {
 
   const categories = useMemo(() => [
     "All",
+    "DORA 2025",
     "Self-Sovereign Identity",
     "Ecosystem Cartography", 
     "Trust & Identity",
