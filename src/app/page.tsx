@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheckIcon, MapIcon, ChartBarIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ShieldCheckIcon, LightBulbIcon, WrenchScrewdriverIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Box, Container, Typography, Grid, Stack, Chip } from "@mui/material";
 import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from "@/components/mui";
 import { articles } from "@/lib/articles";
@@ -7,22 +7,22 @@ import { articles } from "@/lib/articles";
 export default function Home() {
   const pillars = [
     {
-      title: "Identity Strategy",
-      description: "Prepare for the wallet revolution. We design the architecture that allows you to accept reusable identity, slashing your onboarding costs and eliminating fraud.",
+      title: "Knowledge Engineering",
+      description: "Transform your tacit knowledge into a strategic asset. We extract context where it lives to feed your Sovereign AI without errors.",
+      icon: LightBulbIcon,
+      link: "/services#knowledge-engineering"
+    },
+    {
+      title: "Debt Alignment", 
+      description: "Unleash your value stream. We treat technical debt as a financial investment: we only pay back what yields a return or what costs too much in friction.",
+      icon: WrenchScrewdriverIcon,
+      link: "/services#debt-alignment"
+    },
+    {
+      title: "Ecosystem Identity",
+      description: "Turn compliance into a competitive edge. A hybrid approach to navigate trust disruptions (eIDAS 2.0) and position your ecosystem for the future.",
       icon: ShieldCheckIcon,
-      link: "/services#identity-architecture"
-    },
-    {
-      title: "Economic Intelligence", 
-      description: "Navigate the ecosystem. We map the regulatory and competitive terrain of eIDAS 2.0 so you can position your business where the value is being created.",
-      icon: MapIcon,
-      link: "/services#strategic-intelligence"
-    },
-    {
-      title: "Product Leadership",
-      description: "Ship with purpose. We align your product teams with this new reality, ensuring that your roadmap delivers tangible business value, not just features.",
-      icon: ChartBarIcon,
-      link: "/services#product-strategy"
+      link: "/services#ecosystem-identity"
     },
   ];
 
