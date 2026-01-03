@@ -1,5 +1,32 @@
 export const articles = [
     {
+      title: "Shadow AI & Propriété Intellectuelle : Qui possède vraiment vos Agents IA ?",
+      excerpt: "Le 'Contexte' est le nouveau carburant de l'IA. Une stratégie de contexte robuste ne se limite pas à quelques fichiers de configuration. Découvrez comment protéger votre patrimoine agentique.",
+      date: "Janvier 2, 2026",
+      category: "AI Governance",
+      readTime: "10 min read",
+      slug: "gouvernance-contexte-ia-agentique",
+      featured: true
+    },
+    {
+      title: "Le Carburant : Data & Intelligence Économique",
+      excerpt: "L'IA est un miroir grossissant. Si vos processus sont chaotiques, l'IA amplifiera le chaos. Découvrez pourquoi le Context Engineering est la nouvelle compétence reine.",
+      date: "Janvier 2, 2026",
+      category: "Strategic Intelligence",
+      readTime: "8 min read",
+      slug: "le-carburant-data-ie",
+      featured: true
+    },
+    {
+      title: "Arazzo: The Missing Link in API Orchestration",
+      excerpt: "APIs are the backbone of modern business, but orchestrating them is manual. Enter Arazzo, the new OpenAPI specification for workflows that turns documentation into executable specs.",
+      date: "Janvier 2, 2026",
+      category: "API Standards",
+      readTime: "6 min read",
+      slug: "arazzo-api-workflows",
+      featured: true
+    },
+    {
       title: "Guide Technique ACA-Py pour Développeurs",
       excerpt: "Guide pratique pour développeurs et architectes : comprendre l'architecture d'ACA-Py, exemples de code fonctionnels et leçons apprises sur le terrain.",
       date: "Août 4, 2025",

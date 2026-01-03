@@ -16,10 +16,9 @@ export default function Footer() {
     {
       title: 'Services',
       links: [
-        { name: 'Self-Sovereign Identity', href: '/services#self-sovereign-identity' },
-        { name: 'Ecosystem Cartography', href: '/services#ecosystem-cartography' },
-        { name: 'Trust & Identity Deployment', href: '/services#trust-identity' },
-        { name: 'Product Leadership', href: '/services#product-leadership' },
+        { name: 'Knowledge Engineering', href: '/services#knowledge-engineering' },
+        { name: 'Debt Alignment', href: '/services#debt-alignment' },
+        { name: 'Ecosystem Identity', href: '/services#ecosystem-identity' },
       ],
     },
     {
@@ -36,7 +35,7 @@ export default function Footer() {
       links: [
         { name: 'Blog', href: '/insights' },
         { name: 'White Papers', href: '/insights' },
-        { name: 'Case Studies', href: '/insights' },
+        { name: 'Arazzo Playground', href: 'https://arazzo.connethics.com/' },
         { name: 'Newsletter', href: '/contact' },
         { name: 'Verifiable Credentials Technologies', href: '/insights/verifiable-credentials-technologies' },
       ],

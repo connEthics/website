@@ -1,6 +1,6 @@
 'use client';
 
-import { ShieldCheckIcon, MapIcon, LockClosedIcon, ChartBarIcon, CogIcon } from "@heroicons/react/24/outline";
+import { ShieldCheckIcon, ChartBarIcon, LightBulbIcon, WrenchScrewdriverIcon } from "@heroicons/react/24/outline";
 import { Box, Container, Grid, Stack, Typography, Chip } from '@mui/material';
 import { ConnEthicsHero, ConnEthicsButton } from '@/components/mui';
 import Link from 'next/link';
@@ -8,92 +8,70 @@ import Link from 'next/link';
 export default function Services() {
   const services = [
     {
-      id: "identity-architecture",
-      title: "Identity Architecture",
-      description: "The era of centralized identity is ending. We help you build the infrastructure for a user-centric future, moving from 'managing users' to 'empowering holders'. We design systems where privacy is the default, not an option.",
+      id: "knowledge-engineering",
+      title: "Knowledge Engineering",
+      description: "Transform your tacit knowledge into a strategic asset. We extract context where it lives to feed your Sovereign AI without errors, ensuring your IP remains yours.",
       features: [
-        "SSI architecture design & implementation",
-        "Digital wallet strategy",
-        "DID (Decentralized Identifier) frameworks",
-        "Legacy system migration paths",
-        "Privacy-preserving authentication"
+        "Discovery & Structuring",
+        "Knowledge Graph & RAG",
+        "Sovereign AI & Privacy",
+        "Business AI Assistant"
+      ],
+      icon: LightBulbIcon,
+      category: "Knowledge",
+      link: "/contact",
+      cta: "Diagnose my assets",
+      metric: "100% Data Sovereignty"
+    },
+    {
+      id: "debt-alignment",
+      title: "Debt Alignment",
+      description: "Unleash your value stream. We treat technical debt as a financial investment: we only pay back what yields a return or what costs too much in friction.",
+      features: [
+        "Friction Audit",
+        "Radical Prioritization",
+        "Flow Remediation",
+        "Target Value Delivery"
+      ],
+      icon: WrenchScrewdriverIcon,
+      category: "Engineering",
+      link: "/contact",
+      cta: "Audit my debt",
+      metric: "-40% Time-to-Market"
+    },
+    {
+      id: "ecosystem-identity",
+      title: "Ecosystem Identity",
+      description: "Turn compliance into a competitive edge. A hybrid approach to navigate trust disruptions (eIDAS 2.0) and position your ecosystem for the future.",
+      features: [
+        "Regulatory Watch",
+        "Ecosystem Design",
+        "Wallet Experience",
+        "Trust Transition"
       ],
       icon: ShieldCheckIcon,
-      category: "Identity"
-    },
-    {
-      id: "strategic-intelligence",
-      title: "Strategic Intelligence",
-      description: "Your competitors are not just companies; they are ecosystems. We map the terrain—regulatory, technical, and competitive—so you can maneuver effectively. We use Wardley Mapping and economic warfare analysis to find your leverage points.",
-      features: [
-        "Ecosystem cartography & Wardley Mapping",
-        "Adversarial analysis",
-        "Regulatory impact forecasting",
-        "Supply chain vulnerability assessment",
-        "Influence network mapping"
-      ],
-      icon: MapIcon,
-      category: "Strategy"
-    },
-    {
-      id: "trust-infrastructure",
-      title: "Trust Infrastructure",
-      description: "Verification without surveillance. We deploy cryptographic systems (Verifiable Credentials) that allow you to prove facts without leaking sensitive data. This is the bedrock of the new digital economy.",
-      features: [
-        "Verifiable Credential schemas",
-        "Trust registry governance",
-        "Zero-Knowledge Proof (ZKP) integration",
-        "Interoperability testing",
-        "Audit & compliance automation"
-      ],
-      icon: LockClosedIcon,
-      category: "Infrastructure"
-    },
-    {
-      id: "product-strategy",
-      title: "Product Strategy",
-      description: "Radical focus on outcomes. We align your product teams with business reality, cutting through the noise of 'feature factories' to deliver tangible value. We turn vague visions into shippable roadmaps.",
-      features: [
-        "OKR & KPI alignment",
-        "Data-driven prioritization",
-        "Product discovery workshops",
-        "Market-fit validation",
-        "Stakeholder alignment protocols"
-      ],
-      icon: ChartBarIcon,
-      category: "Leadership"
-    },
-    {
-      id: "operational-excellence",
-      title: "Operational Excellence",
-      description: "Execution is strategy. We optimize your delivery pipelines and team structures to ensure that what you build actually ships, on time and with quality. We remove friction so your engineers can flow.",
-      features: [
-        "Team topology optimization",
-        "CI/CD pipeline strategy",
-        "Event Storming & Domain Modeling",
-        "Agile/Lean process refinement",
-        "Technical debt management"
-      ],
-      icon: CogIcon,
-      category: "Operations"
+      category: "Identity",
+      link: "/contact",
+      cta: "Secure my ecosystem",
+      metric: "Partner-Ready Architecture"
     }
   ];
 
   const engagementModels = [
     {
-      title: "eIDAS 2.0 Opportunity Radar",
-      description: "For C-Levels. We map your customer journeys to identify friction points and quantify the ROI of reusable identity. You get a clear Business Case: how much will you save on KYC, and how much will your conversion increase?",
-      action: "Strategy"
+      title: "Strategic Radar",
+      description: "For C-Levels. In 2-4 weeks, we map your terrain—semantic maturity, technical debt, or regulatory impact. You receive a 'State of the Union' report and a high-ROI roadmap.",
+      action: "Diagnostic"
     },
     {
-      title: "Wallet Integration Blueprint", 
-      description: "For CTOs & Innovation Leads. We design your target architecture (Buy vs Build), manage RFPs to select the right Identity Provider, and design ARF-compliant user journeys that users actually trust.",
-      action: "Tactics"
+      title: "Tactical Strike Team", 
+      description: "For Delivery Leads. We deploy a specialized squad to execute a critical transition: implementing Sovereign AI, refactoring core flows, or integrating eIDAS wallets. We build, ship, and transfer.",
+      action: "Execution"
     },
     {
-      title: "Identity PMO",
-      description: "For Operational Teams. We steer the deployment, coordinate with QTSPs (Trust Service Providers), and manage change. We ensure your transition to the eIDAS 2.0 ecosystem is seamless and on time.",
-      action: "Operations"
+      title: "Ecosystem Governance",
+      description: "For Long-term Resilience. We embed into your organization to maintain alignment. We curate your knowledge, monitor regulatory shifts, and prevent debt accumulation.",
+      action: "Partnership"
     }
   ];
 
@@ -196,8 +174,13 @@ export default function Services() {
                     <Typography variant="h3" component="h3" sx={{ mb: 3, fontWeight: 800, color: 'text.primary', letterSpacing: '-0.02em' }}>
                       {service.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ mb: 5, color: 'text.secondary', fontSize: '1.125rem', lineHeight: 1.8 }}>
+                    <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary', fontSize: '1.125rem', lineHeight: 1.8 }}>
                       {service.description}
+                    </Typography>
+
+                    <Typography variant="subtitle2" sx={{ mb: 4, color: 'primary.main', fontWeight: 700, display: 'flex', alignItems: 'center', bgcolor: 'primary.50', width: 'fit-content', px: 2, py: 1, borderRadius: 1 }}>
+                        <ChartBarIcon style={{ width: 20, height: 20, marginRight: 8 }} />
+                        Impact: {service.metric}
                     </Typography>
                     
                     <Box sx={{ mb: 5, pl: 3, borderLeft: '2px solid', borderColor: 'primary.200' }}>
@@ -220,9 +203,9 @@ export default function Services() {
                       </Stack>
                     </Box>
 
-                    <Link href="/contact">
+                    <Link href={service.link}>
                       <ConnEthicsButton variant="outline" size="medium">
-                        Explore Capability
+                        {service.cta}
                       </ConnEthicsButton>
                     </Link>
                   </Box>
@@ -234,7 +217,7 @@ export default function Services() {
       </Box>
 
       {/* Engagement Models Section */}
-      <Box sx={{ py: 8, bgcolor: 'neutral.900', color: 'white' }}>
+      <Box sx={{ py: 8, bgcolor: '#0f172a', color: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 12 }}>
             <Typography variant="overline" sx={{ color: 'primary.400', fontWeight: 700, letterSpacing: 2, mb: 2, display: 'block', fontFamily: 'monospace' }}>
