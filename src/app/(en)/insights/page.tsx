@@ -4,149 +4,11 @@ import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { Box, Container, Typography, Grid, Stack, Chip } from '@mui/material';
 import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from '@/components/mui';
+import { getArticlePath, rootIndexArticles } from '@/lib/articles';
 
 export default function Insights() {
-  const articles = useMemo(() => [
-    {
-      title: "Le Crash Test : Comment empêcher l'IA de détruire votre production en 3 secondes",
-      excerpt: "L'IA industrialise la production, mais aussi le risque. Découvrez comment sécuriser votre 'Usine IA' avec les principes DORA : Small Batches, Circuit Breakers et AI Security.",
-      date: "Janvier 1, 2026",
-      category: "DORA 2025",
-      readTime: "5 min read",
-      slug: "securite-industrialisation",
-      featured: true
-    },
-    {
-      title: "Votre Documentation vaut de l'Or : Comment transformer votre \"Dette Documentaire\" en Actif Stratégique",
-      excerpt: "La documentation n'est plus une corvée, c'est le Training Set de vos IA. Découvrez comment le Knowledge Management devient un enjeu d'Intelligence Économique.",
-      date: "Janvier 1, 2026",
-      category: "DORA 2025",
-      readTime: "5 min read",
-      slug: "le-carburant-data-ie",
-      featured: true
-    },
-    {
-      title: "L'Illusion du Contrôle : Pourquoi votre contrat de maintenance ne vous protège plus des risques de l'IA",
-      excerpt: "Shadow AI, contamination juridique, failles de sécurité... Découvrez les nouveaux risques de la Supply Chain logicielle et les 3 modèles d'engagement pour 2025.",
-      date: "Janvier 1, 2026",
-      category: "DORA 2025",
-      readTime: "5 min read",
-      slug: "architecture-delivery",
-      featured: true
-    },
-    {
-      title: "Le Piège de la Vitesse : Comment l'IA peut transformer votre DSI en usine à dette technique",
-      excerpt: "L'IA accélère la production de code, mais attention au 'Value Gap'. Découvrez comment le Product Management doit évoluer pour filtrer l'inutile.",
-      date: "Janvier 1, 2026",
-      category: "DORA 2025",
-      readTime: "5 min read",
-      slug: "la-methode-product-management",
-      featured: true
-    },
-    {
-      title: "La Fin du TJM : Pourquoi acheter du temps est devenu le plus gros risque de la DSI",
-      excerpt: "L'IA générative brise l'équation historique des services numériques. Découvrez pourquoi le modèle TJM est obsolète et comment passer à une obligation de performance.",
-      date: "Janvier 1, 2026",
-      category: "DORA 2025",
-      readTime: "5 min read",
-      slug: "le-manifeste-fin-tjm",
-      featured: true
-    },
-    {
-      title: "Gouvernance du Contexte à l'Ère de l'IA Agentique",
-      excerpt: "Propriété Intellectuelle, Opérations et Stratégie : Comment maîtriser la 'sauce secrète' de vos agents IA. Analyse des risques et modèles de détention.",
-      date: "December 28, 2025",
-      category: "AI Governance",
-      readTime: "10 min read",
-      slug: "gouvernance-contexte-ia-agentique",
-      featured: true
-    },
-    {
-      title: "Arazzo: The Missing Link in API Orchestration",
-      excerpt: "From static endpoints to executable workflows. Discover how Arazzo and our open-source tools are transforming API integration.",
-      date: "December 28, 2025",
-      category: "Developer Tools",
-      readTime: "5 min read",
-      slug: "arazzo-api-workflows",
-      featured: true
-    },
-    {
-      title: "Product Discovery Method with Opportunity Tree Solution",
-      excerpt: "A comprehensive guide to implementing structured product discovery using opportunity trees to drive meaningful business outcomes and align teams around customer value.",
-      date: "January 10, 2025",
-      category: "Product Leadership",
-      readTime: "12 min read",
-      slug: "product-discovery-opportunity-tree",
-      featured: true
-    },
-    {
-      title: "Guide Technique ACA-Py pour Développeurs",
-      excerpt: "Guide pratique pour développeurs et architectes : comprendre l'architecture d'ACA-Py, exemples de code fonctionnels et leçons apprises sur le terrain.",
-      date: "Août 4, 2025",
-      category: "Self-Sovereign Identity",
-      readTime: "20 min read",
-      slug: "guide-technique-aca-py-developpeurs",
-      featured: true
-    },
-    {
-      title: "Technologies des Verifiable Credentials",
-      excerpt: "Guide complet des technologies et standards qui façonnent l'écosystème des Verifiable Credentials : DIDComm, OpenID4VC, eIDAS, W3C-VC et plus.",
-      date: "Janvier 3, 2025",
-      category: "Trust & Identity",
-      readTime: "12 min read",
-      slug: "verifiable-credentials-technologies",
-      featured: true
-    },
-    {
-      title: "Guide Pratique : Identité Souveraine avec ACA-Py",
-      excerpt: "Guide complet pour comprendre et implémenter l'identité souveraine (SSI) avec ACA-Py. Scénarios pratiques, exemples de code et cas d'usage entreprise.",
-      date: "Août 2, 2025",
-      category: "Self-Sovereign Identity",
-      readTime: "15 min read",
-      slug: "identite-souveraine-aca-py-guide",
-      featured: true
-    },
-    {
-      title: "Aligning Product Teams with Business Impact",
-      excerpt: "Discover essential strategies for effectively aligning your product teams with business impact objectives and creating sustainable synergy in competitive environments.",
-      date: "July 30, 2025",
-      category: "Product Leadership",
-      readTime: "8 min read",
-      slug: "aligning-product-teams-business-impact"
-    },
-    {
-      title: "The Future of Self-Sovereign Identity in Enterprise",
-      excerpt: "Exploring how SSI will transform enterprise identity management and create new opportunities for secure, user-controlled digital interactions.",
-      date: "July 25, 2025",
-      category: "Self-Sovereign Identity",
-      readTime: "5 min read",
-      slug: "future-self-sovereign-identity-enterprise"
-    },
-    {
-      title: "Competitive Intelligence in the Digital Age",
-      excerpt: "Understanding economic warfare analysis and how modern businesses can gain strategic advantages through comprehensive ecosystem mapping.",
-      date: "July 20, 2025", 
-      category: "Ecosystem Cartography",
-      readTime: "7 min read",
-      slug: "competitive-intelligence-digital-age"
-    },
-    {
-      title: "Building Trust Through Verifiable Credentials",
-      excerpt: "How organizations can implement verifiable credential systems to enhance trust and streamline identity verification processes.",
-      date: "July 15, 2025",
-      category: "Trust & Identity",
-      readTime: "6 min read",
-      slug: "building-trust-verifiable-credentials"
-    },
-    {
-      title: "Product Leadership in Ethical Business Ecosystems",
-      excerpt: "Aligning product roadmaps with ethical frameworks while maintaining competitive advantage and driving innovation.",
-      date: "July 10, 2025",
-      category: "Product Leadership", 
-      readTime: "8 min read",
-      slug: "product-leadership-ethical-ecosystems"
-    }
-  ], []);
+  // Single source of truth: src/lib/articles.ts (root-index articles, same order).
+  const articles = rootIndexArticles;
 
   const categories = useMemo(() => [
     "All",
@@ -237,7 +99,7 @@ export default function Insights() {
               const hasFullArticle = article.slug;
               
               const getArticleUrl = () => {
-                if (hasFullArticle) return `/insights/${article.slug}`;
+                if (hasFullArticle) return getArticlePath(article);
                 return "#";
               };
               

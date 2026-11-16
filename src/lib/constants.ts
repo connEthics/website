@@ -10,8 +10,14 @@ export const BRAND = {
   description: 'Building ethical business ecosystems through AI ethics consulting, self-sovereign identity, and strategic product leadership.',
   email: 'contact@connethics.com',
   phone: '+1 (555) 123-4567',
-  website: 'https://connethics.com',
+  website: 'https://www.connethics.com',
 } as const;
+
+/**
+ * Canonical origin used for metadataBase, canonical/hreflang links, sitemap and JSON-LD.
+ * Override with NEXT_PUBLIC_BASE_URL (e.g. preview deployments). No trailing slash.
+ */
+export const SITE_URL = (process.env.NEXT_PUBLIC_BASE_URL || BRAND.website).replace(/\/+$/, '');
 
 // Navigation Configuration
 export const NAVIGATION = {

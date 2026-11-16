@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
+import LanguageSwitcher from './LanguageSwitcher';
 import { NAVIGATION } from '@/lib/constants';
 
 export default function Navigation() {
@@ -30,6 +31,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Link
               href="/contact"
               className="bg-blue-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-800 transition-all duration-200"
@@ -39,7 +41,8 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-blue-900 focus:outline-none focus:text-blue-900 transition-all duration-200"

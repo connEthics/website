@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ShieldCheckIcon, LightBulbIcon, WrenchScrewdriverIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Box, Container, Typography, Grid, Stack, Chip } from "@mui/material";
 import { ConnEthicsHero, ConnEthicsCard, ConnEthicsButton } from "@/components/mui";
-import { articles } from "@/lib/articles";
+import type { Metadata } from "next";
+import { getArticlePath, rootIndexArticles } from "@/lib/articles";
+import { buildAlternates } from "@/i18n/alternates";
+
+export const metadata: Metadata = {
+  ...buildAlternates("/", "/fr"),
+};
 
 export default function Home() {
   const pillars = [
@@ -27,7 +33,7 @@ export default function Home() {
   ];
 
   // Get the 3 most recent articles
-  const latestArticles = articles.slice(0, 3);
+  const latestArticles = rootIndexArticles.slice(0, 3);
 
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
@@ -190,7 +196,7 @@ export default function Home() {
                       sx={{ mb: 2, bgcolor: 'primary.50', color: 'primary.main', fontWeight: 600 }} 
                     />
                     <Typography variant="h6" component="h3" sx={{ mb: 2, fontWeight: 600, lineHeight: 1.4 }}>
-                      <Link href={`/insights/${article.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <Link href={getArticlePath(article)} style={{ textDecoration: 'none', color: 'inherit' }}>
                         {article.title}
                       </Link>
                     </Typography>

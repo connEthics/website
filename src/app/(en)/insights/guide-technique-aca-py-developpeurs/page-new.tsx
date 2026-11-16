@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // Read the markdown content at build time
 function getArticleContent() {
   try {
-    const filePath = join(process.cwd(), "src/app/insights/guide-technique-aca-py-developpeurs/article.md")
+    const filePath = join(process.cwd(), "src/app/(en)/insights/guide-technique-aca-py-developpeurs/article.md")
     return readFileSync(filePath, "utf8")
   } catch (error) {
     console.error("Error reading article file:", error)

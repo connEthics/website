@@ -1,13 +1,37 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import AdvancedMarkdownRenderer from '@/components/AdvancedMarkdownRenderer'
+import ArticleHeader from '@/components/ArticleHeader'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { getArticleBySlug, getArticlePath, type Article } from '@/lib/articles'
+import { buildAlternates } from '@/i18n/alternates'
+import { ArticleJsonLd } from '@/lib/seo/jsonld'
+import { SEO } from '@/lib/constants'
+import { ogLocales } from '@/i18n/config'
+
+const article = getArticleBySlug('arazzo-api-workflows', 'en') as Article
+const articlePath = getArticlePath(article)
+
+const title = 'Arazzo: The Missing Link in API Orchestration'
+const description = 'Discover Arazzo, the new OpenAPI specification for workflows. Explore our open-source Visualizer and VS Code extension to orchestrate your APIs effectively.'
+const keywords = ['Arazzo', 'OpenAPI', 'API Orchestration', 'Workflow', 'VS Code Extension', 'API Documentation', 'ConnEthics']
 
 export const metadata: Metadata = {
-  title: 'Arazzo: The Missing Link in API Orchestration | ConnEthics',
-  description: 'Discover Arazzo, the new OpenAPI specification for workflows. Explore our open-source Visualizer and VS Code extension to orchestrate your APIs effectively.',
-  keywords: ['Arazzo', 'OpenAPI', 'API Orchestration', 'Workflow', 'VS Code Extension', 'API Documentation', 'ConnEthics'],
+  title: `${title} | ConnEthics`,
+  description,
+  keywords,
+  ...buildAlternates(articlePath, null),
+  openGraph: {
+    title,
+    description,
+    type: 'article',
+    siteName: SEO.openGraph.siteName,
+    locale: ogLocales[article.lang],
+    url: articlePath,
+    publishedTime: article.publishedAt,
+    images: ['/images/insights/arazzo/builder-preview.png'],
+  },
 }
 
 // Read the markdown content at build time
@@ -26,6 +50,15 @@ export default function ArazzoGuide() {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 force-light-mode">
+      <ArticleJsonLd
+        headline={title}
+        description={description}
+        url={articlePath}
+        datePublished={article.publishedAt}
+        inLanguage={article.lang}
+        images={['/images/insights/arazzo/builder-preview.png']}
+        keywords={keywords}
+      />
       <div className="container mx-auto px-4 pt-20 pb-8">
         {/* Navigation */}
         <div className="mb-8">
@@ -39,28 +72,13 @@ export default function ArazzoGuide() {
 
         {/* Article Content */}
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Arazzo: The Missing Link in API Orchestration
-            </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              From static endpoints to executable workflows. Discover how Arazzo and our open-source tools are transforming API integration.
-            </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                Arazzo
-              </span>
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                OpenAPI
-              </span>
-              <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                Developer Tools
-              </span>
-              <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                Open Source
-              </span>
-            </div>
-          </header>
+          <ArticleHeader
+            title={title}
+            description="From static endpoints to executable workflows. Discover how Arazzo and our open-source tools are transforming API integration."
+            tags={['Arazzo', 'OpenAPI', 'Developer Tools', 'Open Source']}
+            readTime={article.readTime}
+            publishedDate={article.date}
+          />
 
           {/* Article Content */}
           <AdvancedMarkdownRenderer content={content} />
@@ -70,11 +88,7 @@ export default function ArazzoGuide() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div>
                 <p className="text-sm text-slate-600">
-                  Published on {new Date().toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+                  Published on <time dateTime={article.publishedAt}>{article.date}</time>
                 </p>
                 <p className="text-sm text-slate-600 mt-1">
                   By ConnEthics Team
