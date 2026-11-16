@@ -11,6 +11,8 @@
  *   - `src/app/(en)/layout.tsx` -> `<html lang="en">` for every existing page;
  *   - `src/app/(fr)/layout.tsx` -> `<html lang="fr">` for everything under `/fr`.
  * Route groups do not appear in URLs. Both layouts share `SiteShell`.
+ * Unmatched URLs have no top-level layout any more: they render
+ * `src/app/global-not-found.tsx` (`experimental.globalNotFound`).
  * Trade-off: navigating between the two trees triggers a full page load,
  * which is fine for a language switch.
  */

@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Two root layouts ((en) and (fr)): unmatched URLs use src/app/global-not-found.tsx.
+    globalNotFound: true,
+  },
+
   // Turbopack configuration for better dev experience  
   turbopack: {
     rules: {
