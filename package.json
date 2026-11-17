@@ -23,9 +23,12 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@types/nodemailer": "^6.4.17",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@xyflow/react": "^12.12.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "elkjs": "^0.11.1",
     "framer-motion": "^12.23.26",
+    "html-to-image": "^1.11.13",
     "lucide-react": "^0.534.0",
     "next": "15.4.10",
     "nodemailer": "^7.0.5",
@@ -34,7 +37,8 @@
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.1",
     "remark-gfm": "^4.0.1",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
