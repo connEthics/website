@@ -43,7 +43,7 @@ export const articles: Article[] = [
     featured: true
   },
   {
-    title: "Arazzo 1.1 en pratique : un même workflow pour vos agents IA et votre CI",
+    title: "Arazzo 1.1 en pratique : un même workflow pour vos agents IA et votre CI",
     excerpt: "Vos API exposent des verbes, vos clients et vos agents cherchent des résultats. Deux exemples exécutables montrent comment un workflow Arazzo 1.1 devient un outil MCP gouverné et un test de bout en bout en CI, limites mesurées comprises.",
     date: "17 novembre 2026",
     publishedAt: "2026-11-17",

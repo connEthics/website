@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: articlePath,
     publishedTime: article.publishedAt,
     tags: ['Arazzo', 'MCP', 'workflows API', 'tests E2E'],
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Arazzo 1.1 : des intentions, pas des endpoints — ConnEthics' }],
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Arazzo 1.1 : des intentions, pas des endpoints — ConnEthics' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -84,7 +84,7 @@ export default function Arazzo11McpE2eArticleFr() {
             tags={['Arazzo 1.1', 'MCP', 'Tests E2E', 'Workflows API']}
             targetAudience="Architectes API et d'entreprise, équipes QA, équipes plateforme IA, product owners API"
             keyTakeaways={[
-              "Ce qu'apporte Arazzo 1.1 : étapes AsyncAPI, dependsOn, Selectors, workflows réutilisables",
+              "Ce qu'apporte Arazzo 1.1 : étapes AsyncAPI, dependsOn, Selectors, workflows réutilisables",
               'Comment exposer un workflow comme un outil MCP, avec garde-fous et confirmation humaine',
               'Comment exécuter ce même workflow comme test de bout en bout en CI, et les limites mesurées',
             ]}
@@ -102,7 +102,7 @@ export default function Arazzo11McpE2eArticleFr() {
                   Publié le <time dateTime={article.publishedAt}>{article.date}</time> · Par l&apos;équipe ConnEthics
                 </p>
                 <p className="text-sm text-slate-600 mt-1">
-                  Notre première introduction (en anglais) :{' '}
+                  Notre première introduction (en anglais) :{' '}
                   <Link href="/insights/arazzo-api-workflows" hrefLang="en" className="text-blue-600 hover:text-blue-800 underline">
                     Arazzo: The Missing Link in API Orchestration
                   </Link>
