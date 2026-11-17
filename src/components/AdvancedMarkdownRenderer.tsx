@@ -115,7 +115,7 @@ export default function AdvancedMarkdownRenderer({ content, enableTOC = true }: 
         }
         
         elements.push(
-          <li key={i} className="text-lg leading-relaxed my-1">
+          <li key={i} className="text-lg leading-relaxed my-1 pl-1">
             {content}
             {children.length > 0 && renderNestedList(children, item.level + 1)}
           </li>
@@ -125,7 +125,7 @@ export default function AdvancedMarkdownRenderer({ content, enableTOC = true }: 
       }
 
       return (
-        <Tag className={`${listClass} list-inside text-slate-700 mb-4 space-y-1 ${baseLevel > 0 ? 'ml-6' : 'ml-4'}`}>
+        <Tag className={`${listClass} list-outside text-slate-700 mb-4 space-y-1 ${baseLevel > 0 ? 'ml-6' : 'ml-5'}`}>
           {elements}
         </Tag>
       );
@@ -164,11 +164,11 @@ export default function AdvancedMarkdownRenderer({ content, enableTOC = true }: 
       if (tableRows.length > 0) {
         result.push(
           <div key={`table-${result.length}`} className="overflow-x-auto mb-8">
-            <div className="bg-white rounded-lg shadow-sm">
+            <div className="bg-white rounded-lg shadow-sm" style={{ minWidth: `${(tableRows[0]?.length ?? 1) * 9}rem` }}>
               {tableRows.map((row, rowIndex) => (
-                <div key={rowIndex} className={`grid gap-4 p-4 ${rowIndex === 0 ? 'bg-slate-50' : ''} ${rowIndex > 0 && rowIndex < tableRows.length - 1 ? 'border-b border-slate-100' : ''}`} style={{ gridTemplateColumns: `repeat(${row.length}, 1fr)` }}>
+                <div key={rowIndex} className={`grid gap-3 p-3 sm:gap-4 sm:p-4 text-sm sm:text-base ${rowIndex === 0 ? 'bg-slate-50' : ''} ${rowIndex > 0 && rowIndex < tableRows.length - 1 ? 'border-b border-slate-100' : ''}`} style={{ gridTemplateColumns: `repeat(${row.length}, minmax(8rem, 1fr))` }}>
                   {row.map((cell, cellIndex) => (
-                    <div key={cellIndex} className={`${rowIndex === 0 ? 'font-bold text-slate-900' : 'text-slate-700'}`}>
+                    <div key={cellIndex} className={`min-w-0 ${rowIndex === 0 ? 'font-bold text-slate-900' : 'text-slate-700'}`}>
                       <span dangerouslySetInnerHTML={{ __html: parseInlineMarkdown(cell) }} />
                     </div>
                   ))}
@@ -290,21 +290,33 @@ export default function AdvancedMarkdownRenderer({ content, enableTOC = true }: 
         return;
       }
       
-      // Handle images
-      const imageMatch = line.match(/^!\[(.*?)\]\((.*?)\)/);
+      // Handle images. Optional title `"WxH"` gives the intrinsic display size
+      // (e.g. tall diagrams): the image is then centered, capped at that width,
+      // and links to the full-resolution file.
+      const imageMatch = line.match(/^!\[(.*?)\]\((\S+?)(?:\s+"(\d+)x(\d+)")?\)/);
       if (imageMatch) {
         flushListItems();
-        const [, alt, src] = imageMatch;
+        const [, alt, src, w, h] = imageMatch;
+        const sized = Boolean(w && h);
+        const image = (
+          <Image
+            src={src}
+            alt={alt}
+            width={sized ? Number(w) : 800}
+            height={sized ? Number(h) : 450}
+            className={`rounded-lg shadow-md h-auto ${sized ? 'mx-auto border border-slate-200' : 'w-full'}`}
+            style={sized ? { width: Number(w), maxWidth: '100%', height: 'auto' } : { width: '100%', height: 'auto' }}
+          />
+        );
         result.push(
           <div key={index} className="my-8">
-            <Image 
-              src={src} 
-              alt={alt} 
-              width={800}
-              height={450}
-              className="rounded-lg shadow-md w-full h-auto"
-              style={{ width: '100%', height: 'auto' }}
-            />
+            {sized ? (
+              <a href={src} target="_blank" rel="noopener" className="block" aria-label={alt}>
+                {image}
+              </a>
+            ) : (
+              image
+            )}
             {alt && (
               <p className="text-sm text-slate-500 text-center mt-2 italic">
                 {alt}
@@ -336,10 +348,9 @@ export default function AdvancedMarkdownRenderer({ content, enableTOC = true }: 
     return result;
   };
 
-  if (!mounted) {
-    return null; // Prevent hydration issues
-  }
-
+  // The parser is deterministic (same content on server and client), so the
+  // article body is server-rendered and visible to crawlers. Only the TOC
+  // (computed in an effect) waits for the client.
   const parsedContent = parseMarkdown(content);
 
   return (

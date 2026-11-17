@@ -80,6 +80,30 @@ export default function ArazzoGuide() {
             publishedDate={article.date}
           />
 
+          {/* Update notice: Arazzo 1.1 */}
+          <aside
+            aria-label="Updated: Arazzo 1.1"
+            className="mb-10 rounded-r-lg border-l-4 border-orange-500 bg-orange-50 p-5 sm:p-6"
+          >
+            <p className="text-sm font-bold uppercase tracking-wider text-orange-800">
+              Updated: Arazzo 1.1
+            </p>
+            <p className="mt-2 text-slate-700 leading-relaxed">
+              Arazzo 1.1.0 was published in May 2026 (AsyncAPI steps, <code>dependsOn</code>, Selectors, reusable
+              workflows). Our tools have moved on too: the playground is now <strong>Arazzo Studio by ConnEthics</strong>,
+              and the extension is <strong>Arazzo for VS Code — by ConnEthics</strong>. For runnable examples with AI
+              agents (MCP) and end-to-end tests in CI, read{' '}
+              <Link href="/insights/arazzo-1-1-mcp-e2e" className="font-semibold text-blue-700 underline hover:text-blue-900">
+                Arazzo 1.1 in Practice: One Workflow for Your AI Agents and Your CI
+              </Link>{' '}
+              (also{' '}
+              <a href="/fr/insights/arazzo-1-1-mcp-e2e" hrefLang="fr" lang="fr" className="text-blue-700 underline hover:text-blue-900">
+                en français
+              </a>
+              ).
+            </p>
+          </aside>
+
           {/* Article Content */}
           <AdvancedMarkdownRenderer content={content} />
 

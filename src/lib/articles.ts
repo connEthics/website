@@ -31,6 +31,30 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    title: "Arazzo 1.1 in Practice: One Workflow for Your AI Agents and Your CI",
+    excerpt: "Your APIs expose verbs; your customers and agents want outcomes. Two runnable examples show how one Arazzo 1.1 workflow becomes a governed MCP tool and an end-to-end test in CI, with the limits we measured.",
+    date: "November 17, 2026",
+    publishedAt: "2026-11-17",
+    category: "Developer Tools",
+    readTime: "11 min read",
+    slug: "arazzo-1-1-mcp-e2e",
+    lang: "en",
+    alternateSlug: "arazzo-1-1-mcp-e2e",
+    featured: true
+  },
+  {
+    title: "Arazzo 1.1 en pratique : un même workflow pour vos agents IA et votre CI",
+    excerpt: "Vos API exposent des verbes, vos clients et vos agents cherchent des résultats. Deux exemples exécutables montrent comment un workflow Arazzo 1.1 devient un outil MCP gouverné et un test de bout en bout en CI, limites mesurées comprises.",
+    date: "17 novembre 2026",
+    publishedAt: "2026-11-17",
+    category: "Developer Tools",
+    readTime: "12 min de lecture",
+    slug: "arazzo-1-1-mcp-e2e",
+    lang: "fr",
+    alternateSlug: "arazzo-1-1-mcp-e2e",
+    featured: true
+  },
+  {
     title: "Le Crash Test : Comment empêcher l'IA de détruire votre production en 3 secondes",
     excerpt: "L'IA industrialise la production, mais aussi le risque. Découvrez comment sécuriser votre 'Usine IA' avec les principes DORA : Small Batches, Circuit Breakers et AI Security.",
     date: "Janvier 1, 2026",

@@ -9,7 +9,22 @@ interface ArticleHeaderProps {
   difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
   publishedDate?: string;
   readTime?: string;
+  /** Language of the labels. Defaults to French, the historical behaviour. */
+  lang?: 'en' | 'fr';
 }
+
+const LABELS = {
+  fr: {
+    audience: 'Pour qui ?',
+    takeaways: 'Ce que vous allez apprendre',
+    difficulty: { Beginner: 'Débutant', Intermediate: 'Intermédiaire', Advanced: 'Avancé' },
+  },
+  en: {
+    audience: 'Who is it for?',
+    takeaways: 'What you will learn',
+    difficulty: { Beginner: 'Beginner', Intermediate: 'Intermediate', Advanced: 'Advanced' },
+  },
+} as const;
 
 export default function ArticleHeader({
   title,
@@ -19,8 +34,10 @@ export default function ArticleHeader({
   keyTakeaways,
   difficulty,
   publishedDate,
-  readTime
+  readTime,
+  lang
 }: ArticleHeaderProps) {
+  const labels = LABELS[lang ?? 'fr'];
   return (
     <header className="mb-12">
       <div className="flex flex-wrap gap-3 mb-6 items-center">
@@ -30,7 +47,8 @@ export default function ArticleHeader({
             difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
             'bg-red-100 text-red-800'
           }`}>
-            {difficulty}
+            {/* Translated only when `lang` is given, so existing pages keep their label. */}
+            {lang ? labels.difficulty[difficulty] : difficulty}
           </span>
         )}
         {tags.map((tag) => (
@@ -76,7 +94,7 @@ export default function ArticleHeader({
           {targetAudience && (
             <div className="mb-4">
               <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">
-                Pour qui ?
+                {labels.audience}
               </h4>
               <p className="text-slate-700 font-medium">
                 {targetAudience}
@@ -87,7 +105,7 @@ export default function ArticleHeader({
           {keyTakeaways && keyTakeaways.length > 0 && (
             <div>
               <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">
-                Ce que vous allez apprendre
+                {labels.takeaways}
               </h4>
               <ul className="space-y-2">
                 {keyTakeaways.map((takeaway, idx) => (
