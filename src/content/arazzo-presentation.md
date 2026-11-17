@@ -14,7 +14,7 @@ Arazzo is a new specification under the OpenAPI Initiative that allows you to de
 
 At ConnEthics, we believe that **Strategic Intelligence** means not just understanding the data, but understanding the *flow* of data. That's why we are fully committed to the Arazzo standard.
 
-To accelerate its adoption, we are releasing two open-source tools designed to make Arazzo accessible to everyone, from the curious beginner to the integration expert.
+To accelerate its adoption, we are releasing two free tools designed to make Arazzo accessible to everyone, from the curious beginner to the integration expert.
 
 ## 1. The Arazzo Visualizer: See Before You Code
 
@@ -51,7 +51,7 @@ It transforms your editor into a powerful environment for Arazzo:
 
 The shift from "Managing Endpoints" to "Orchestrating Workflows" is inevitable. It reduces integration costs, improves developer onboarding, and ensures that your API products actually deliver the business value they promise.
 
-These projects are **Open Source** and open to your contributions. We invite you to try them, fork them, and help us build the future of API orchestration.
+Both tools are free to use. The VS Code extension and the shared Arazzo packages are released under the MIT License; the source of the web app is published on GitHub. We invite you to try them, open issues and help us build the future of API orchestration.
 
 *   **GitHub Repo (VS Code)**: [connEthics/arazzo-vscode](https://github.com/connEthics/arazzo-vscode)
 *   **GitHub Repo (Demo)**: [connEthics/arazzo-demo](https://github.com/connEthics/arazzo-demo)

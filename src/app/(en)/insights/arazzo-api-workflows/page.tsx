@@ -14,7 +14,7 @@ const article = getArticleBySlug('arazzo-api-workflows', 'en') as Article
 const articlePath = getArticlePath(article)
 
 const title = 'Arazzo: The Missing Link in API Orchestration'
-const description = 'Discover Arazzo, the new OpenAPI specification for workflows. Explore our open-source Visualizer and VS Code extension to orchestrate your APIs effectively.'
+const description = 'Discover Arazzo, the new OpenAPI specification for workflows. Explore our free Visualizer and VS Code extension to orchestrate your APIs effectively.'
 const keywords = ['Arazzo', 'OpenAPI', 'API Orchestration', 'Workflow', 'VS Code Extension', 'API Documentation', 'ConnEthics']
 
 export const metadata: Metadata = {
@@ -74,8 +74,8 @@ export default function ArazzoGuide() {
         <div className="bg-white rounded-lg shadow-lg p-8">
           <ArticleHeader
             title={title}
-            description="From static endpoints to executable workflows. Discover how Arazzo and our open-source tools are transforming API integration."
-            tags={['Arazzo', 'OpenAPI', 'Developer Tools', 'Open Source']}
+            description="From static endpoints to executable workflows. Discover how Arazzo and our free tools are transforming API integration."
+            tags={['Arazzo', 'OpenAPI', 'Developer Tools', 'VS Code']}
             readTime={article.readTime}
             publishedDate={article.date}
           />

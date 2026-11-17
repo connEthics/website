@@ -123,7 +123,7 @@ export const articles: Article[] = [
   {
     // Published in commit 555810c (2025-12-28).
     title: "Arazzo: The Missing Link in API Orchestration",
-    excerpt: "From static endpoints to executable workflows. Discover how Arazzo and our open-source tools are transforming API integration.",
+    excerpt: "From static endpoints to executable workflows. Discover how Arazzo and our free tools are transforming API integration.",
     date: "December 28, 2025",
     publishedAt: "2025-12-28",
     category: "Developer Tools",
