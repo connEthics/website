@@ -95,6 +95,14 @@ export default function Arazzo11McpE2eArticle() {
 
           <AdvancedMarkdownRenderer content={content} enableTOC={false} />
 
+          <aside className="mt-12 rounded-xl border border-blue-100 bg-blue-50 p-6">
+            <p className="text-sm font-semibold uppercase tracking-wider text-blue-700">Arazzo · ConnEthics</p>
+            <p className="mt-2 text-slate-700">Tools, runnable examples, an interactive graph and how we can help, on one page.</p>
+            <Link href="/arazzo" className="mt-3 inline-block font-semibold text-blue-700 hover:text-blue-900 underline">
+              Explore Arazzo at ConnEthics →
+            </Link>
+          </aside>
+
           <footer className="mt-16 pt-8 border-t border-slate-200">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>

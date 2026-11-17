@@ -25,6 +25,7 @@ export const NAVIGATION = {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
+    { name: 'Arazzo', href: '/arazzo' },
     { name: 'Insights', href: '/insights' },
     { name: 'Contact', href: '/contact' },
   ],

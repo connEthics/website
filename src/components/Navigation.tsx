@@ -2,15 +2,24 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
 import { NAVIGATION } from '@/lib/constants';
+import { getLocaleFromPathname } from '@/i18n/config';
+import { findRoutePair } from '@/i18n/routes';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navigation = NAVIGATION.main;
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname ?? '/');
+  // On French pages, point to the French version of a page when one exists.
+  const navigation = NAVIGATION.main.map((item) => {
+    const pair = locale === 'fr' ? findRoutePair(item.href) : undefined;
+    return pair ? { ...item, href: pair.fr } : item;
+  });
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200 transition-all duration-200">

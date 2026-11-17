@@ -8,10 +8,13 @@ export interface RoutePair {
 
 /**
  * Static pages that exist in both languages. Add a pair here when a page gets
- * its French version (W2 will add `{ en: '/arazzo', fr: '/fr/arazzo' }`).
+ * its French version.
  * Articles are paired automatically from `alternateSlug` in `src/lib/articles.ts`.
  */
-export const staticRoutePairs: RoutePair[] = [{ en: '/', fr: '/fr' }];
+export const staticRoutePairs: RoutePair[] = [
+  { en: '/', fr: '/fr' },
+  { en: '/arazzo', fr: '/fr/arazzo' },
+];
 
 const articleRoutePairs: RoutePair[] = articles
   .filter((a) => a.lang === 'en' && a.alternateSlug)

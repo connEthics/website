@@ -1,11 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { getLocaleFromPathname } from '@/i18n/config';
 import CarbonBadge from './CarbonBadge';
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2025); // Default fallback
+  const pathname = usePathname();
+  const arazzoHref = getLocaleFromPathname(pathname ?? '/') === 'fr' ? '/fr/arazzo' : '/arazzo';
 
   useEffect(() => {
     // Only set the current year on the client side to avoid hydration mismatch
@@ -35,7 +39,8 @@ export default function Footer() {
       links: [
         { name: 'Blog', href: '/insights' },
         { name: 'White Papers', href: '/insights' },
-        { name: 'Arazzo Playground', href: 'https://arazzo.connethics.com/' },
+        { name: 'Arazzo', href: arazzoHref },
+        { name: 'Arazzo Studio', href: 'https://arazzo.connethics.com/' },
         { name: 'Newsletter', href: '/contact' },
         { name: 'Verifiable Credentials Technologies', href: '/insights/verifiable-credentials-technologies' },
       ],

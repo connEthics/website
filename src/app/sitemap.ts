@@ -13,6 +13,7 @@ const staticPages: { path: string; priority: number; changeFrequency: MetadataRo
   { path: '/services', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/insights', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/ai-governance', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/arazzo', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.7, changeFrequency: 'yearly' },
   { path: '/2026', priority: 0.5, changeFrequency: 'yearly' },

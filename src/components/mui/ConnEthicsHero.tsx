@@ -94,6 +94,11 @@ const ConnEthicsHero: React.FC<ConnEthicsHeroProps> = ({
     }
   };
 
+  // An href-only action renders a real link (<a>, crawlable, open-in-new-tab);
+  // an onClick action stays a button.
+  const linkOrClick = (action: { href?: string; onClick?: () => void }) =>
+    action.href && !action.onClick ? { href: action.href } : { onClick: () => handleAction(action) };
+
   return (
     <HeroContainer 
       customvariant={variant} 
@@ -142,7 +147,8 @@ const ConnEthicsHero: React.FC<ConnEthicsHeroProps> = ({
               mb: 4,
               fontSize: { xs: '1.125rem', md: '1.25rem' },
               lineHeight: 1.6,
-              color: backgroundImage ? 'rgba(255, 255, 255, 0.9)' : 'text.secondary',
+              // deep-ocean is a dark background: the theme's grey text.secondary is too faint there.
+              color: backgroundImage ? 'rgba(255, 255, 255, 0.9)' : variant === 'deep-ocean' ? 'rgba(226, 232, 240, 0.92)' : 'text.secondary',
               maxWidth: '600px',
             }}
           >
@@ -161,7 +167,7 @@ const ConnEthicsHero: React.FC<ConnEthicsHeroProps> = ({
               <ConnEthicsButton
                 variant="primary"
                 size="large"
-                onClick={() => handleAction(primaryAction)}
+                {...linkOrClick(primaryAction)}
                 sx={{
                   px: 4,
                   py: 1.5,
@@ -176,7 +182,7 @@ const ConnEthicsHero: React.FC<ConnEthicsHeroProps> = ({
               <ConnEthicsButton
                 variant={backgroundImage ? 'ghost' : 'outline'}
                 size="large"
-                onClick={() => handleAction(secondaryAction)}
+                {...linkOrClick(secondaryAction)}
                 sx={{
                   px: 4,
                   py: 1.5,
