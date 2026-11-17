@@ -306,7 +306,7 @@ const en: ArazzoLandingContent = {
       {
         question: 'Under which licences are the ConnEthics tools published?',
         answer:
-          'Arazzo for VS Code and the shared packages behind it, @connethics/arazzo-core (validation and graph model) and @connethics/arazzo-flow (the graph), are MIT-licensed. Arazzo Studio is free to use and built on that MIT-licensed core.',
+          'Arazzo for VS Code and the shared packages behind it, @connethics/arazzo-core (validation and graph model) and @connethics/arazzo-flow (the graph), are MIT-licensed. Arazzo Studio is free to use; its source is available under the Functional Source License (FSL-1.1-MIT): any use except a competing commercial offering, and each version becomes MIT two years after release.',
       },
       {
         question: 'When should I not use Arazzo?',
@@ -541,7 +541,7 @@ const fr: ArazzoLandingContent = {
       {
         question: 'Sous quelles licences les outils ConnEthics sont-ils publiés ?',
         answer:
-          'Arazzo for VS Code et les paquets partagés qui le font tourner, @connethics/arazzo-core (validation et modèle de graphe) et @connethics/arazzo-flow (le graphe), sont sous licence MIT. Arazzo Studio est gratuit et construit sur ce cœur sous licence MIT.',
+          'Arazzo for VS Code et les paquets partagés qui le font tourner, @connethics/arazzo-core (validation et modèle de graphe) et @connethics/arazzo-flow (le graphe), sont sous licence MIT. Arazzo Studio est gratuit ; son code est disponible sous Functional Source License (FSL-1.1-MIT) : tout usage est permis sauf une offre commerciale concurrente, et chaque version passe sous MIT deux ans après sa sortie.',
       },
       {
         question: 'Quand ne faut-il pas utiliser Arazzo ?',
